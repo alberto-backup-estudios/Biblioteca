@@ -78,11 +78,17 @@ CATEGORY_PATTERNS = {
     ]
 }
 
-def clean_html(raw_html):
+def clean_html(raw_html, preserve_paragraphs=True):
     if not raw_html:
         return ""
-    cleantext = re.sub(r"<[^>]+>", " ", raw_html)
+    text = raw_html
+    if preserve_paragraphs:
+        text = re.sub(r"<(p|br|div|li)[^>]*>", "\n", text, flags=re.IGNORECASE)
+    cleantext = re.sub(r"<[^>]+>", " ", text)
     cleantext = html.unescape(cleantext)
+    if preserve_paragraphs:
+        paras = [re.sub(r"\s+", " ", p).strip() for p in cleantext.split("\n") if p.strip()]
+        return "\n\n".join(paras)
     return re.sub(r"\s+", " ", cleantext).strip()
 
 def parse_date(entry):
@@ -113,12 +119,12 @@ def identify_categories(text):
                 break
     return cats if cats else ["general"]
 
-def translate_to_es(text, max_len=600):
+def translate_single_chunk(text, max_len=600):
     if not text or not text.strip():
         return ""
     text_clean = text.strip()[:max_len]
     
-    # Intento 1: API clients5 (robusta y veloz)
+    # Intento 1: API clients5 (rápida y precisa)
     try:
         url = "https://clients5.google.com/translate_a/t?client=dict-chrome-ex&sl=auto&tl=es&q=" + urllib.parse.quote(text_clean)
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"})
@@ -146,13 +152,28 @@ def translate_to_es(text, max_len=600):
 
     return text_clean
 
+def translate_to_es(text, max_paragraphs=4):
+    """Traduce texto completo preservando párrafos para lectura detallada."""
+    if not text or not text.strip():
+        return ""
+    paragraphs = [p.strip() for p in text.split("\n\n") if p.strip()]
+    if not paragraphs:
+        paragraphs = [text.strip()]
+
+    translated_paras = []
+    for p in paragraphs[:max_paragraphs]:
+        t = translate_single_chunk(p, max_len=600)
+        if t:
+            translated_paras.append(t)
+    return "\n\n".join(translated_paras)
+
 def generate_quick_summary(text_es, max_chars=180):
     """Genera un resumen ejecutivo de lectura rápida de 1 o 2 oraciones."""
     if not text_es:
         return ""
-    # Dividir en oraciones
-    sentences = re.split(r"(?<=[.!?])\s+", text_es.strip())
-    first_sentence = sentences[0] if sentences else text_es
+    first_para = text_es.split("\n\n")[0]
+    sentences = re.split(r"(?<=[.!?])\s+", first_para.strip())
+    first_sentence = sentences[0] if sentences else first_para
     if len(first_sentence) <= max_chars:
         if len(sentences) > 1 and len(first_sentence) + len(sentences[1]) < max_chars:
             return f"{first_sentence} {sentences[1]}"
@@ -175,15 +196,24 @@ def fetch_feed_articles(feed_config, war_filter_enabled=True):
         parsed = feedparser.parse(resp.content)
 
         for entry in getattr(parsed, "entries", [])[:25]:
-            title = clean_html(getattr(entry, "title", "Sin título"))
-            raw_summary = getattr(entry, "summary", "") or getattr(entry, "description", "")
-            summary = clean_html(raw_summary)
-            if len(summary) > 400:
-                summary = summary[:397] + "..."
+            title = clean_html(getattr(entry, "title", "Sin título"), preserve_paragraphs=False)
+            
+            # Obtener el contenido más completo posible (content:encoded, summary, description)
+            content_val = ""
+            if getattr(entry, "content", None):
+                try:
+                    content_val = entry.content[0].value
+                except Exception:
+                    pass
+            raw_body = content_val or getattr(entry, "summary", "") or getattr(entry, "description", "")
+            body = clean_html(raw_body, preserve_paragraphs=True)
+            if len(body) > 2000:
+                body = body[:1997] + "..."
+
             link = getattr(entry, "link", "#")
             pub_date = parse_date(entry)
 
-            combined_text = f"{title} {summary}"
+            combined_text = f"{title} {body}"
 
             # Filtrar si la fuente es generalista
             if requires_filter and not is_war_relevant(combined_text, language):
@@ -195,7 +225,7 @@ def fetch_feed_articles(feed_config, war_filter_enabled=True):
             articles.append({
                 "id": art_id,
                 "title_original": title,
-                "summary_original": summary,
+                "summary_original": body,
                 "link": link,
                 "source_id": feed_id,
                 "source_name": feed_name,
@@ -211,7 +241,7 @@ def fetch_feed_articles(feed_config, war_filter_enabled=True):
     return articles
 
 def generate_html(articles, perspectives, last_updated):
-    """Compila el dashboard interactivo de inteligencia con estética OSINT."""
+    """Compila el dashboard interactivo de inteligencia con lector modal detallado."""
     articles_json_str = json.dumps(articles, ensure_ascii=False)
     perspectives_json_str = json.dumps(perspectives, ensure_ascii=False)
 
@@ -220,8 +250,8 @@ def generate_html(articles, perspectives, last_updated):
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Monitor de la Guerra Rusia-Ucrania | Inteligencia & Fuentes Traducidas</title>
-  <meta name="description" content="Dashboard en tiempo real con noticias traducidas al español de fuentes ucranianas, rusas estatales e independientes, y análisis militar internacional.">
+  <title>Monitor de la Guerra Rusia-Ucrania | Inteligencia & Artículos Traducidos</title>
+  <meta name="description" content="Dashboard en tiempo real con noticias y análisis traducidos al español de fuentes ucranianas, rusas estatales e independientes, y análisis militar internacional.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -241,7 +271,6 @@ def generate_html(articles, perspectives, last_updated):
       --accent-red: #f87171;
       --accent-green: #34d399;
       --accent-purple: #c084fc;
-      --accent-orange: #fb923c;
       
       --ukraine-color: #38bdf8;
       --ukraine-bg: rgba(56, 189, 248, 0.12);
@@ -267,7 +296,7 @@ def generate_html(articles, perspectives, last_updated):
     header {{
       background: linear-gradient(180deg, #111827 0%, #0b0f19 100%);
       border-bottom: 1px solid var(--border-color);
-      padding: 1.5rem 1rem;
+      padding: 1.25rem 1rem;
       position: sticky;
       top: 0;
       z-index: 100;
@@ -306,13 +335,11 @@ def generate_html(articles, perspectives, last_updated):
       align-items: center;
       justify-content: center;
       font-size: 1.25rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
     }}
 
     .brand-title {{
       font-size: 1.25rem;
       font-weight: 800;
-      letter-spacing: -0.02em;
       color: #fff;
     }}
 
@@ -347,7 +374,7 @@ def generate_html(articles, perspectives, last_updated):
       50% {{ opacity: 0.5; transform: scale(0.85); }}
     }}
 
-    /* Panel de Resumen Ejecutivo Superior */
+    /* Resumen Ejecutivo Superior */
     .executive-brief {{
       background: linear-gradient(135deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.9));
       border: 1px solid var(--border-accent);
@@ -389,6 +416,12 @@ def generate_html(articles, perspectives, last_updated):
       border-radius: 8px;
       padding: 0.85rem;
       border-left: 3px solid transparent;
+      cursor: pointer;
+      transition: background 0.15s;
+    }}
+
+    .brief-col:hover {{
+      background: rgba(255, 255, 255, 0.05);
     }}
 
     .brief-col.ukraine {{ border-left-color: var(--ukraine-color); }}
@@ -401,9 +434,6 @@ def generate_html(articles, perspectives, last_updated):
       font-weight: 700;
       margin-bottom: 0.4rem;
       color: var(--text-main);
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
     }}
 
     .brief-col-text {{
@@ -412,7 +442,7 @@ def generate_html(articles, perspectives, last_updated):
       line-height: 1.4;
     }}
 
-    /* Controles de Filtrado y Búsqueda */
+    /* Controles */
     .controls-container {{
       max-width: 1300px;
       margin: 1.5rem auto 0;
@@ -498,7 +528,6 @@ def generate_html(articles, perspectives, last_updated):
       display: flex;
       gap: 0.4rem;
       flex-wrap: wrap;
-      margin-top: 0.25rem;
     }}
 
     .chip-btn {{
@@ -518,7 +547,7 @@ def generate_html(articles, perspectives, last_updated):
       border-color: var(--border-accent);
     }}
 
-    /* Grid de Noticias */
+    /* Grid */
     main {{
       max-width: 1300px;
       margin: 1.5rem auto 3rem;
@@ -551,6 +580,7 @@ def generate_html(articles, perspectives, last_updated):
       flex-direction: column;
       gap: 0.75rem;
       transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
       position: relative;
     }}
 
@@ -566,6 +596,7 @@ def generate_html(articles, perspectives, last_updated):
       align-items: center;
       gap: 0.5rem;
       font-size: 0.75rem;
+      flex-wrap: wrap;
     }}
 
     .badge-perspective {{
@@ -597,10 +628,6 @@ def generate_html(articles, perspectives, last_updated):
       color: var(--text-dim);
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.725rem;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 140px;
     }}
 
     .card-title {{
@@ -610,7 +637,10 @@ def generate_html(articles, perspectives, last_updated):
       line-height: 1.4;
     }}
 
-    /* Caja de Resumen Ejecutivo Rápido */
+    .card-title:hover {{
+      color: var(--accent-blue);
+    }}
+
     .quick-read-box {{
       background: rgba(255, 255, 255, 0.03);
       border-left: 3px solid var(--accent-blue);
@@ -636,83 +666,248 @@ def generate_html(articles, perspectives, last_updated):
       line-height: 1.45;
     }}
 
-    /* Resumen completo traducido */
-    .card-summary {{
-      font-size: 0.825rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }}
-
-    /* Acordeón de texto original */
-    .original-section {{
-      margin-top: auto;
-      padding-top: 0.5rem;
-      border-top: 1px solid rgba(255,255,255,0.05);
-    }}
-
-    .toggle-original-btn {{
-      background: none;
-      border: none;
-      color: var(--text-dim);
-      font-size: 0.75rem;
-      cursor: pointer;
-      padding: 0.25rem 0;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      transition: color 0.15s;
-    }}
-
-    .toggle-original-btn:hover {{
-      color: var(--text-muted);
-    }}
-
-    .original-box {{
-      display: none;
-      margin-top: 0.5rem;
-      padding: 0.65rem;
-      background: rgba(0,0,0,0.3);
-      border-radius: 6px;
-      font-size: 0.75rem;
-      color: #94a3b8;
-      font-family: 'JetBrains Mono', monospace;
-      line-height: 1.4;
-      border: 1px dashed var(--border-color);
-    }}
-
-    .original-box.open {{
-      display: block;
-    }}
-
-    .card-footer {{
+    .card-actions {{
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-top: auto;
       padding-top: 0.5rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
       font-size: 0.75rem;
-      color: var(--text-dim);
+    }}
+
+    .btn-read-detail {{
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--accent-blue);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 0.4rem 0.75rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.75rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: all 0.15s;
+    }}
+
+    .btn-read-detail:hover {{
+      background: rgba(56, 189, 248, 0.25);
+      color: #fff;
     }}
 
     .source-link {{
-      color: var(--accent-blue);
+      color: var(--text-dim);
       text-decoration: none;
-      font-weight: 600;
+      font-size: 0.725rem;
       display: inline-flex;
       align-items: center;
       gap: 0.25rem;
-      transition: opacity 0.2s;
     }}
 
     .source-link:hover {{
-      text-decoration: underline;
-      opacity: 0.85;
+      color: var(--accent-blue);
     }}
 
-    .empty-state {{
-      grid-column: 1 / -1;
-      text-align: center;
-      padding: 4rem 1rem;
+    /* MODAL DE LECTURA DETALLADA */
+    .modal-overlay {{
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(5, 8, 15, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }}
+
+    .modal-overlay.active {{
+      display: flex;
+      animation: fadeIn 0.2s ease-out;
+    }}
+
+    @keyframes fadeIn {{
+      from {{ opacity: 0; transform: scale(0.98); }}
+      to {{ opacity: 1; transform: scale(1); }}
+    }}
+
+    .modal-content {{
+      background: #111827;
+      border: 1px solid var(--border-accent);
+      border-radius: 16px;
+      max-width: 800px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.8);
+      position: relative;
+    }}
+
+    .modal-header {{
+      padding: 1.5rem 1.5rem 1rem;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      position: sticky;
+      top: 0;
+      background: #111827;
+      z-index: 10;
+    }}
+
+    .modal-close-btn {{
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.15s;
+    }}
+
+    .modal-close-btn:hover {{
+      background: rgba(255,255,255,0.2);
+      color: #fff;
+    }}
+
+    .modal-body {{
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }}
+
+    .modal-title {{
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.35;
+    }}
+
+    .modal-quick-box {{
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 8px;
+      padding: 1rem;
+    }}
+
+    .modal-quick-title {{
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--accent-blue);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.35rem;
+    }}
+
+    .modal-story {{
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      line-height: 1.7;
+    }}
+
+    .modal-story p {{
+      margin-bottom: 1rem;
+    }}
+
+    .modal-story p:last-child {{
+      margin-bottom: 0;
+    }}
+
+    .modal-bias-box {{
+      background: rgba(250, 204, 21, 0.06);
+      border: 1px solid rgba(250, 204, 21, 0.2);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      font-size: 0.8rem;
+      color: #fde047;
+    }}
+
+    .modal-bias-title {{
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }}
+
+    .modal-original-accordion {{
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+    }}
+
+    .modal-original-btn {{
+      background: none;
+      border: none;
       color: var(--text-dim);
+      font-size: 0.8rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      width: 100%;
+      text-align: left;
+    }}
+
+    .modal-original-btn:hover {{
+      color: #fff;
+    }}
+
+    .modal-original-content {{
+      display: none;
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px dashed var(--border-color);
+      font-size: 0.8rem;
+      color: #94a3b8;
+      font-family: 'JetBrains Mono', monospace;
+      line-height: 1.5;
+    }}
+
+    .modal-original-content.open {{
+      display: block;
+    }}
+
+    .modal-footer {{
+      padding: 1rem 1.5rem;
+      background: #0d1321;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 0 0 16px 16px;
+    }}
+
+    .btn-external-source {{
+      background: var(--accent-blue);
+      color: #0b0f19;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: opacity 0.15s;
+    }}
+
+    .btn-external-source:hover {{
+      opacity: 0.9;
     }}
 
     footer {{
@@ -731,6 +926,9 @@ def generate_html(articles, perspectives, last_updated):
       .brand-title {{
         font-size: 1.1rem;
       }}
+      .modal-content {{
+        max-height: 95vh;
+      }}
     }}
   </style>
 </head>
@@ -743,7 +941,7 @@ def generate_html(articles, perspectives, last_updated):
           <div class="brand-icon">⚔️</div>
           <div>
             <div class="brand-title">Monitor <span>Rusia-Ucrania</span></div>
-            <div style="font-size: 0.75rem; color: var(--text-dim);">Inteligencia Abierta & Análisis Multifuente Traducido</div>
+            <div style="font-size: 0.75rem; color: var(--text-dim);">Inteligencia Abierta & Artículos Traducidos al Español</div>
           </div>
         </div>
         <div class="status-badge">
@@ -760,10 +958,10 @@ def generate_html(articles, perspectives, last_updated):
       <div class="executive-title">
         <span>⚡</span> Resumen Rápido de Inteligencia (Últimas Horas)
       </div>
-      <div style="font-size: 0.75rem; color: var(--text-dim);">Lectura rápida: 60 seg</div>
+      <div style="font-size: 0.75rem; color: var(--text-dim);">Haz clic en cualquier tarjeta para leer el artículo completo</div>
     </div>
     <div class="brief-columns" id="executive-brief-container">
-      <!-- Se llena dinámicamente con JS -->
+      <!-- Llenado con JS -->
     </div>
   </section>
 
@@ -796,8 +994,8 @@ def generate_html(articles, perspectives, last_updated):
 
   <main>
     <div class="stats-bar">
-      <div>Mostrando <strong id="articlesCount">0</strong> noticias verificadas y traducidas</div>
-      <div id="filterStatus">Filtro: Todos</div>
+      <div>Mostrando <strong id="articlesCount">0</strong> artículos 100% traducidos al español</div>
+      <div>💡 <em>Haz clic en cualquier noticia para abrir el lector completo en español</em></div>
     </div>
 
     <div class="news-grid" id="newsGrid">
@@ -805,8 +1003,59 @@ def generate_html(articles, perspectives, last_updated):
     </div>
   </main>
 
+  <!-- MODAL DE LECTURA DETALLADA -->
+  <div class="modal-overlay" id="readerModal">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <div id="modalMeta" class="card-meta" style="flex: 1;">
+          <!-- Meta dinámica -->
+        </div>
+        <button class="modal-close-btn" onclick="closeReader()" title="Cerrar (Esc)">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <h1 class="modal-title" id="modalTitle">Título del Artículo</h1>
+
+        <div class="modal-quick-box">
+          <div class="modal-quick-title">⚡ Resumen Ejecutivo en 30 Segundos</div>
+          <div id="modalQuickText" style="font-size: 0.9rem; color: #fff; line-height: 1.5;"></div>
+        </div>
+
+        <div class="modal-bias-box" id="modalBiasBox">
+          <div class="modal-bias-title">🛡️ Contexto Editorial de la Fuente</div>
+          <div id="modalBiasText"></div>
+        </div>
+
+        <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent-blue); font-weight: 700; margin-top: 0.5rem;">
+          📰 Desarrollo Completo Traducido al Español:
+        </div>
+
+        <div class="modal-story" id="modalStory">
+          <!-- Párrafos traducidos -->
+        </div>
+
+        <div class="modal-original-accordion">
+          <button class="modal-original-btn" onclick="toggleModalOriginal()">
+            <span>🔄</span> <strong>Contrastar con el texto original</strong> (<span id="modalOrigLang"></span>)
+          </button>
+          <div class="modal-original-content" id="modalOrigContent">
+            <h4 id="modalOrigTitle" style="margin-bottom: 0.5rem; color: #fff;"></h4>
+            <div id="modalOrigBody"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <span id="modalPublished" style="font-size: 0.75rem; color: var(--text-dim);"></span>
+        <a id="modalExternalLink" href="#" target="_blank" rel="noopener noreferrer" class="btn-external-source">
+          <span>Visitar noticia original en el medio</span> ↗
+        </a>
+      </div>
+    </div>
+  </div>
+
   <footer>
-    <p>Monitor de la Guerra Rusia-Ucrania — Compilador automatizado con traducción al español.</p>
+    <p>Monitor de la Guerra Rusia-Ucrania — Noticias y análisis traducidos al español con lector detallado.</p>
     <p style="margin-top: 0.35rem; color: #475569;">Fuentes monitorizadas: The Kyiv Independent, Ukrainska Pravda, Ukrinform, Meduza, The Moscow Times, Novaya Gazeta, TASS, RIA Novosti, ISW y BBC.</p>
   </footer>
 
@@ -861,7 +1110,7 @@ def generate_html(articles, perspectives, last_updated):
         if (item.art) {{
           const text = item.art.quick_summary || item.art.summary_es || item.art.title_es;
           html += `
-            <div class="brief-col ${{item.class}}">
+            <div class="brief-col ${{item.class}}" onclick="openReader('${{item.art.id}}')">
               <div class="brief-col-title">${{item.label}}</div>
               <div class="brief-col-text"><strong>${{item.art.title_es}}</strong>: ${{text}}</div>
             </div>
@@ -889,9 +1138,9 @@ def generate_html(articles, perspectives, last_updated):
 
       if (filtered.length === 0) {{
         grid.innerHTML = `
-          <div class="empty-state">
+          <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 1rem; color: var(--text-dim);">
             <p style="font-size: 1.25rem; font-weight: 600;">No se encontraron noticias con estos criterios.</p>
-            <p style="margin-top: 0.5rem;">Prueba con otra palabra clave o restablece los filtros de perspectiva.</p>
+            <p style="margin-top: 0.5rem;">Prueba con otra palabra clave o restablece los filtros.</p>
           </div>
         `;
         return;
@@ -905,7 +1154,7 @@ def generate_html(articles, perspectives, last_updated):
         const origLang = langNames[a.language] || a.language.toUpperCase();
 
         return `
-          <article class="card">
+          <article class="card" onclick="openReader('${{a.id}}')">
             <div class="card-meta">
               <span class="badge-perspective ${{pInfo.badge_class}}">${{pInfo.icon}} ${{pInfo.short_name || pInfo.name}}</span>
               <span class="badge-lang">Traducido del ${{origLang}}</span>
@@ -919,38 +1168,85 @@ def generate_html(articles, perspectives, last_updated):
               <div class="quick-read-text">${{quickSummary}}</div>
             </div>
 
-            ${{a.summary_es && a.summary_es !== quickSummary ? `<p class="card-summary">${{a.summary_es}}</p>` : ''}}
-
-            <div class="original-section">
-              <button class="toggle-original-btn" onclick="toggleOriginal('${{a.id}}')">
-                <span>🔄</span> Contrastar con texto original (${{origLang}})
+            <div class="card-actions">
+              <button class="btn-read-detail" onclick="openReader('${{a.id}}'); event.stopPropagation();">
+                📖 Leer artículo completo en español
               </button>
-              <div class="original-box" id="orig-${{a.id}}">
-                <div style="font-weight: 600; margin-bottom: 0.25rem;">${{a.title_original}}</div>
-                <div>${{a.summary_original || ''}}</div>
-                <div style="margin-top: 0.35rem; color: #64748b; font-size: 0.7rem;">Nota editorial: ${{a.bias_note}}</div>
-              </div>
-            </div>
-
-            <div class="card-footer">
-              <span>${{timeAgo}}</span>
-              <a href="${{a.link}}" target="_blank" rel="noopener noreferrer" class="source-link">
-                Leer fuente <span>↗</span>
-              </a>
+              <span class="source-link">
+                ${{timeAgo}}
+              </span>
             </div>
           </article>
         `;
       }}).join('');
     }}
 
-    function toggleOriginal(id) {{
-      const el = document.getElementById('orig-' + id);
-      if (el) {{
-        el.classList.toggle('open');
-      }}
+    // MODAL READER LOGIC
+    function openReader(articleId) {{
+      const a = articles.find(x => x.id === articleId);
+      if (!a) return;
+
+      const pInfo = perspectives[a.perspective] || {{ name: a.perspective, icon: '📰', badge_class: 'badge-intl' }};
+      const langNames = {{ 'ru': '🇷🇺 Ruso', 'uk': '🇺🇦 Ucraniano', 'en': '🇬🇧 Inglés', 'es': '🇪🇸 Español' }};
+      const origLang = langNames[a.language] || a.language.toUpperCase();
+
+      document.getElementById('modalMeta').innerHTML = `
+        <span class="badge-perspective ${{pInfo.badge_class}}">${{pInfo.icon}} ${{pInfo.short_name || pInfo.name}}</span>
+        <span class="badge-lang">Traducido del ${{origLang}}</span>
+        <span class="source-name">${{a.source_name}}</span>
+      `;
+
+      document.getElementById('modalTitle').textContent = a.title_es;
+      document.getElementById('modalQuickText').textContent = a.quick_summary || a.summary_es || a.title_es;
+      document.getElementById('modalBiasText').textContent = a.bias_note || 'Fuente informativa internacional.';
+
+      // Formatear párrafos del desarrollo en español
+      const storyContainer = document.getElementById('modalStory');
+      const textToUse = a.summary_es || a.quick_summary || 'Información no disponible.';
+      const paragraphs = textToUse.split('\\n\\n').filter(p => p.trim());
+      storyContainer.innerHTML = paragraphs.map(p => `<p>${{p}}</p>`).join('');
+
+      // Texto original
+      document.getElementById('modalOrigLang').textContent = origLang;
+      document.getElementById('modalOrigTitle').textContent = a.title_original;
+      document.getElementById('modalOrigBody').innerHTML = (a.summary_original || a.title_original).split('\\n\\n').map(p => `<p>${{p}}</p>`).join('');
+      document.getElementById('modalOrigContent').classList.remove('open');
+
+      // Footer
+      document.getElementById('modalPublished').textContent = 'Publicado: ' + new Date(a.published).toLocaleString('es-ES');
+      document.getElementById('modalExternalLink').href = a.link;
+
+      // Abrir modal
+      const modal = document.getElementById('readerModal');
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
     }}
 
-    // Event listeners
+    function closeReader() {{
+      const modal = document.getElementById('readerModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }}
+
+    function toggleModalOriginal() {{
+      const el = document.getElementById('modalOrigContent');
+      el.classList.toggle('open');
+    }}
+
+    // Cerrar modal al hacer clic en overlay o con tecla ESC
+    document.getElementById('readerModal').addEventListener('click', (e) => {{
+      if (e.target.id === 'readerModal') {{
+        closeReader();
+      }}
+    }});
+
+    document.addEventListener('keydown', (e) => {{
+      if (e.key === 'Escape') {{
+        closeReader();
+      }}
+    }});
+
+    // Event listeners filtros
     document.querySelectorAll('#perspectiveButtons .pill-btn').forEach(btn => {{
       btn.addEventListener('click', () => {{
         document.querySelectorAll('#perspectiveButtons .pill-btn').forEach(b => b.classList.remove('active'));
@@ -1065,7 +1361,6 @@ def main():
     # Distribuir el cupo equitativamente entre perspectivas para máxima diversidad
     queue = []
     persp_keys = list(by_perspective.keys())
-    round_idx = 0
     while len(queue) < max_new_translations and any(by_perspective.values()):
         added_in_round = False
         for p in persp_keys:
@@ -1078,8 +1373,8 @@ def main():
     if queue:
         print(f"[*] Traduciendo {len(queue)} artículos nuevos balanceados por perspectiva (límite: {max_new_translations})...")
         for i, a in enumerate(queue, 1):
-            t_title = translate_to_es(a["title_original"], max_len=300)
-            t_summary = translate_to_es(a["summary_original"], max_len=600)
+            t_title = translate_single_chunk(a["title_original"], max_len=300)
+            t_summary = translate_to_es(a["summary_original"], max_paragraphs=4)
             q_sum = generate_quick_summary(t_summary or t_title)
 
             a["title_es"] = t_title
