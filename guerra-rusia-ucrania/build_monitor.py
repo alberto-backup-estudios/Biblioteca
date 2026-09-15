@@ -583,6 +583,16 @@ def generate_html(articles, perspectives, last_updated):
     .badge-ru-off {{ background: var(--ru-off-bg); color: var(--ru-off-color); border: 1px solid rgba(248, 113, 113, 0.3); }}
     .badge-intl {{ background: var(--intl-bg); color: var(--intl-color); border: 1px solid rgba(250, 204, 21, 0.3); }}
 
+    .badge-lang {{
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-muted);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      font-size: 0.675rem;
+      font-family: 'JetBrains Mono', monospace;
+    }}
+
     .source-name {{
       color: var(--text-dim);
       font-family: 'JetBrains Mono', monospace;
@@ -891,18 +901,21 @@ def generate_html(articles, perspectives, last_updated):
         const pInfo = perspectives[a.perspective] || {{ name: a.perspective, icon: '📰', badge_class: 'badge-intl' }};
         const timeAgo = formatTimeAgo(a.published);
         const quickSummary = a.quick_summary || a.summary_es || 'Sin resumen disponible.';
+        const langNames = {{ 'ru': '🇷🇺 Ruso', 'uk': '🇺🇦 Ucraniano', 'en': '🇬🇧 Inglés', 'es': '🇪🇸 Español' }};
+        const origLang = langNames[a.language] || a.language.toUpperCase();
 
         return `
           <article class="card">
             <div class="card-meta">
               <span class="badge-perspective ${{pInfo.badge_class}}">${{pInfo.icon}} ${{pInfo.short_name || pInfo.name}}</span>
+              <span class="badge-lang">Traducido del ${{origLang}}</span>
               <span class="source-name" title="${{a.bias_note || a.source_name}}">${{a.source_name}}</span>
             </div>
 
             <h2 class="card-title">${{a.title_es}}</h2>
 
             <div class="quick-read-box">
-              <div class="quick-read-label">⚡ Lectura Rápida (30 seg)</div>
+              <div class="quick-read-label">⚡ Resumen en Español (30 seg)</div>
               <div class="quick-read-text">${{quickSummary}}</div>
             </div>
 
@@ -910,7 +923,7 @@ def generate_html(articles, perspectives, last_updated):
 
             <div class="original-section">
               <button class="toggle-original-btn" onclick="toggleOriginal('${{a.id}}')">
-                <span>🔄</span> Ver texto original (${{a.language.toUpperCase()}})
+                <span>🔄</span> Contrastar con texto original (${{origLang}})
               </button>
               <div class="original-box" id="orig-${{a.id}}">
                 <div style="font-weight: 600; margin-bottom: 0.25rem;">${{a.title_original}}</div>
@@ -1093,23 +1106,29 @@ def main():
     else:
         print("[*] No hay artículos nuevos pendientes de traducción en el cupo actual.")
 
-    # Para los restantes que excedieron el cupo de esta pasada
+    # Asignar valores por defecto a los artículos restantes no traducidos en esta pasada
     for a in deduped:
-        if not getattr(a, "is_translated", False):
+        if not a.get("is_translated", False):
             a["title_es"] = a["title_original"]
             a["summary_es"] = a["summary_original"]
             a["quick_summary"] = generate_quick_summary(a["summary_original"] or a["title_original"])
             a["is_translated"] = False
 
-    # Guardar base de datos en JSON
+    # FILTRO DE VISUALIZACIÓN:
+    # Para la web, mostramos EXCLUSIVAMENTE artículos traducidos al español.
+    # Ningún artículo en cirílico o sin traducir se muestra en el feed principal.
+    translated_articles = [a for a in deduped if a.get("is_translated", False)]
+    print(f"[*] Total de artículos verificados y traducidos al español para la web: {len(translated_articles)}")
+
+    # Guardar base de datos en JSON con artículos traducidos
     os.makedirs(os.path.dirname(CACHE_FILE), exist_ok=True)
     with open(CACHE_FILE, "w", encoding="utf-8") as f:
-        json.dump(deduped, f, ensure_ascii=False, indent=2)
+        json.dump(translated_articles, f, ensure_ascii=False, indent=2)
     print(f"[OK] Base de datos guardada en: {CACHE_FILE}")
 
-    # Generar sitio web estático
+    # Generar sitio web estático garantizando 100% contenido en español
     now_str = datetime.now().strftime("%d/%m/%Y %H:%M")
-    generate_html(deduped, perspectives, now_str)
+    generate_html(translated_articles, perspectives, now_str)
     print("=" * 60)
     print(" ¡Proceso completado con éxito! ")
     print("=" * 60)
