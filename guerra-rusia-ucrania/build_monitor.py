@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os
 import sys
 import json
@@ -11,6 +12,7 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 import feedparser
 import requests
+from bs4 import BeautifulSoup
 
 # Forzar salida en UTF-8 en consola de Windows
 if sys.stdout and hasattr(sys.stdout, "reconfigure"):
@@ -18,42 +20,44 @@ if sys.stdout and hasattr(sys.stdout, "reconfigure"):
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CONFIG_FILE = os.path.join(BASE_DIR, "feeds_config.json")
-CACHE_FILE = os.path.join(BASE_DIR, "data", "articles.json")
-TRANSLATIONS_FILE = os.path.join(BASE_DIR, "translations_cache.json")
+HISTORICO_FILE = os.path.join(BASE_DIR, "historico_noticias.json")
+ARTICULOS_DIR = os.path.join(BASE_DIR, "articulos_texto")
 OUTPUT_HTML = os.path.join(BASE_DIR, "index.html")
 
-WAR_KEYWORDS = {
-    "ru": [
-        r"украин", r"киев", r"всу", r"сво\b", r"фронт", r"донбасс", r"покровск",
-        r"курск", r"белгород", r"дрон", r"бпла", r"ракет", r"путин", r"зеленск",
-        r"минобороны", r"нато", r"санкци", r"войн", r"военн", r"переговор",
-        r"оружи", r"пво", r"байден", r"трамп", r"снаряд", r"обстрел", r"артиллери"
-    ],
-    "uk": [
-        r"росі", r"рф\b", r"москв", r"фронт", r"донбас", r"покровськ", r"курськ",
-        r"бєлгород", r"дрон", r"бпла", r"ракет", r"путін", r"зеленськ", r"генштаб",
-        r"зсу", r"нато", r"санкці", r"війн", r"переговор", r"збро", r"ппо", r"окупант",
-        r"снаряд", r"обстріл", r"бавовна", r"десант"
-    ],
-    "en": [
-        r"ukrain", r"kyiv", r"russia", r"moscow", r"putin", r"zelensky", r"frontline",
-        r"donbas", r"pokrovsk", r"kursk", r"drone", r"missile", r"nato", r"sanction",
-        r"war\b", r"troops", r"defense", r"strike", r"ceasefire", r"kremlin", r"pentagon",
-        r"weapons", r"air defense", r"kharkiv", r"zaporizhzhia", r"artillery"
-    ]
-}
+# =====================================================================
+# REGLAS DE RELEVANCIA BÉLICA Y ESTRATÉGICA (Priorizar impacto real)
+# =====================================================================
+
+HIGH_RELEVANCE_PATTERNS = [
+    # Ubicaciones clave del frente y zonas de combate
+    (r"\b(pokrovsk|курск|kursk|покровськ|донбасс|donbas|donetsk|донецк|toretsk|торецк|часов яр|chasiv yar|купянск|kupyansk|куupyansk|kharkiv|харьков|vuhledar|угледар|zaporizhzhia|запорожье|crimea|крым|черное море|black sea|сумы|sumy|белгород|belgorod|брянск|bryansk)\b", 8),
+    # Operaciones militares, combates y ofensivas
+    (r"\b(ofensiva|offensive|avance|advance|asalto|assault|combate|combat|наступление|штурм|бои|прорыв|frontline|frente|линия фронта|liberación|captura|toma|оборона|наступ|бої|зсу|всу|генштаб|минобороны)\b", 7),
+    # Armamento, ataques estratégicos, misiles y drones
+    (r"\b(misil|missile|dron|drone|atacms|storm shadow|f-16|patriot|himars|kinzhal|кинжал|iskander|искандер|shahed|шахед|герань|бпла|refinería|refinery|нпз|depósito|enjambre|defensa aérea|air defense|пво|ппо|авиабомб|bombardeo|strike|атака|raket)\b", 6),
+    # Diplomacia, líderes y geopolítica internacional
+    (r"\b(putin|путин|zelensky|зеленск|trump|трамп|biden|байден|otan|nato|alto el fuego|ceasefire|negociaci|переговор|paz|peace|мирный план|cumbre|summit|sancion|sanction|санкци|embargo|lavrov|лавров|kremlin|кремл)\b", 5),
+    # Bajas, prisioneros de guerra y movilización
+    (r"\b(prisioner|пленн|обмен|intercambio|bajas|casualties|потери|mobiliz|мобилизац|pow|prisioneros)\b", 4),
+]
+
+PENALTY_PATTERNS = [
+    # Ruido, deportes, eventos locales y temas no vinculados al conflicto
+    r"\b(fide|ajedrez|chess|шахмат|futbol|football|футбол|taekwondo|olimp|mural|мурал|памятник|кулинар|gastronom|cocina|cine|festival|фестивал|певиц|певец|актер|актрис|концерт|парковк|дтп|сбил пешехода|зоопарк|театр)\b",
+    r"\b(погода|weather|климат|туризм|tourism|гороскоп|horoscope|космос|золото|цирк)\b",
+]
 
 CATEGORY_PATTERNS = {
     "frente": [
         r"frontline", r"frente", r"combate", r"advance", r"offensive", r"avance",
         r"pokrovsk", r"покровск", r"kursk", r"курск", r"donetsk", r"donbas",
         r"наступлен", r"штурм", r"бои\b", r"атак", r"наступ", r"бої\b", r"оборон",
-        r"capture", r"toma\b", r"libera", r"territorio", r"kharkiv", r"chuguev"
+        r"capture", r"toma\b", r"libera", r"territorio", r"kharkiv", r"sumy", r"сумы"
     ],
-    "diplomacia": [
-        r"peace", r"paz\b", r"negotiat", r"negociaci", r"ceasefire", r"alto el fuego",
-        r"talks", r"conversaci", r"summit", r"cumbre", r"diplomaci", r"treaty", r"tratado",
-        r"переговор", r"мирн", r"соглашени", r"договор", r"перемовини", r"тиша"
+    "drones": [
+        r"drone", r"дрон", r"uav", r"бпла", r"shahed", r"шахед", r"geran", r"герань",
+        r"fpv", r"air defense", r"defensa aérea", r"пво", r"ппо", r"intercept",
+        r"derrib", r"сбит", r"intercepción", r"enjambre", r"bengalas"
     ],
     "armamento": [
         r"weapon", r"armas", r"armamento", r"missile", r"misil", r"patriot", r"f-16",
@@ -61,74 +65,93 @@ CATEGORY_PATTERNS = {
         r"military aid", r"ayuda militar", r"tanque", r"tank", r"снаряд", r"зброя",
         r"поставка", r"оружие", r"пакет помощ"
     ],
-    "drones": [
-        r"drone", r"дрон", r"uav", r"бпла", r"shahed", r"шахед", r"geran", r"герань",
-        r"fpv", r"air defense", r"defensa aérea", r"пво", r"ппо", r"intercept",
-        r"derrib", r"сбит", r"intercepción"
+    "diplomacia": [
+        r"peace", r"paz\b", r"negotiat", r"negociaci", r"ceasefire", r"alto el fuego",
+        r"talks", r"conversaci", r"summit", r"cumbre", r"diplomaci", r"treaty", r"tratado",
+        r"переговор", r"мирн", r"соглашени", r"договор", r"перемовини", r"тиша"
     ],
     "economia": [
         r"sanction", r"sanción", r"sanciones", r"oil", r"petróleo", r"gas\b", r"refinery",
         r"refinería", r"economy", r"economía", r"ruble", r"rublo", r"export",
         r"санкци", r"нефт", r"газ\b", r"нпз", r"рубл", r"экономік", r"санкці"
-    ],
-    "civil": [
-        r"civil", r"blackout", r"apagón", r"power grid", r"energía", r"shelter",
-        r"refugio", r"evacua", r"hospital", r"energy infrastructure", r"víctima",
-        r"casualt", r"мирные жители", r"инфраструктур", r"цивільн", r"знеструмлен"
     ]
 }
 
-def clean_html(raw_html, preserve_paragraphs=True):
+def clean_html_text(raw_html, preserve_paras=True):
     if not raw_html:
         return ""
     text = raw_html
-    if preserve_paragraphs:
-        text = re.sub(r"<(p|br|div|li)[^>]*>", "\n", text, flags=re.IGNORECASE)
+    if preserve_paras:
+        text = re.sub(r"<(p|br|div|li|h[1-6])[^>]*>", "\n\n", text, flags=re.IGNORECASE)
     cleantext = re.sub(r"<[^>]+>", " ", text)
     cleantext = html.unescape(cleantext)
-    if preserve_paragraphs:
-        paras = [re.sub(r"\s+", " ", p).strip() for p in cleantext.split("\n") if p.strip()]
+    if preserve_paras:
+        paras = [re.sub(r"\s+", " ", p).strip() for p in cleantext.split("\n\n") if len(p.strip()) > 25]
         return "\n\n".join(paras)
     return re.sub(r"\s+", " ", cleantext).strip()
 
-def parse_date(entry):
-    for attr in ["published_parsed", "updated_parsed", "created_parsed"]:
-        parsed = getattr(entry, attr, None)
-        if parsed:
-            try:
-                return datetime(*parsed[:6], tzinfo=timezone.utc).isoformat()
-            except Exception:
-                pass
-    return datetime.now(timezone.utc).isoformat()
+def calculate_relevance(title, body):
+    combined = f"{title} {body}".lower()
+    for pat in PENALTY_PATTERNS:
+        if re.search(pat, combined):
+            return -10
 
-def is_war_relevant(text, lang):
-    text_lower = text.lower()
-    patterns = WAR_KEYWORDS.get(lang, []) + WAR_KEYWORDS.get("en", [])
-    for pat in patterns:
-        if re.search(pat, text_lower):
-            return True
-    return False
+    score = 0
+    for pat, weight in HIGH_RELEVANCE_PATTERNS:
+        if re.search(pat, combined):
+            score += weight
+    return score
 
-def identify_categories(text):
+def identify_category(text):
     text_lower = text.lower()
-    cats = []
     for cat_id, patterns in CATEGORY_PATTERNS.items():
         for pat in patterns:
             if re.search(pat, text_lower):
-                cats.append(cat_id)
-                break
-    return cats if cats else ["general"]
+                return cat_id
+    return "frente"
+
+def extract_article_body(entry):
+    """Extrae el cuerpo de texto completo del artículo desde el feed o raspando si es necesario."""
+    content_val = ""
+    if getattr(entry, "content", None):
+        try:
+            content_val = entry.content[0].value
+        except Exception:
+            pass
+
+    body_raw = content_val or getattr(entry, "description", "") or getattr(entry, "summary", "")
+    body_clean = clean_html_text(body_raw, preserve_paras=True)
+
+    # Si el texto es muy corto (< 150 caracteres) y hay enlace web, intentar extraer párrafos directamente
+    link = getattr(entry, "link", "")
+    if len(body_clean) < 150 and link and not "google.com" in link:
+        try:
+            r = requests.get(link, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}, timeout=4)
+            if r.status_code == 200:
+                soup = BeautifulSoup(r.text, "html.parser")
+                for tag in soup(["script", "style", "nav", "header", "footer", "aside"]):
+                    tag.decompose()
+                container = soup.find("article") or soup.find("main") or soup.find("div", class_=lambda c: c and any(x in c.lower() for x in ["article", "content", "post", "text", "body"]))
+                if container:
+                    web_paras = [p.get_text().strip() for p in container.find_all("p") if len(p.get_text().strip()) > 35]
+                    if len(web_paras) >= 2:
+                        body_clean = "\n\n".join(web_paras[:5])
+        except Exception:
+            pass
+
+    # Limitar longitud razonable (hasta 1800 caracteres para no saturar traducción)
+    if len(body_clean) > 1800:
+        body_clean = body_clean[:1797] + "..."
+    return body_clean
 
 def translate_single_chunk(text, max_len=600):
     if not text or not text.strip():
         return ""
     text_clean = text.strip()[:max_len]
-    
-    # Intento 1: API clients5 (rápida y precisa)
     try:
         url = "https://clients5.google.com/translate_a/t?client=dict-chrome-ex&sl=auto&tl=es&q=" + urllib.parse.quote(text_clean)
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"})
-        with urllib.request.urlopen(req, timeout=5) as resp:
+        with urllib.request.urlopen(req, timeout=6) as resp:
             data = json.loads(resp.read().decode("utf-8"))
             if isinstance(data, list):
                 if isinstance(data[0], list):
@@ -138,7 +161,6 @@ def translate_single_chunk(text, max_len=600):
     except Exception:
         pass
 
-    # Intento 2: MyMemory API como alternativa
     try:
         url = "https://api.mymemory.translated.net/get?q=" + urllib.parse.quote(text_clean[:400]) + "&langpair=autodetect|es"
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
@@ -152,8 +174,8 @@ def translate_single_chunk(text, max_len=600):
 
     return text_clean
 
-def translate_to_es(text, max_paragraphs=4):
-    """Traduce texto completo preservando párrafos para lectura detallada."""
+def translate_full_story(text, max_paragraphs=4):
+    """Traduce la noticia completa párrafo por párrafo al español."""
     if not text or not text.strip():
         return ""
     paragraphs = [p.strip() for p in text.split("\n\n") if p.strip()]
@@ -163,69 +185,54 @@ def translate_to_es(text, max_paragraphs=4):
     translated_paras = []
     for p in paragraphs[:max_paragraphs]:
         t = translate_single_chunk(p, max_len=600)
-        if t:
+        if t and len(t) > 5:
             translated_paras.append(t)
     return "\n\n".join(translated_paras)
 
-def generate_quick_summary(text_es, max_chars=180):
-    """Genera un resumen ejecutivo de lectura rápida de 1 o 2 oraciones."""
-    if not text_es:
-        return ""
-    first_para = text_es.split("\n\n")[0]
-    sentences = re.split(r"(?<=[.!?])\s+", first_para.strip())
-    first_sentence = sentences[0] if sentences else first_para
-    if len(first_sentence) <= max_chars:
-        if len(sentences) > 1 and len(first_sentence) + len(sentences[1]) < max_chars:
-            return f"{first_sentence} {sentences[1]}"
-        return first_sentence
-    return first_sentence[:max_chars].rstrip() + "..."
-
-def fetch_feed_articles(feed_config, war_filter_enabled=True):
-    articles = []
+def fetch_feed(feed_config):
+    candidates = []
     feed_url = feed_config["url"]
     feed_id = feed_config["id"]
     feed_name = feed_config["name"]
     perspective = feed_config["perspective"]
     language = feed_config["language"]
     bias_note = feed_config.get("bias_note", "")
-    requires_filter = feed_config.get("requires_war_filter", False) and war_filter_enabled
 
     try:
         headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
         resp = requests.get(feed_url, headers=headers, timeout=10)
         parsed = feedparser.parse(resp.content)
 
-        for entry in getattr(parsed, "entries", [])[:25]:
-            title = clean_html(getattr(entry, "title", "Sin título"), preserve_paragraphs=False)
-            
-            # Obtener el contenido más completo posible (content:encoded, summary, description)
-            content_val = ""
-            if getattr(entry, "content", None):
-                try:
-                    content_val = entry.content[0].value
-                except Exception:
-                    pass
-            raw_body = content_val or getattr(entry, "summary", "") or getattr(entry, "description", "")
-            body = clean_html(raw_body, preserve_paragraphs=True)
-            if len(body) > 2000:
-                body = body[:1997] + "..."
-
+        for entry in getattr(parsed, "entries", [])[:30]:
+            title = clean_html_text(getattr(entry, "title", "Sin título"), preserve_paras=False)
+            body = extract_article_body(entry)
             link = getattr(entry, "link", "#")
-            pub_date = parse_date(entry)
 
-            combined_text = f"{title} {body}"
+            # Parsear fecha
+            pub_date = None
+            for attr in ["published_parsed", "updated_parsed", "created_parsed"]:
+                parsed_d = getattr(entry, attr, None)
+                if parsed_d:
+                    try:
+                        pub_date = datetime(*parsed_d[:6], tzinfo=timezone.utc).isoformat()
+                        break
+                    except Exception:
+                        pass
+            if not pub_date:
+                pub_date = datetime.now(timezone.utc).isoformat()
 
-            # Filtrar si la fuente es generalista
-            if requires_filter and not is_war_relevant(combined_text, language):
+            # Calcular puntuación de relevancia
+            score = calculate_relevance(title, body)
+            if score <= 0:
                 continue
 
             art_id = hashlib.md5(f"{feed_id}_{title}".encode("utf-8")).hexdigest()[:12]
-            categories = identify_categories(combined_text)
+            category = identify_category(f"{title} {body}")
 
-            articles.append({
+            candidates.append({
                 "id": art_id,
                 "title_original": title,
-                "summary_original": body,
+                "text_original": body,
                 "link": link,
                 "source_id": feed_id,
                 "source_name": feed_name,
@@ -233,1046 +240,517 @@ def fetch_feed_articles(feed_config, war_filter_enabled=True):
                 "language": language,
                 "bias_note": bias_note,
                 "published": pub_date,
-                "categories": categories
+                "category": category,
+                "relevance_score": score
             })
     except Exception as e:
-        print(f"[WARN] Error consultando {feed_name}: {e}")
+        print(f"[WARN] Error en fuente {feed_name}: {e}")
 
-    return articles
+    return candidates
 
-def generate_html(articles, perspectives, last_updated):
-    """Compila el dashboard interactivo de inteligencia con lector modal detallado."""
-    articles_json_str = json.dumps(articles, ensure_ascii=False)
+def select_daily_top_articles(candidates, max_per_perspective=10):
+    """Selecciona los artículos de máxima relevancia divididos equitativamente por perspectiva."""
+    by_persp = {}
+    for a in candidates:
+        p = a["perspective"]
+        if p not in by_persp:
+            by_persp[p] = []
+        by_persp[p].append(a)
+
+    selected = []
+    selected_ids = set()
+
+    for p, items in by_persp.items():
+        # Ordenar por puntuación de relevancia descendente, luego por fecha
+        items.sort(key=lambda x: (x["relevance_score"], x["published"]), reverse=True)
+        count = 0
+        for a in items:
+            if a["id"] not in selected_ids:
+                selected.append(a)
+                selected_ids.add(a["id"])
+                count += 1
+                if count >= max_per_perspective:
+                    break
+
+    selected.sort(key=lambda x: x["published"], reverse=True)
+    return selected
+
+def save_article_text_file(article, date_folder):
+    """Guarda cada noticia como un archivo de texto/markdown individual en articulos_texto/."""
+    os.makedirs(date_folder, exist_ok=True)
+    slug = re.sub(r"[^a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]+", "-", article.get("title_es", "noticia")[:50]).strip("-").lower()
+    filename = f"{article['id']}_{slug}.md"
+    filepath = os.path.join(date_folder, filename)
+
+    content = f"""# {article.get('title_es', article['title_original'])}
+
+- **Fecha de publicación:** {article.get('published', '')}
+- **Fuente:** {article.get('source_name', '')}
+- **Perspectiva:** {article.get('perspective', '')}
+- **Idioma original:** {article.get('language', '').upper()}
+- **Enlace a la fuente original:** {article.get('link', '#')}
+- **Contexto editorial:** {article.get('bias_note', '')}
+
+---
+
+## Noticia Completa en Español:
+
+{article.get('text_es', '')}
+
+---
+
+## Texto Original ({article.get('language', '').upper()}):
+
+### {article.get('title_original', '')}
+
+{article.get('text_original', '')}
+"""
+    with open(filepath, "w", encoding="utf-8") as f:
+        f.write(content)
+
+def update_historico_and_translate(selected_articles):
+    historico = []
+    if os.path.exists(HISTORICO_FILE):
+        try:
+            with open(HISTORICO_FILE, "r", encoding="utf-8") as f:
+                historico = json.load(f)
+        except Exception:
+            historico = []
+
+    historico_map = {a["id"]: a for a in historico}
+    today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    today_folder = os.path.join(ARTICULOS_DIR, today_str)
+
+    to_translate = []
+    for a in selected_articles:
+        if a["id"] in historico_map:
+            saved = historico_map[a["id"]]
+            a["title_es"] = saved.get("title_es") or a["title_original"]
+            a["text_es"] = saved.get("text_es") or saved.get("summary_es") or a["text_original"]
+            a["date_added"] = saved.get("date_added", today_str)
+        else:
+            a["date_added"] = today_str
+            if a["language"] == "es":
+                a["title_es"] = a["title_original"]
+                a["text_es"] = a["text_original"]
+            else:
+                to_translate.append(a)
+
+    if to_translate:
+        print(f"[*] Traduciendo {len(to_translate)} artículos de alta relevancia al español (título y texto completo)...")
+        for i, a in enumerate(to_translate, 1):
+            t_title = translate_single_chunk(a["title_original"], max_len=300)
+            t_text = translate_full_story(a["text_original"], max_paragraphs=5)
+
+            a["title_es"] = t_title if t_title else a["title_original"]
+            a["text_es"] = t_text if t_text else a["text_original"]
+
+            # Pausa para no saturar la API
+            time.sleep(0.2)
+            if i % 5 == 0 or i == len(to_translate):
+                print(f"    -> {i}/{len(to_translate)} traducidos y procesados...")
+
+    # Guardar archivos de texto en articulos_texto/ y actualizar hemeroteca
+    new_count = 0
+    for a in selected_articles:
+        save_article_text_file(a, today_folder)
+        if a["id"] not in historico_map:
+            historico.append(a)
+            historico_map[a["id"]] = a
+            new_count += 1
+        else:
+            historico_map[a["id"]].update(a)
+
+    historico.sort(key=lambda x: (x.get("date_added", ""), x.get("published", "")), reverse=True)
+
+    with open(HISTORICO_FILE, "w", encoding="utf-8") as f:
+        json.dump(historico, f, ensure_ascii=False, indent=2)
+
+    print(f"[OK] Hemeroteca actualizada: {len(historico)} artículos archivados permanentemente (+{new_count} nuevos).")
+    return selected_articles, historico
+
+def generate_html_site(daily_articles, historic_articles, perspectives, last_updated):
+    """Genera la aplicación web con la estética limpia y probada de AI Sentinel."""
+    daily_json_str = json.dumps(daily_articles, ensure_ascii=False)
+    historic_json_str = json.dumps(historic_articles, ensure_ascii=False)
     perspectives_json_str = json.dumps(perspectives, ensure_ascii=False)
 
     html_content = f"""<!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="dark">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Monitor de la Guerra Rusia-Ucrania | Inteligencia & Artículos Traducidos</title>
-  <meta name="description" content="Dashboard en tiempo real con noticias y análisis traducidos al español de fuentes ucranianas, rusas estatales e independientes, y análisis militar internacional.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="theme-color" content="#020617">
+  <title>Monitor de Guerra Rusia-Ucrania | Inteligencia & Artículos Traducidos</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
   <style>
-    :root {{
-      --bg-main: #0b0f19;
-      --bg-card: #131a29;
-      --bg-card-hover: #192236;
-      --border-color: #202c45;
-      --border-accent: #2e3e60;
-      --text-main: #f1f5f9;
-      --text-muted: #94a3b8;
-      --text-dim: #64748b;
-      
-      --accent-blue: #38bdf8;
-      --accent-yellow: #facc15;
-      --accent-red: #f87171;
-      --accent-green: #34d399;
-      --accent-purple: #c084fc;
-      
-      --ukraine-color: #38bdf8;
-      --ukraine-bg: rgba(56, 189, 248, 0.12);
-      --ru-ind-color: #34d399;
-      --ru-ind-bg: rgba(52, 211, 153, 0.12);
-      --ru-off-color: #f87171;
-      --ru-off-bg: rgba(248, 113, 113, 0.12);
-      --intl-color: #facc15;
-      --intl-bg: rgba(250, 204, 21, 0.12);
-    }}
-
-    * {{ box-sizing: border-box; margin: 0; padding: 0; }}
-    body {{
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: var(--bg-main);
-      color: var(--text-main);
-      line-height: 1.5;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }}
-
-    header {{
-      background: linear-gradient(180deg, #111827 0%, #0b0f19 100%);
-      border-bottom: 1px solid var(--border-color);
-      padding: 1.25rem 1rem;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(12px);
-    }}
-
-    .header-container {{
-      max-width: 1300px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }}
-
-    .top-bar {{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }}
-
-    .brand {{
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }}
-
-    .brand-icon {{
-      width: 40px;
-      height: 40px;
-      background: linear-gradient(135deg, #1e293b, #0f172a);
-      border: 1px solid var(--border-accent);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.25rem;
-    }}
-
-    .brand-title {{
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: #fff;
-    }}
-
-    .brand-title span {{
-      color: var(--accent-blue);
-    }}
-
-    .status-badge {{
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.75rem;
-      font-family: 'JetBrains Mono', monospace;
-      color: var(--text-muted);
-      background: rgba(255,255,255,0.05);
-      padding: 0.35rem 0.75rem;
-      border-radius: 9999px;
-      border: 1px solid var(--border-color);
-    }}
-
-    .status-dot {{
-      width: 8px;
-      height: 8px;
-      background: var(--accent-green);
-      border-radius: 50%;
-      box-shadow: 0 0 8px var(--accent-green);
-      animation: pulse 2s infinite;
-    }}
-
-    @keyframes pulse {{
-      0%, 100% {{ opacity: 1; transform: scale(1); }}
-      50% {{ opacity: 0.5; transform: scale(0.85); }}
-    }}
-
-    /* Resumen Ejecutivo Superior */
-    .executive-brief {{
-      background: linear-gradient(135deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.9));
-      border: 1px solid var(--border-accent);
-      border-radius: 12px;
-      padding: 1.25rem;
-      margin: 1.5rem auto 0;
-      max-width: 1300px;
-      width: calc(100% - 2rem);
-    }}
-
-    .executive-header {{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 0.75rem;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      padding-bottom: 0.5rem;
-    }}
-
-    .executive-title {{
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 700;
-      color: var(--accent-yellow);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }}
-
-    .brief-columns {{
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1rem;
-    }}
-
-    .brief-col {{
-      background: rgba(0, 0, 0, 0.25);
-      border-radius: 8px;
-      padding: 0.85rem;
-      border-left: 3px solid transparent;
-      cursor: pointer;
-      transition: background 0.15s;
-    }}
-
-    .brief-col:hover {{
-      background: rgba(255, 255, 255, 0.05);
-    }}
-
-    .brief-col.ukraine {{ border-left-color: var(--ukraine-color); }}
-    .brief-col.russia-ind {{ border-left-color: var(--ru-ind-color); }}
-    .brief-col.russia-off {{ border-left-color: var(--ru-off-color); }}
-    .brief-col.intl {{ border-left-color: var(--intl-color); }}
-
-    .brief-col-title {{
-      font-size: 0.8rem;
-      font-weight: 700;
-      margin-bottom: 0.4rem;
-      color: var(--text-main);
-    }}
-
-    .brief-col-text {{
-      font-size: 0.825rem;
-      color: var(--text-muted);
-      line-height: 1.4;
-    }}
-
-    /* Controles */
-    .controls-container {{
-      max-width: 1300px;
-      margin: 1.5rem auto 0;
-      padding: 0 1rem;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }}
-
-    .search-row {{
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }}
-
-    .search-box {{
-      flex: 1;
-      min-width: 260px;
-      position: relative;
-    }}
-
-    .search-box input {{
-      width: 100%;
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      color: #fff;
-      padding: 0.75rem 1rem 0.75rem 2.5rem;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      outline: none;
-      transition: border-color 0.2s;
-    }}
-
-    .search-box input:focus {{
-      border-color: var(--accent-blue);
-    }}
-
-    .search-box svg {{
-      position: absolute;
-      left: 0.85rem;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 18px;
-      height: 18px;
-      color: var(--text-dim);
-    }}
-
-    .perspective-pills {{
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }}
-
-    .pill-btn {{
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      color: var(--text-muted);
-      padding: 0.5rem 0.85rem;
-      border-radius: 8px;
-      font-size: 0.825rem;
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      transition: all 0.2s ease;
-    }}
-
-    .pill-btn:hover {{
-      background: var(--bg-card-hover);
-      color: #fff;
-    }}
-
-    .pill-btn.active {{
-      background: #1e293b;
-      color: #fff;
-      border-color: var(--accent-blue);
-      box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
-    }}
-
-    .category-chips {{
-      display: flex;
-      gap: 0.4rem;
-      flex-wrap: wrap;
-    }}
-
-    .chip-btn {{
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.08);
-      color: var(--text-dim);
-      padding: 0.25rem 0.65rem;
-      border-radius: 9999px;
-      font-size: 0.75rem;
-      cursor: pointer;
-      transition: all 0.15s;
-    }}
-
-    .chip-btn:hover, .chip-btn.active {{
-      background: rgba(255,255,255,0.1);
-      color: var(--text-main);
-      border-color: var(--border-accent);
-    }}
-
-    /* Grid */
-    main {{
-      max-width: 1300px;
-      margin: 1.5rem auto 3rem;
-      padding: 0 1rem;
-      width: 100%;
-      flex: 1;
-    }}
-
-    .stats-bar {{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-      font-size: 0.825rem;
-      color: var(--text-dim);
-    }}
-
-    .news-grid {{
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-      gap: 1.25rem;
-    }}
-
-    .card {{
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 1.25rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-      cursor: pointer;
-      position: relative;
-    }}
-
-    .card:hover {{
-      transform: translateY(-2px);
-      border-color: var(--border-accent);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-    }}
-
-    .card-meta {{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.75rem;
-      flex-wrap: wrap;
-    }}
-
-    .badge-perspective {{
-      padding: 0.25rem 0.5rem;
-      border-radius: 6px;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      font-size: 0.725rem;
-    }}
-
-    .badge-ukraine {{ background: var(--ukraine-bg); color: var(--ukraine-color); border: 1px solid rgba(56, 189, 248, 0.3); }}
-    .badge-ru-ind {{ background: var(--ru-ind-bg); color: var(--ru-ind-color); border: 1px solid rgba(52, 211, 153, 0.3); }}
-    .badge-ru-off {{ background: var(--ru-off-bg); color: var(--ru-off-color); border: 1px solid rgba(248, 113, 113, 0.3); }}
-    .badge-intl {{ background: var(--intl-bg); color: var(--intl-color); border: 1px solid rgba(250, 204, 21, 0.3); }}
-
-    .badge-lang {{
-      background: rgba(255, 255, 255, 0.06);
-      color: var(--text-muted);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      padding: 0.15rem 0.45rem;
-      border-radius: 4px;
-      font-size: 0.675rem;
-      font-family: 'JetBrains Mono', monospace;
-    }}
-
-    .source-name {{
-      color: var(--text-dim);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.725rem;
-    }}
-
-    .card-title {{
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #fff;
-      line-height: 1.4;
-    }}
-
-    .card-title:hover {{
-      color: var(--accent-blue);
-    }}
-
-    .quick-read-box {{
-      background: rgba(255, 255, 255, 0.03);
-      border-left: 3px solid var(--accent-blue);
-      border-radius: 0 6px 6px 0;
-      padding: 0.65rem 0.75rem;
-    }}
-
-    .quick-read-label {{
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--accent-blue);
-      font-weight: 700;
-      margin-bottom: 0.25rem;
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-    }}
-
-    .quick-read-text {{
-      font-size: 0.85rem;
-      color: var(--text-main);
-      line-height: 1.45;
-    }}
-
-    .card-actions {{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: auto;
-      padding-top: 0.5rem;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      font-size: 0.75rem;
-    }}
-
-    .btn-read-detail {{
-      background: rgba(56, 189, 248, 0.12);
-      color: var(--accent-blue);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      padding: 0.4rem 0.75rem;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 0.75rem;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      transition: all 0.15s;
-    }}
-
-    .btn-read-detail:hover {{
-      background: rgba(56, 189, 248, 0.25);
-      color: #fff;
-    }}
-
-    .source-link {{
-      color: var(--text-dim);
-      text-decoration: none;
-      font-size: 0.725rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.25rem;
-    }}
-
-    .source-link:hover {{
-      color: var(--accent-blue);
-    }}
-
-    /* MODAL DE LECTURA DETALLADA */
-    .modal-overlay {{
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(5, 8, 15, 0.85);
-      backdrop-filter: blur(8px);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-    }}
-
-    .modal-overlay.active {{
-      display: flex;
-      animation: fadeIn 0.2s ease-out;
-    }}
-
-    @keyframes fadeIn {{
-      from {{ opacity: 0; transform: scale(0.98); }}
-      to {{ opacity: 1; transform: scale(1); }}
-    }}
-
-    .modal-content {{
-      background: #111827;
-      border: 1px solid var(--border-accent);
-      border-radius: 16px;
-      max-width: 800px;
-      width: 100%;
-      max-height: 90vh;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.8);
-      position: relative;
-    }}
-
-    .modal-header {{
-      padding: 1.5rem 1.5rem 1rem;
-      border-bottom: 1px solid var(--border-color);
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 1rem;
-      position: sticky;
-      top: 0;
-      background: #111827;
-      z-index: 10;
-    }}
-
-    .modal-close-btn {{
-      background: rgba(255,255,255,0.08);
-      border: 1px solid var(--border-color);
-      color: var(--text-muted);
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: all 0.15s;
-    }}
-
-    .modal-close-btn:hover {{
-      background: rgba(255,255,255,0.2);
-      color: #fff;
-    }}
-
-    .modal-body {{
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }}
-
-    .modal-title {{
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: #fff;
-      line-height: 1.35;
-    }}
-
-    .modal-quick-box {{
-      background: rgba(56, 189, 248, 0.08);
-      border: 1px solid rgba(56, 189, 248, 0.25);
-      border-radius: 8px;
-      padding: 1rem;
-    }}
-
-    .modal-quick-title {{
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: var(--accent-blue);
-      letter-spacing: 0.05em;
-      margin-bottom: 0.35rem;
-    }}
-
-    .modal-story {{
-      font-size: 0.95rem;
-      color: #cbd5e1;
-      line-height: 1.7;
-    }}
-
-    .modal-story p {{
-      margin-bottom: 1rem;
-    }}
-
-    .modal-story p:last-child {{
-      margin-bottom: 0;
-    }}
-
-    .modal-bias-box {{
-      background: rgba(250, 204, 21, 0.06);
-      border: 1px solid rgba(250, 204, 21, 0.2);
-      border-radius: 8px;
-      padding: 0.85rem 1rem;
-      font-size: 0.8rem;
-      color: #fde047;
-    }}
-
-    .modal-bias-title {{
-      font-weight: 700;
-      margin-bottom: 0.2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }}
-
-    .modal-original-accordion {{
-      background: rgba(0, 0, 0, 0.25);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 0.75rem 1rem;
-    }}
-
-    .modal-original-btn {{
-      background: none;
-      border: none;
-      color: var(--text-dim);
-      font-size: 0.8rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      width: 100%;
-      text-align: left;
-    }}
-
-    .modal-original-btn:hover {{
-      color: #fff;
-    }}
-
-    .modal-original-content {{
-      display: none;
-      margin-top: 0.75rem;
-      padding-top: 0.75rem;
-      border-top: 1px dashed var(--border-color);
-      font-size: 0.8rem;
-      color: #94a3b8;
-      font-family: 'JetBrains Mono', monospace;
-      line-height: 1.5;
-    }}
-
-    .modal-original-content.open {{
-      display: block;
-    }}
-
-    .modal-footer {{
-      padding: 1rem 1.5rem;
-      background: #0d1321;
-      border-top: 1px solid var(--border-color);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-radius: 0 0 16px 16px;
-    }}
-
-    .btn-external-source {{
-      background: var(--accent-blue);
-      color: #0b0f19;
-      font-weight: 700;
-      font-size: 0.85rem;
-      padding: 0.6rem 1rem;
-      border-radius: 8px;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      transition: opacity 0.15s;
-    }}
-
-    .btn-external-source:hover {{
-      opacity: 0.9;
-    }}
-
-    footer {{
-      border-top: 1px solid var(--border-color);
-      padding: 2rem 1rem;
-      text-align: center;
-      font-size: 0.8rem;
-      color: var(--text-dim);
-      background: #080c14;
-    }}
-
-    @media (max-width: 768px) {{
-      .news-grid {{
-        grid-template-columns: 1fr;
-      }}
-      .brand-title {{
-        font-size: 1.1rem;
-      }}
-      .modal-content {{
-        max-height: 95vh;
-      }}
-    }}
+    body {{ font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }}
+    dialog[open] {{ animation: fadeIn 0.15s ease-out; }}
+    @keyframes fadeIn {{ from {{ opacity: 0; transform: scale(0.97); }} to {{ opacity: 1; transform: scale(1); }} }}
+    .no-scrollbar::-webkit-scrollbar {{ display: none; }}
+    .no-scrollbar {{ -ms-overflow-style: none; scrollbar-width: none; }}
   </style>
 </head>
-<body>
+<body class="bg-slate-950 text-slate-100 min-h-screen pb-16 antialiased">
 
-  <header>
-    <div class="header-container">
-      <div class="top-bar">
-        <div class="brand">
-          <div class="brand-icon">⚔️</div>
-          <div>
-            <div class="brand-title">Monitor <span>Rusia-Ucrania</span></div>
-            <div style="font-size: 0.75rem; color: var(--text-dim);">Inteligencia Abierta & Artículos Traducidos al Español</div>
-          </div>
+  <!-- CABECERA PRINCIPAL -->
+  <header class="sticky top-0 z-30 backdrop-blur-md bg-slate-950/90 border-b border-slate-800 px-4 lg:px-8 py-3.5">
+    <div class="max-w-6xl mx-auto flex items-center justify-between gap-3">
+      
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-600 to-indigo-600 flex items-center justify-center shadow-lg shadow-sky-500/20 text-xl font-bold">
+          ⚔️
         </div>
-        <div class="status-badge">
-          <div class="status-dot"></div>
-          <span>Actualizado: <span id="last-updated-text">{last_updated}</span></span>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="font-extrabold text-base sm:text-lg tracking-tight text-white">Monitor <span class="text-sky-400">Rusia-Ucrania</span></h1>
+            <span class="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-bold">En Vivo</span>
+          </div>
+          <p class="text-[11px] text-slate-400 hidden sm:block">Artículos de alta relevancia traducidos al español de fuentes ucranianas, rusas e internacionales</p>
         </div>
       </div>
+
+      <!-- Pestañas Hoy vs Hemeroteca -->
+      <div class="flex items-center gap-1.5 bg-slate-900 p-1 rounded-2xl border border-slate-800 text-xs">
+        <button id="tabTodayBtn" class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl font-bold transition bg-sky-600 text-white shadow-md shadow-sky-600/20">
+          <i data-lucide="zap" class="w-3.5 h-3.5"></i>
+          <span>Edición de Hoy</span>
+        </button>
+        <button id="tabArchiveBtn" class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl font-semibold transition text-slate-400 hover:text-slate-200">
+          <i data-lucide="archive" class="w-3.5 h-3.5"></i>
+          <span>Hemeroteca</span>
+        </button>
+      </div>
+
     </div>
   </header>
 
-  <!-- Resumen Ejecutivo Superior -->
-  <section class="executive-brief">
-    <div class="executive-header">
-      <div class="executive-title">
-        <span>⚡</span> Resumen Rápido de Inteligencia (Últimas Horas)
+  <!-- CONTROLES Y FILTROS -->
+  <div class="max-w-6xl mx-auto px-4 lg:px-8 pt-5 pb-3 space-y-3">
+    
+    <!-- Barra de búsqueda y favoritos -->
+    <div class="flex items-center gap-2">
+      <div class="relative flex-1">
+        <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500"></i>
+        <input type="text" id="searchInput" placeholder="Buscar por ciudad (Pokrovsk, Kursk), líderes, armas (ATACMS, F-16)..." 
+               class="w-full bg-slate-900 border border-slate-800 rounded-xl pl-10 pr-4 py-2 text-xs sm:text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-sky-500 transition">
       </div>
-      <div style="font-size: 0.75rem; color: var(--text-dim);">Haz clic en cualquier tarjeta para leer el artículo completo</div>
-    </div>
-    <div class="brief-columns" id="executive-brief-container">
-      <!-- Llenado con JS -->
-    </div>
-  </section>
-
-  <!-- Filtros y Búsqueda -->
-  <div class="controls-container">
-    <div class="search-row">
-      <div class="search-box">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-        <input type="text" id="searchInput" placeholder="Buscar por tema, ciudad (ej. Pokrovsk, Kursk), armamento o actor..." autocomplete="off">
-      </div>
-      <div class="perspective-pills" id="perspectiveButtons">
-        <button class="pill-btn active" data-perspective="all">🌍 Todas las Perspectivas</button>
-        <button class="pill-btn" data-perspective="ukraine">🇺🇦 Ucrania</button>
-        <button class="pill-btn" data-perspective="russia_independent">🕊️ Rusia Independiente</button>
-        <button class="pill-btn" data-perspective="russia_official">🇷🇺 Rusia Oficial</button>
-        <button class="pill-btn" data-perspective="international">🌐 Internacional & OSINT</button>
-      </div>
+      <button id="savedFilterBtn" class="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 text-xs font-semibold hover:border-slate-700 transition">
+        <i data-lucide="star" class="w-3.5 h-3.5"></i>
+        <span class="hidden sm:inline">Guardados</span>
+        <span id="savedCount" class="px-1.5 py-0.2 rounded-full bg-slate-800 text-[10px] text-slate-300">0</span>
+      </button>
     </div>
 
-    <div class="category-chips" id="categoryChips">
-      <button class="chip-btn active" data-category="all">Todos los temas</button>
-      <button class="chip-btn" data-category="frente">💥 Frente y Combates</button>
-      <button class="chip-btn" data-category="drones">🛰️ Drones y Misiles</button>
-      <button class="chip-btn" data-category="armamento">🛡️ Armas y Ayuda</button>
-      <button class="chip-btn" data-category="diplomacia">🤝 Diplomacia</button>
-      <button class="chip-btn" data-category="economia">📉 Sanciones y Energía</button>
-      <button class="chip-btn" data-category="civil">🏙️ Impacto Civil</button>
+    <!-- Filtros por Perspectiva -->
+    <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 text-xs">
+      <span class="text-slate-500 text-[11px] font-bold uppercase tracking-wider shrink-0 mr-1">Perspectiva:</span>
+      <button class="persp-pill active px-3 py-1.5 rounded-xl font-semibold bg-sky-600/20 text-sky-300 border border-sky-500/30 shrink-0" data-persp="all">🌍 Todas</button>
+      <button class="persp-pill px-3 py-1.5 rounded-xl font-semibold bg-slate-900 text-slate-400 border border-slate-800 hover:border-slate-700 shrink-0" data-persp="ukraine">🇺🇦 Ucrania</button>
+      <button class="persp-pill px-3 py-1.5 rounded-xl font-semibold bg-slate-900 text-slate-400 border border-slate-800 hover:border-slate-700 shrink-0" data-persp="russia_independent">🕊️ Rusia Independiente</button>
+      <button class="persp-pill px-3 py-1.5 rounded-xl font-semibold bg-slate-900 text-slate-400 border border-slate-800 hover:border-slate-700 shrink-0" data-persp="russia_official">🇷🇺 Rusia Oficial</button>
+      <button class="persp-pill px-3 py-1.5 rounded-xl font-semibold bg-slate-900 text-slate-400 border border-slate-800 hover:border-slate-700 shrink-0" data-persp="international">🌐 Análisis ISW / BBC</button>
     </div>
+
+    <!-- Categorías temáticas -->
+    <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar text-xs">
+      <span class="text-slate-500 text-[11px] font-bold uppercase tracking-wider shrink-0 mr-1">Tema:</span>
+      <button class="cat-pill active px-2.5 py-1 rounded-lg text-[11px] font-medium bg-slate-800 text-slate-200 border border-slate-700 shrink-0" data-cat="all">Todos</button>
+      <button class="cat-pill px-2.5 py-1 rounded-lg text-[11px] font-medium bg-slate-900 text-slate-400 border border-slate-800 hover:border-slate-700 shrink-0" data-cat="frente">💥 Frente y Combates</button>
+      <button class="cat-pill px-2.5 py-1 rounded-lg text-[11px] font-medium bg-slate-900 text-slate-400 border border-slate-800 hover:border-slate-700 shrink-0" data-cat="drones">🛰️ Drones y Misiles</button>
+      <button class="cat-pill px-2.5 py-1 rounded-lg text-[11px] font-medium bg-slate-900 text-slate-400 border border-slate-800 hover:border-slate-700 shrink-0" data-cat="armamento">🛡️ Armamento y Ayuda</button>
+      <button class="cat-pill px-2.5 py-1 rounded-lg text-[11px] font-medium bg-slate-900 text-slate-400 border border-slate-800 hover:border-slate-700 shrink-0" data-cat="diplomacia">🤝 Diplomacia y Paz</button>
+      <button class="cat-pill px-2.5 py-1 rounded-lg text-[11px] font-medium bg-slate-900 text-slate-400 border border-slate-800 hover:border-slate-700 shrink-0" data-cat="economia">📉 Sanciones y Energía</button>
+    </div>
+
+    <!-- Barra de estado -->
+    <div class="flex items-center justify-between text-xs text-slate-500 pt-1">
+      <div class="flex items-center gap-1.5">
+        <span id="tabModeIndicator" class="font-bold text-slate-400">Edición de Hoy:</span>
+        <span id="resultsCount" class="text-slate-400">0 noticias</span>
+      </div>
+      <div class="text-[11px] text-slate-500">
+        Actualizado: <span>{last_updated}</span>
+      </div>
+    </div>
+
   </div>
 
-  <main>
-    <div class="stats-bar">
-      <div>Mostrando <strong id="articlesCount">0</strong> artículos 100% traducidos al español</div>
-      <div>💡 <em>Haz clic en cualquier noticia para abrir el lector completo en español</em></div>
-    </div>
-
-    <div class="news-grid" id="newsGrid">
+  <!-- CONTENEDOR DE TARJETAS CON TEXTO COMPLETO -->
+  <main class="max-w-6xl mx-auto px-4 lg:px-8 mt-2">
+    <div id="cardsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <!-- Tarjetas renderizadas con JS -->
     </div>
   </main>
 
-  <!-- MODAL DE LECTURA DETALLADA -->
-  <div class="modal-overlay" id="readerModal">
-    <div class="modal-content" onclick="event.stopPropagation()">
-      <div class="modal-header">
-        <div id="modalMeta" class="card-meta" style="flex: 1;">
-          <!-- Meta dinámica -->
+  <!-- MODAL DE LECTURA COMPLETA -->
+  <dialog id="modal" class="bg-slate-900 text-slate-100 p-0 rounded-2xl border border-slate-800 max-w-2xl w-[92vw] shadow-2xl backdrop:bg-black/75 backdrop:backdrop-blur-sm">
+    <div class="p-5 sm:p-6 space-y-4 max-h-[85vh] overflow-y-auto">
+      <div class="flex items-start justify-between gap-3 border-b border-slate-800 pb-3">
+        <div>
+          <div id="mBadges" class="flex flex-wrap items-center gap-1.5 text-xs mb-1.5"></div>
+          <h2 id="mTitle" class="text-base sm:text-lg font-bold text-white leading-snug"></h2>
         </div>
-        <button class="modal-close-btn" onclick="closeReader()" title="Cerrar (Esc)">✕</button>
+        <button onclick="document.getElementById('modal').close()" class="p-1.5 rounded-lg bg-slate-800 text-slate-400 hover:text-white font-bold text-base">&times;</button>
       </div>
 
-      <div class="modal-body">
-        <h1 class="modal-title" id="modalTitle">Título del Artículo</h1>
+      <!-- Nota de sesgo editorial -->
+      <div id="mBiasBox" class="bg-slate-950 p-3 rounded-xl border border-slate-800/80 text-xs text-amber-300/90 flex items-start gap-2">
+        <i data-lucide="shield-alert" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
+        <div id="mBiasText"></div>
+      </div>
 
-        <div class="modal-quick-box">
-          <div class="modal-quick-title">⚡ Resumen Ejecutivo en 30 Segundos</div>
-          <div id="modalQuickText" style="font-size: 0.9rem; color: #fff; line-height: 1.5;"></div>
-        </div>
+      <!-- Noticia completa en español -->
+      <div class="space-y-3 text-xs sm:text-sm leading-relaxed text-slate-200" id="mFullStory">
+        <!-- Párrafos traducidos -->
+      </div>
 
-        <div class="modal-bias-box" id="modalBiasBox">
-          <div class="modal-bias-title">🛡️ Contexto Editorial de la Fuente</div>
-          <div id="modalBiasText"></div>
-        </div>
-
-        <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent-blue); font-weight: 700; margin-top: 0.5rem;">
-          📰 Desarrollo Completo Traducido al Español:
-        </div>
-
-        <div class="modal-story" id="modalStory">
-          <!-- Párrafos traducidos -->
-        </div>
-
-        <div class="modal-original-accordion">
-          <button class="modal-original-btn" onclick="toggleModalOriginal()">
-            <span>🔄</span> <strong>Contrastar con el texto original</strong> (<span id="modalOrigLang"></span>)
+      <!-- Pie de modal -->
+      <div class="flex items-center justify-between pt-3 border-t border-slate-800 text-xs">
+        <div class="flex items-center gap-2">
+          <button id="mBookmarkBtn" class="px-3 py-1.5 rounded-xl bg-slate-800 text-slate-300 hover:bg-slate-700 flex items-center gap-1.5 font-semibold">
+            <i data-lucide="star" class="w-3.5 h-3.5"></i>
+            <span id="mBookmarkLabel">Guardar</span>
           </button>
-          <div class="modal-original-content" id="modalOrigContent">
-            <h4 id="modalOrigTitle" style="margin-bottom: 0.5rem; color: #fff;"></h4>
-            <div id="modalOrigBody"></div>
-          </div>
         </div>
-      </div>
-
-      <div class="modal-footer">
-        <span id="modalPublished" style="font-size: 0.75rem; color: var(--text-dim);"></span>
-        <a id="modalExternalLink" href="#" target="_blank" rel="noopener noreferrer" class="btn-external-source">
-          <span>Visitar noticia original en el medio</span> ↗
+        <a id="mLink" href="#" target="_blank" class="px-3.5 py-1.5 rounded-xl bg-slate-800 text-slate-400 hover:text-slate-200 flex items-center gap-1.5">
+          <span>Fuente original</span>
+          <i data-lucide="external-link" class="w-3 h-3"></i>
         </a>
       </div>
     </div>
-  </div>
+  </dialog>
 
-  <footer>
-    <p>Monitor de la Guerra Rusia-Ucrania — Noticias y análisis traducidos al español con lector detallado.</p>
-    <p style="margin-top: 0.35rem; color: #475569;">Fuentes monitorizadas: The Kyiv Independent, Ukrainska Pravda, Ukrinform, Meduza, The Moscow Times, Novaya Gazeta, TASS, RIA Novosti, ISW y BBC.</p>
-  </footer>
-
-  <script id="articles-data" type="application/json">
-{articles_json_str}
-  </script>
-  <script id="perspectives-data" type="application/json">
-{perspectives_json_str}
-  </script>
+  <!-- SCRIPTS Y DATOS -->
+  <script id="daily-data" type="application/json">{daily_json_str}</script>
+  <script id="historic-data" type="application/json">{historic_json_str}</script>
+  <script id="perspectives-data" type="application/json">{perspectives_json_str}</script>
 
   <script>
-    const articles = JSON.parse(document.getElementById('articles-data').textContent);
-    const perspectives = JSON.parse(document.getElementById('perspectives-data').textContent);
+    const DAILY_ARTICLES = JSON.parse(document.getElementById('daily-data').textContent);
+    const HISTORIC_ARTICLES = JSON.parse(document.getElementById('historic-data').textContent);
+    const PERSPECTIVES = JSON.parse(document.getElementById('perspectives-data').textContent);
 
-    let activePerspective = 'all';
-    let activeCategory = 'all';
-    let searchTerm = '';
+    let activeTab = 'today'; // 'today' | 'archive'
+    let currentPersp = 'all';
+    let currentCat = 'all';
+    let searchQuery = '';
+    let onlySaved = false;
+    let savedIds = new Set(JSON.parse(localStorage.getItem('war_monitor_saved') || '[]'));
 
-    function formatTimeAgo(isoString) {{
-      try {{
-        const diffSec = Math.floor((new Date() - new Date(isoString)) / 1000);
-        if (diffSec < 60) return 'Hace un momento';
-        const mins = Math.floor(diffSec / 60);
-        if (mins < 60) return `Hace ${{mins}}m`;
-        const hours = Math.floor(mins / 60);
-        if (hours < 24) return `Hace ${{hours}}h`;
-        const days = Math.floor(hours / 24);
-        return `Hace ${{days}}d`;
-      }} catch (e) {{
-        return '';
-      }}
+    function getDataset() {{
+      return activeTab === 'today' ? DAILY_ARTICLES : HISTORIC_ARTICLES;
     }}
 
-    function renderExecutiveBrief() {{
-      const container = document.getElementById('executive-brief-container');
-      const sampleByPersp = {{
-        'ukraine': {{ label: '🇺🇦 Posición / Terreno Ucrania', art: null, class: 'ukraine' }},
-        'russia_independent': {{ label: '🕊️ Análisis Ruso No Censurado', art: null, class: 'russia-ind' }},
-        'russia_official': {{ label: '🇷🇺 Comunicado Oficial Kremlin', art: null, class: 'russia-off' }},
-        'international': {{ label: '🌐 Evaluación Estratégica ISW / Global', art: null, class: 'intl' }}
-      }};
+    function render() {{
+      document.getElementById('savedCount').textContent = savedIds.size;
+      const data = getDataset();
 
-      articles.forEach(a => {{
-        if (sampleByPersp[a.perspective] && !sampleByPersp[a.perspective].art) {{
-          sampleByPersp[a.perspective].art = a;
+      let filtered = data.filter(a => {{
+        if (onlySaved && !savedIds.has(a.id)) return false;
+        if (currentPersp !== 'all' && a.perspective !== currentPersp) return false;
+        if (currentCat !== 'all' && a.category !== currentCat) return false;
+
+        if (searchQuery.trim()) {{
+          const q = searchQuery.toLowerCase();
+          const full = `${{a.title_es || ''}} ${{a.text_es || ''}} ${{a.source_name || ''}}`.toLowerCase();
+          if (!full.includes(q)) return false;
         }}
+        return true;
       }});
 
-      let html = '';
-      Object.keys(sampleByPersp).forEach(k => {{
-        const item = sampleByPersp[k];
-        if (item.art) {{
-          const text = item.art.quick_summary || item.art.summary_es || item.art.title_es;
-          html += `
-            <div class="brief-col ${{item.class}}" onclick="openReader('${{item.art.id}}')">
-              <div class="brief-col-title">${{item.label}}</div>
-              <div class="brief-col-text"><strong>${{item.art.title_es}}</strong>: ${{text}}</div>
-            </div>
-          `;
-        }}
-      }});
-      container.innerHTML = html;
-    }}
+      const modeLabel = activeTab === 'today' ? 'Edición de Hoy' : 'Hemeroteca Histórica';
+      document.getElementById('tabModeIndicator').textContent = `${{modeLabel}}:`;
+      document.getElementById('resultsCount').textContent = `${{filtered.length}} ${{filtered.length === 1 ? 'noticia' : 'noticias'}}`;
 
-    function renderArticles() {{
-      const grid = document.getElementById('newsGrid');
-      const filtered = articles.filter(a => {{
-        const matchPersp = (activePerspective === 'all' || a.perspective === activePerspective);
-        const matchCat = (activeCategory === 'all' || (a.categories && a.categories.includes(activeCategory)));
-        const q = searchTerm.toLowerCase().trim();
-        const matchSearch = !q || 
-          (a.title_es && a.title_es.toLowerCase().includes(q)) ||
-          (a.summary_es && a.summary_es.toLowerCase().includes(q)) ||
-          (a.title_original && a.title_original.toLowerCase().includes(q)) ||
-          (a.source_name && a.source_name.toLowerCase().includes(q));
-        return matchPersp && matchCat && matchSearch;
-      }});
-
-      document.getElementById('articlesCount').textContent = filtered.length;
-
+      const grid = document.getElementById('cardsGrid');
       if (filtered.length === 0) {{
-        grid.innerHTML = `
-          <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 1rem; color: var(--text-dim);">
-            <p style="font-size: 1.25rem; font-weight: 600;">No se encontraron noticias con estos criterios.</p>
-            <p style="margin-top: 0.5rem;">Prueba con otra palabra clave o restablece los filtros.</p>
-          </div>
-        `;
+        grid.innerHTML = '<div class="col-span-2 p-12 text-center text-slate-500 text-sm">No se encontraron noticias con los criterios seleccionados.</div>';
         return;
       }}
 
       grid.innerHTML = filtered.map(a => {{
-        const pInfo = perspectives[a.perspective] || {{ name: a.perspective, icon: '📰', badge_class: 'badge-intl' }};
-        const timeAgo = formatTimeAgo(a.published);
-        const quickSummary = a.quick_summary || a.summary_es || 'Sin resumen disponible.';
-        const langNames = {{ 'ru': '🇷🇺 Ruso', 'uk': '🇺🇦 Ucraniano', 'en': '🇬🇧 Inglés', 'es': '🇪🇸 Español' }};
-        const origLang = langNames[a.language] || a.language.toUpperCase();
+        const isSaved = savedIds.has(a.id);
+        const pInfo = PERSPECTIVES[a.perspective] || {{ name: a.perspective, icon: '📰', badge_class: 'badge-intl' }};
+        const title = a.title_es || a.title_original;
+        const bodyText = a.text_es || a.text_original || '';
+        
+        // Párrafos para la tarjeta
+        const paragraphs = bodyText.split('\\n\\n').filter(p => p.trim());
+        const firstParagraph = paragraphs[0] || 'Información no disponible.';
+        const secondParagraph = paragraphs[1] || '';
+        const hasMore = paragraphs.length > 2;
+
+        const langBadge = a.language === 'ru' ? '🇷🇺 Ruso' : (a.language === 'uk' ? '🇺🇦 Ucraniano' : '🇬🇧 Inglés');
+        const dateTag = a.date_added ? a.date_added : (a.published ? a.published.substring(0, 10) : '');
+
+        let catBadge = '';
+        if (a.category === 'frente') catBadge = '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-rose-500/10 text-rose-400 border border-rose-500/20">💥 Frente</span>';
+        else if (a.category === 'drones') catBadge = '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-purple-500/10 text-purple-400 border border-purple-500/20">🛰️ Drones</span>';
+        else if (a.category === 'armamento') catBadge = '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20">🛡️ Armas</span>';
+        else if (a.category === 'diplomacia') catBadge = '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">🤝 Diplomacia</span>';
+        else if (a.category === 'economia') catBadge = '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">📉 Sanciones</span>';
 
         return `
-          <article class="card" onclick="openReader('${{a.id}}')">
-            <div class="card-meta">
-              <span class="badge-perspective ${{pInfo.badge_class}}">${{pInfo.icon}} ${{pInfo.short_name || pInfo.name}}</span>
-              <span class="badge-lang">Traducido del ${{origLang}}</span>
-              <span class="source-name" title="${{a.bias_note || a.source_name}}">${{a.source_name}}</span>
+          <article class="p-4 sm:p-5 rounded-2xl bg-slate-900/85 border border-slate-800 flex flex-col justify-between gap-3 hover:border-slate-700 transition shadow-lg shadow-black/40">
+            <div class="space-y-2.5">
+              <!-- Meta encabezado -->
+              <div class="flex items-center justify-between text-xs gap-2 flex-wrap">
+                <div class="flex items-center gap-1.5 truncate">
+                  <span class="font-bold text-slate-300 bg-slate-800 px-2 py-0.5 rounded text-[11px] truncate max-w-[140px]">${{a.source_name}}</span>
+                  <span class="text-[10px] text-slate-500 font-mono">${{langBadge}}</span>
+                  ${{catBadge}}
+                </div>
+                <div class="flex items-center gap-1 text-[11px] text-slate-500 font-mono">
+                  <i data-lucide="calendar" class="w-3 h-3"></i>
+                  <span>${{dateTag}}</span>
+                </div>
+              </div>
+
+              <!-- Título en español -->
+              <h3 class="text-sm sm:text-base font-bold text-white hover:text-sky-300 transition leading-snug cursor-pointer" onclick="openModal('${{a.id}}')">
+                ${{title}}
+              </h3>
+
+              <!-- NOTICIA COMPLETA TRADUCIDA EN ESPAÑOL -->
+              <div class="text-xs sm:text-sm text-slate-300 leading-relaxed space-y-2">
+                <p>${{firstParagraph}}</p>
+                ${{secondParagraph ? `<p>${{secondParagraph}}</p>` : ''}}
+                ${{hasMore ? `<button onclick="openModal('${{a.id}}')" class="text-xs font-semibold text-sky-400 hover:text-sky-300 flex items-center gap-1 pt-1"><span>Leer resto del artículo completo (${{paragraphs.length}} párrafos)...</span> <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i></button>` : ''}}
+              </div>
             </div>
 
-            <h2 class="card-title">${{a.title_es}}</h2>
-
-            <div class="quick-read-box">
-              <div class="quick-read-label">⚡ Resumen en Español (30 seg)</div>
-              <div class="quick-read-text">${{quickSummary}}</div>
-            </div>
-
-            <div class="card-actions">
-              <button class="btn-read-detail" onclick="openReader('${{a.id}}'); event.stopPropagation();">
-                📖 Leer artículo completo en español
+            <!-- Pie de tarjeta -->
+            <div class="flex items-center justify-between pt-2.5 border-t border-slate-800/80 text-xs">
+              <button onclick="toggleSave('${{a.id}}')" class="p-1 rounded text-slate-400 hover:text-amber-400 transition flex items-center gap-1 ${{isSaved ? 'text-amber-400 font-bold' : ''}}">
+                <i data-lucide="star" class="w-3.5 h-3.5 ${{isSaved ? 'fill-amber-400 text-amber-400' : ''}}"></i>
+                <span class="text-[11px]">${{isSaved ? 'Guardado' : 'Guardar'}}</span>
               </button>
-              <span class="source-link">
-                ${{timeAgo}}
-              </span>
+
+              <div class="flex items-center gap-2">
+                <button onclick="openModal('${{a.id}}')" class="px-3 py-1.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-semibold transition text-xs shadow-md shadow-sky-600/20">
+                  Leer en lector
+                </button>
+                <a href="${{a.link}}" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 rounded-xl bg-slate-800 text-slate-400 hover:text-slate-200 text-xs transition" title="Abrir fuente original externa">
+                  Fuente ↗
+                </a>
+              </div>
             </div>
           </article>
         `;
       }}).join('');
+
+      if (window.lucide) window.lucide.createIcons();
     }}
 
-    // MODAL READER LOGIC
-    function openReader(articleId) {{
-      const a = articles.find(x => x.id === articleId);
+    function toggleSave(id) {{
+      if (savedIds.has(id)) savedIds.delete(id);
+      else savedIds.add(id);
+      localStorage.setItem('war_monitor_saved', JSON.stringify(Array.from(savedIds)));
+      render();
+    }}
+
+    function openModal(id) {{
+      const data = getDataset();
+      const a = data.find(x => x.id === id) || DAILY_ARTICLES.find(x => x.id === id) || HISTORIC_ARTICLES.find(x => x.id === id);
       if (!a) return;
 
-      const pInfo = perspectives[a.perspective] || {{ name: a.perspective, icon: '📰', badge_class: 'badge-intl' }};
-      const langNames = {{ 'ru': '🇷🇺 Ruso', 'uk': '🇺🇦 Ucraniano', 'en': '🇬🇧 Inglés', 'es': '🇪🇸 Español' }};
-      const origLang = langNames[a.language] || a.language.toUpperCase();
+      const pInfo = PERSPECTIVES[a.perspective] || {{ name: a.perspective }};
+      const langBadge = a.language === 'ru' ? '🇷🇺 Ruso' : (a.language === 'uk' ? '🇺🇦 Ucraniano' : '🇬🇧 Inglés');
 
-      document.getElementById('modalMeta').innerHTML = `
-        <span class="badge-perspective ${{pInfo.badge_class}}">${{pInfo.icon}} ${{pInfo.short_name || pInfo.name}}</span>
-        <span class="badge-lang">Traducido del ${{origLang}}</span>
-        <span class="source-name">${{a.source_name}}</span>
+      document.getElementById('mBadges').innerHTML = `
+        <span class="bg-sky-500/20 text-sky-300 font-bold px-2 py-0.5 rounded">${{a.source_name}}</span>
+        <span class="bg-slate-800 text-slate-400 px-2 py-0.5 rounded">Traducido del ${{langBadge}}</span>
+        <span class="text-slate-500 text-[11px]">${{a.published ? a.published.substring(0, 10) : ''}}</span>
       `;
 
-      document.getElementById('modalTitle').textContent = a.title_es;
-      document.getElementById('modalQuickText').textContent = a.quick_summary || a.summary_es || a.title_es;
-      document.getElementById('modalBiasText').textContent = a.bias_note || 'Fuente informativa internacional.';
+      document.getElementById('mTitle').textContent = a.title_es || a.title_original;
+      document.getElementById('mBiasText').textContent = a.bias_note || 'Fuente periodística en zona de conflicto.';
 
-      // Formatear párrafos del desarrollo en español
-      const storyContainer = document.getElementById('modalStory');
-      const textToUse = a.summary_es || a.quick_summary || 'Información no disponible.';
-      const paragraphs = textToUse.split('\\n\\n').filter(p => p.trim());
-      storyContainer.innerHTML = paragraphs.map(p => `<p>${{p}}</p>`).join('');
+      // Párrafos completos traducidos
+      const paragraphs = (a.text_es || a.text_original || '').split('\\n\\n').filter(p => p.trim());
+      document.getElementById('mFullStory').innerHTML = paragraphs.map(p => `<p class="leading-relaxed">${{p}}</p>`).join('');
 
-      // Texto original
-      document.getElementById('modalOrigLang').textContent = origLang;
-      document.getElementById('modalOrigTitle').textContent = a.title_original;
-      document.getElementById('modalOrigBody').innerHTML = (a.summary_original || a.title_original).split('\\n\\n').map(p => `<p>${{p}}</p>`).join('');
-      document.getElementById('modalOrigContent').classList.remove('open');
+      document.getElementById('mLink').href = a.link;
 
-      // Footer
-      document.getElementById('modalPublished').textContent = 'Publicado: ' + new Date(a.published).toLocaleString('es-ES');
-      document.getElementById('modalExternalLink').href = a.link;
+      const isSaved = savedIds.has(a.id);
+      document.getElementById('mBookmarkLabel').textContent = isSaved ? 'Guardado' : 'Guardar';
+      document.getElementById('mBookmarkBtn').onclick = () => {{
+        toggleSave(a.id);
+        const nowSaved = savedIds.has(a.id);
+        document.getElementById('mBookmarkLabel').textContent = nowSaved ? 'Guardado' : 'Guardar';
+      }};
 
-      // Abrir modal
-      const modal = document.getElementById('readerModal');
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
+      document.getElementById('modal').showModal();
+      if (window.lucide) window.lucide.createIcons();
     }}
 
-    function closeReader() {{
-      const modal = document.getElementById('readerModal');
-      modal.classList.remove('active');
-      document.body.style.overflow = 'auto';
-    }}
+    // Pestañas Hoy vs Hemeroteca
+    const tabTodayBtn = document.getElementById('tabTodayBtn');
+    const tabArchiveBtn = document.getElementById('tabArchiveBtn');
 
-    function toggleModalOriginal() {{
-      const el = document.getElementById('modalOrigContent');
-      el.classList.toggle('open');
-    }}
+    tabTodayBtn.onclick = () => {{
+      activeTab = 'today';
+      tabTodayBtn.className = "flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl font-bold transition bg-sky-600 text-white shadow-md shadow-sky-600/20";
+      tabArchiveBtn.className = "flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl font-semibold transition text-slate-400 hover:text-slate-200";
+      render();
+    }};
 
-    // Cerrar modal al hacer clic en overlay o con tecla ESC
-    document.getElementById('readerModal').addEventListener('click', (e) => {{
-      if (e.target.id === 'readerModal') {{
-        closeReader();
-      }}
+    tabArchiveBtn.onclick = () => {{
+      activeTab = 'archive';
+      tabArchiveBtn.className = "flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl font-bold transition bg-sky-600 text-white shadow-md shadow-sky-600/20";
+      tabTodayBtn.className = "flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl font-semibold transition text-slate-400 hover:text-slate-200";
+      render();
+    }};
+
+    // Filtro Guardados
+    document.getElementById('savedFilterBtn').onclick = () => {{
+      onlySaved = !onlySaved;
+      document.getElementById('savedFilterBtn').classList.toggle('bg-amber-500/20', onlySaved);
+      document.getElementById('savedFilterBtn').classList.toggle('text-amber-300', onlySaved);
+      render();
+    }};
+
+    // Filtros por Perspectiva
+    document.querySelectorAll('.persp-pill').forEach(btn => {{
+      btn.onclick = () => {{
+        document.querySelectorAll('.persp-pill').forEach(b => {{
+          b.classList.remove('active', 'bg-sky-600/20', 'text-sky-300', 'border-sky-500/30');
+          b.classList.add('bg-slate-900', 'text-slate-400', 'border-slate-800');
+        }});
+        btn.classList.add('active', 'bg-sky-600/20', 'text-sky-300', 'border-sky-500/30');
+        btn.classList.remove('bg-slate-900', 'text-slate-400', 'border-slate-800');
+        currentPersp = btn.dataset.persp;
+        render();
+      }};
     }});
 
-    document.addEventListener('keydown', (e) => {{
-      if (e.key === 'Escape') {{
-        closeReader();
-      }}
+    // Filtros por Categoría
+    document.querySelectorAll('.cat-pill').forEach(btn => {{
+      btn.onclick = () => {{
+        document.querySelectorAll('.cat-pill').forEach(b => {{
+          b.classList.remove('active', 'bg-slate-800', 'text-slate-200', 'border-slate-700');
+          b.classList.add('bg-slate-900', 'text-slate-400', 'border-slate-800');
+        }});
+        btn.classList.add('active', 'bg-slate-800', 'text-slate-200', 'border-slate-700');
+        btn.classList.remove('bg-slate-900', 'text-slate-400', 'border-slate-800');
+        currentCat = btn.dataset.cat;
+        render();
+      }};
     }});
 
-    // Event listeners filtros
-    document.querySelectorAll('#perspectiveButtons .pill-btn').forEach(btn => {{
-      btn.addEventListener('click', () => {{
-        document.querySelectorAll('#perspectiveButtons .pill-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        activePerspective = btn.getAttribute('data-perspective');
-        renderArticles();
-      }});
-    }});
-
-    document.querySelectorAll('#categoryChips .chip-btn').forEach(btn => {{
-      btn.addEventListener('click', () => {{
-        document.querySelectorAll('#categoryChips .chip-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        activeCategory = btn.getAttribute('data-category');
-        renderArticles();
-      }});
-    }});
-
+    // Búsqueda en vivo
     document.getElementById('searchInput').addEventListener('input', (e) => {{
-      searchTerm = e.target.value;
-      renderArticles();
+      searchQuery = e.target.value;
+      render();
     }});
 
-    // Inicialización
-    renderExecutiveBrief();
-    renderArticles();
+    // Inicializar
+    render();
   </script>
 </body>
 </html>
@@ -1282,12 +760,12 @@ def generate_html(articles, perspectives, last_updated):
     print(f"[OK] Sitio HTML generado exitosamente en: {OUTPUT_HTML}")
 
 def main():
-    print("=" * 60)
-    print(" Monitor de Guerra Rusia-Ucrania — Compilador & Traductor ")
-    print("=" * 60)
+    print("=" * 65)
+    print(" Monitor Rusia-Ucrania — Priorización por Relevancia & Texto Completo ")
+    print("=" * 65)
 
     if not os.path.exists(CONFIG_FILE):
-        print(f"[ERROR] Archivo de configuración no encontrado: {CONFIG_FILE}")
+        print(f"[ERROR] Archivo no encontrado: {CONFIG_FILE}")
         return
 
     with open(CONFIG_FILE, "r", encoding="utf-8") as f:
@@ -1295,138 +773,45 @@ def main():
 
     feeds = config.get("feeds", [])
     perspectives = config.get("perspectives", {})
-    settings = config.get("settings", {})
-    max_new_translations = settings.get("max_new_translations_per_run", 35)
-    request_delay = settings.get("request_delay_seconds", 0.25)
-    war_filter = settings.get("filter_general_feeds_by_war_keywords", True)
 
     print(f"[*] Consultando {len(feeds)} fuentes estratégicas de información...")
-    all_articles = []
-    with ThreadPoolExecutor(max_workers=8) as executor:
-        futures = [executor.submit(fetch_feed_articles, f, war_filter) for f in feeds]
+    all_candidates = []
+    with ThreadPoolExecutor(max_workers=8) as ex:
+        futures = [ex.submit(fetch_feed, f) for f in feeds]
         for fut in futures:
             try:
                 res = fut.result()
-                all_articles.extend(res)
+                all_candidates.extend(res)
             except Exception as e:
-                print(f"[WARN] Error en hilo de feed: {e}")
+                print(f"[WARN] Error en feed: {e}")
 
-    print(f"[*] Total de artículos recopilados: {len(all_articles)}")
+    print(f"[*] Total de candidatos relevantes evaluados: {len(all_candidates)}")
 
-    # Deduplicación por título normalizado
-    seen_titles = set()
+    # Deduplicar por título normalizado
+    seen = set()
     deduped = []
-    for a in all_articles:
-        norm = re.sub(r"[^a-zA-Z0-9\u0400-\u04FF]", "", a["title_original"].lower())[:40]
-        if norm and norm not in seen_titles:
-            seen_titles.add(norm)
+    for a in all_candidates:
+        norm = re.sub(r"[^a-zA-Z0-9\u0400-\u04FF]", "", a["title_original"].lower())[:45]
+        if norm and norm not in seen:
+            seen.add(norm)
             deduped.append(a)
 
-    # Ordenar por fecha de publicación descendente
-    deduped.sort(key=lambda x: x["published"], reverse=True)
-    print(f"[*] Artículos únicos tras deduplicar: {len(deduped)}")
+    print(f"[*] Candidatos únicos filtrados sin ruido ni baja relevancia: {len(deduped)}")
 
-    # Cargar caché de traducciones
-    translations = {}
-    if os.path.exists(TRANSLATIONS_FILE):
-        try:
-            with open(TRANSLATIONS_FILE, "r", encoding="utf-8") as f:
-                translations = json.load(f)
-            print(f"[*] Caché cargada: {len(translations)} traducciones existentes.")
-        except Exception as e:
-            print(f"[WARN] No se pudo leer caché previa: {e}")
+    # Seleccionar Top diario (hasta 10 por perspectiva, ~35-40 de alta relevancia)
+    daily_selected = select_daily_top_articles(deduped, max_per_perspective=10)
+    print(f"[*] Seleccionados para la Edición de Hoy: {len(daily_selected)} artículos de máxima relevancia.")
 
-    # Identificar noticias pendientes de traducción agrupadas por perspectiva
-    by_perspective = {}
-    for a in deduped:
-        art_id = a["id"]
-        if a["language"] == "es":
-            a["title_es"] = a["title_original"]
-            a["summary_es"] = a["summary_original"]
-            a["quick_summary"] = generate_quick_summary(a["summary_original"] or a["title_original"])
-            a["is_translated"] = True
-        elif art_id in translations:
-            cached = translations[art_id]
-            a["title_es"] = cached.get("title_es", a["title_original"])
-            a["summary_es"] = cached.get("summary_es", a["summary_original"])
-            a["quick_summary"] = cached.get("quick_summary", generate_quick_summary(a["summary_es"]))
-            a["is_translated"] = True
-        else:
-            a["is_translated"] = False
-            p = a["perspective"]
-            if p not in by_perspective:
-                by_perspective[p] = []
-            by_perspective[p].append(a)
+    # Traducir texto completo y archivar en articulos_texto/ e historico_noticias.json
+    daily_articles, historic_articles = update_historico_and_translate(daily_selected)
 
-    # Distribuir el cupo equitativamente entre perspectivas para máxima diversidad
-    queue = []
-    persp_keys = list(by_perspective.keys())
-    while len(queue) < max_new_translations and any(by_perspective.values()):
-        added_in_round = False
-        for p in persp_keys:
-            if by_perspective[p] and len(queue) < max_new_translations:
-                queue.append(by_perspective[p].pop(0))
-                added_in_round = True
-        if not added_in_round:
-            break
-
-    if queue:
-        print(f"[*] Traduciendo {len(queue)} artículos nuevos balanceados por perspectiva (límite: {max_new_translations})...")
-        for i, a in enumerate(queue, 1):
-            t_title = translate_single_chunk(a["title_original"], max_len=300)
-            t_summary = translate_to_es(a["summary_original"], max_paragraphs=4)
-            q_sum = generate_quick_summary(t_summary or t_title)
-
-            a["title_es"] = t_title
-            a["summary_es"] = t_summary
-            a["quick_summary"] = q_sum
-            a["is_translated"] = True
-
-            translations[a["id"]] = {
-                "title_es": t_title,
-                "summary_es": t_summary,
-                "quick_summary": q_sum
-            }
-            time.sleep(request_delay)
-
-            if i % 10 == 0 or i == len(queue):
-                print(f"    -> {i}/{len(queue)} traducidos...")
-
-        try:
-            with open(TRANSLATIONS_FILE, "w", encoding="utf-8") as f:
-                json.dump(translations, f, ensure_ascii=False, indent=2)
-            print(f"[OK] Caché de traducciones actualizada con {len(translations)} entradas.")
-        except Exception as e:
-            print(f"[WARN] Error guardando caché: {e}")
-    else:
-        print("[*] No hay artículos nuevos pendientes de traducción en el cupo actual.")
-
-    # Asignar valores por defecto a los artículos restantes no traducidos en esta pasada
-    for a in deduped:
-        if not a.get("is_translated", False):
-            a["title_es"] = a["title_original"]
-            a["summary_es"] = a["summary_original"]
-            a["quick_summary"] = generate_quick_summary(a["summary_original"] or a["title_original"])
-            a["is_translated"] = False
-
-    # FILTRO DE VISUALIZACIÓN:
-    # Para la web, mostramos EXCLUSIVAMENTE artículos traducidos al español.
-    # Ningún artículo en cirílico o sin traducir se muestra en el feed principal.
-    translated_articles = [a for a in deduped if a.get("is_translated", False)]
-    print(f"[*] Total de artículos verificados y traducidos al español para la web: {len(translated_articles)}")
-
-    # Guardar base de datos en JSON con artículos traducidos
-    os.makedirs(os.path.dirname(CACHE_FILE), exist_ok=True)
-    with open(CACHE_FILE, "w", encoding="utf-8") as f:
-        json.dump(translated_articles, f, ensure_ascii=False, indent=2)
-    print(f"[OK] Base de datos guardada en: {CACHE_FILE}")
-
-    # Generar sitio web estático garantizando 100% contenido en español
+    # Generar sitio web estático
     now_str = datetime.now().strftime("%d/%m/%Y %H:%M")
-    generate_html(translated_articles, perspectives, now_str)
-    print("=" * 60)
-    print(" ¡Proceso completado con éxito! ")
-    print("=" * 60)
+    generate_html_site(daily_articles, historic_articles, perspectives, now_str)
+
+    print("=" * 65)
+    print(" ¡Compilación completada con éxito! ")
+    print("=" * 65)
 
 if __name__ == "__main__":
     main()

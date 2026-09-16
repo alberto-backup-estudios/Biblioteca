@@ -1,0 +1,38 @@
+# Muere el general ruso que supervisó la captura de Kostiantynivka en Ucrania
+
+- **Fecha de publicación:** 2026-09-16T10:36:00+00:00
+- **Fuente:** The Moscow Times
+- **Perspectiva:** russia_independent
+- **Idioma original:** EN
+- **Enlace a la fuente original:** https://www.themoscowtimes.com/2026/09/16/russian-general-who-oversaw-capture-of-ukraines-kostiantynivka-dies-a93722
+- **Contexto editorial:** Diario ruso independiente en el exilio crítico con las políticas de Putin.
+
+---
+
+## Noticia Completa en Español:
+
+Un comandante militar a quien el presidente Vladimir Putin recientemente otorgó el más alto honor estatal de Rusia por la captura de la ciudad de Kostiantynivka, en el este de Ucrania, murió, dijeron el miércoles funcionarios militares rusos y ucranianos.
+
+El general de división Apti Alaudinov, que se desempeña como subjefe del brazo ideológico del Ministerio de Defensa y comandante de las fuerzas especiales de Akhmat, dijo que el general de división Anton Grunis “pasó a otro mundo” en una breve publicación en Telegram.
+
+"Nos dejó como un héroe que cumplió con su deber sagrado", dijo Alaudinov sin especificar cuándo murió Grunis ni las circunstancias de su muerte.
+
+El comandante de las Fuerzas de Sistemas No Tripulados de Ucrania, Robert “Madyar” Brovdi, afirmó más tarde que Grunis fue “eliminado” en una incursión nocturna en la región oriental de Donetsk el 12 de septiembre.
+
+El Moscow Times no pudo verificar de forma independiente la afirmación.
+
+---
+
+## Texto Original (EN):
+
+### Russian General Who Oversaw Capture of Ukraine’s Kostiantynivka Dies
+
+A military commander who President Vladimir Putin recently awarded Russia’s highest state honor for the capture of the eastern Ukrainian city of Kostiantynivka has died, Russian and Ukrainian military officials said Wednesday.
+
+Major General Apti Alaudinov, who serves as serves as deputy chief of the Defense Ministry’s ideological arm and commander of the Akhmat special forces, said Major General Anton Grunis “passed on to another world” in a short post on Telegram.
+
+“He left us as a hero who carried out his sacred duty,” Alaudinov said without specifying when Grunis died or the circumstances of his death.
+
+Ukraine’s Unmanned Systems Forces commander, Robert “Madyar” Brovdi, later claimed that Grunis was “eliminated” in a nighttime raid in the eastern Donetsk region on Sept. 12.
+
+The Moscow Times could not independently verify the claim.
