@@ -636,6 +636,20 @@ def generate_html_site(daily_articles, historic_articles, perspectives, last_upd
     let onlySaved = false;
     let savedIds = new Set(JSON.parse(localStorage.getItem('war_monitor_saved') || '[]'));
 
+    function escapeHtml(str) {{
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }}
+
+    function getParagraphs(text) {{
+      if (!text) return [];
+      return text.split(/\\r?\\n\\r?\\n/).map(p => p.trim()).filter(Boolean);
+    }}
+
     function getDataset() {{
       return activeTab === 'today' ? DAILY_ARTICLES : HISTORIC_ARTICLES;
     }}
@@ -674,7 +688,7 @@ def generate_html_site(daily_articles, historic_articles, perspectives, last_upd
         const bodyText = a.text_es || a.text_original || '';
         
         // Párrafos para la tarjeta
-        const paragraphs = bodyText.split('\n\n').filter(p => p.trim());
+        const paragraphs = getParagraphs(bodyText);
         const firstParagraph = paragraphs[0] || 'Información no disponible.';
         const secondParagraph = paragraphs[1] || '';
         const hasMore = paragraphs.length > 2;
@@ -766,11 +780,11 @@ def generate_html_site(daily_articles, historic_articles, perspectives, last_upd
       document.getElementById('mBiasText').textContent = a.bias_note || 'Fuente periodística en zona de conflicto.';
 
       // Párrafos completos traducidos
-      const paragraphs = (a.text_es || a.text_original || '').split('\n\n').filter(p => p.trim());
+      const paragraphs = getParagraphs(a.text_es || a.text_original);
       document.getElementById('mFullStory').innerHTML = paragraphs.map(p => `<p class="leading-relaxed mb-3">${{p}}</p>`).join('');
 
       // Texto original
-      const origParas = (a.text_original || '').split('\n\n').filter(p => p.trim());
+      const origParas = getParagraphs(a.text_original);
       document.getElementById('mOriginalStory').innerHTML = `
         <div class="font-bold text-slate-300 mb-1.5">${{a.title_original}}</div>
         ${{origParas.map(p => `<p class="mb-2">${{p}}</p>`).join('')}}
