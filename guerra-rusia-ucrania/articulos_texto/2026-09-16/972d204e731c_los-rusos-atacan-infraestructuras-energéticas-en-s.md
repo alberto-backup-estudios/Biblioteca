@@ -17,7 +17,7 @@ Fuente: Ukrenergo, operador estatal de transmisión de electricidad de Ucrania.
 
 Detalles: Las regiones afectadas son las provincias de Sumy, Cherkasy, Donetsk, Zaporizhzhia, Kherson y Kharkiv.
 
-"Ya se están realizando trabajos de reparación de emergencia donde las condiciones de seguridad lo permiten. Los ingenieros energéticos están trabajando para reparar los equipos dañados por las fuerzas rusas y reanudar su funcionamiento lo antes posible", dijo Ukrenergo.
+"Los trabajos de reparación de emergencia ya están en marcha siempre que las condiciones de seguridad lo permitan. Los ingenieros energéticos están trabajando para reparar los equipos dañados por las fuerzas rusas y reanudar su funcionamiento lo antes posible", dijo Ukrenergo.
 
 El consumo de electricidad ha disminuido. A las 09:30 horas del 10 de septiembre, era un 7% más bajo que el día anterior.
 

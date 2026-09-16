@@ -15,7 +15,7 @@ El Ministro de Asuntos Exteriores de Ucrania, Andrii Sybiha, ha dicho que el pla
 
 Fuente: Sybiha en X (Twitter), según lo informado por la Pravda europea
 
-Detalles: Sybiha dijo que el terrorismo ruso también amenaza a países de África, Oriente Medio y Asia.
+Detalles: Sybiha dijo que el terrorismo ruso también amenaza a países de África, Medio Oriente y Asia.
 
 Añadió que Moscú planea desestabilizar Europa mediante acciones similares.
 

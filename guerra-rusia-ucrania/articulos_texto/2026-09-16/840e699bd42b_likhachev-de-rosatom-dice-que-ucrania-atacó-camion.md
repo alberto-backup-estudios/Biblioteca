@@ -13,7 +13,7 @@
 
 El jefe de la corporación estatal de energía nuclear de Rusia acusó a Ucrania el domingo de atacar camiones de combustible diésel, matar a dos militares rusos y poner en peligro deliberadamente la seguridad en la central nuclear de Zaporizhzhia, en Ucrania, controlada por los rusos.
 
-Alexei Likhachev dijo que el ataque tuvo lugar el viernes y también provocó heridas a otros soldados rusos.
+Alexei Likhachev dijo que el ataque tuvo lugar el viernes y que también provocó heridas a otros soldados rusos.
 
 La planta de Zaporizhzhia, la más grande de Europa con seis reactores, fue capturada por las fuerzas rusas en las primeras semanas de la guerra de Ucrania que estalló en febrero de 2022. Cada parte ha acusado regularmente a la otra de acciones que ponen en peligro la seguridad de la planta y aumentan el riesgo de un accidente nuclear.
 
