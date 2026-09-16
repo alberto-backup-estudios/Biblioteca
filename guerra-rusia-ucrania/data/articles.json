@@ -1,160 +1,293 @@
 [
   {
-    "id": "0e031e781524",
-    "title_original": "WSJ: США стремятся сделать военное использование космоса привычной практикой",
-    "summary_original": "Американские чиновники также считают, что более открытое обсуждение таких возможностей может выполнять сдерживающую функцию, сообщила газета",
-    "link": "https://tass.ru/mezhdunarodnaya-panorama/28115227",
+    "id": "c491c654600b",
+    "title_original": "Пленный из ВСУ рассказал о подготовке иностранных наемников",
+    "summary_original": "",
+    "link": "https://tass.ru/armiya-i-opk/28115515",
     "source_id": "tass_ru",
     "source_name": "TASS (ТАСС)",
     "perspective": "russia_official",
     "language": "ru",
     "bias_note": "Agencia de noticias estatal de la Federación Rusa (postura oficial del Kremlin).",
-    "published": "2026-09-15T22:38:53+00:00",
+    "published": "2026-09-16T03:01:59+00:00",
     "categories": [
       "general"
     ],
     "is_translated": true,
-    "title_es": "WSJ: Estados Unidos busca hacer del uso militar del espacio una práctica común",
-    "summary_es": "Los funcionarios estadounidenses también creen que una discusión más abierta sobre tales posibilidades podría tener una función disuasoria, informó el periódico.",
-    "quick_summary": "Los funcionarios estadounidenses también creen que una discusión más abierta sobre tales posibilidades podría tener una función disuasoria, informó el periódico."
+    "title_es": "Un prisionero de las Fuerzas Armadas de Ucrania habló sobre el entrenamiento de mercenarios extranjeros.",
+    "summary_es": "",
+    "quick_summary": "Un prisionero de las Fuerzas Armadas de Ucrania habló sobre el entrenamiento de mercenarios extranjeros."
   },
   {
-    "id": "f6df0c375411",
-    "title_original": "В конгрессе США одобрили резолюцию проекта о санкциях против России",
+    "id": "f3eb7d7a306f",
+    "title_original": "Марочко: у Киева нет сил и средств нарастить группировку у харьковской Малой Волчьей",
     "summary_original": "",
-    "link": "https://ria.ru/20260916/sanktsii-2117916162.html",
+    "link": "https://tass.ru/armiya-i-opk/28115523",
+    "source_id": "tass_ru",
+    "source_name": "TASS (ТАСС)",
+    "perspective": "russia_official",
+    "language": "ru",
+    "bias_note": "Agencia de noticias estatal de la Federación Rusa (postura oficial del Kremlin).",
+    "published": "2026-09-16T03:01:21+00:00",
+    "categories": [
+      "general"
+    ],
+    "is_translated": true,
+    "title_es": "Marochko: Kiev no tiene la fuerza ni los medios para formar un grupo cerca de Malaya Volchaya en Járkov",
+    "summary_es": "",
+    "quick_summary": "Marochko: Kiev no tiene la fuerza ni los medios para formar un grupo cerca de Malaya Volchaya en Járkov"
+  },
+  {
+    "id": "c24376abf187",
+    "title_original": "Дроны \"Севера\" за ночь уничтожили 2 огневых группы ВСУ и 16 октокоптеров типа R-18",
+    "summary_original": "",
+    "link": "https://tass.ru/armiya-i-opk/28115519",
+    "source_id": "tass_ru",
+    "source_name": "TASS (ТАСС)",
+    "perspective": "russia_official",
+    "language": "ru",
+    "bias_note": "Agencia de noticias estatal de la Federación Rusa (postura oficial del Kremlin).",
+    "published": "2026-09-16T03:01:08+00:00",
+    "categories": [
+      "drones"
+    ],
+    "is_translated": true,
+    "title_es": "Los drones de Sever destruyeron durante la noche 2 grupos de fuego de las Fuerzas Armadas de Ucrania y 16 octocópteros R-18",
+    "summary_es": "",
+    "quick_summary": "Los drones de Sever destruyeron durante la noche 2 grupos de fuego de las Fuerzas Armadas de Ucrania y 16 octocópteros R-18"
+  },
+  {
+    "id": "5b770513f04b",
+    "title_original": "ПВО \"Севера\" за ночь уничтожила 116 летевших на приграничье РФ беспилотников ВСУ",
+    "summary_original": "",
+    "link": "https://tass.ru/armiya-i-opk/28115521",
+    "source_id": "tass_ru",
+    "source_name": "TASS (ТАСС)",
+    "perspective": "russia_official",
+    "language": "ru",
+    "bias_note": "Agencia de noticias estatal de la Federación Rusa (postura oficial del Kremlin).",
+    "published": "2026-09-16T03:01:01+00:00",
+    "categories": [
+      "drones"
+    ],
+    "is_translated": true,
+    "title_es": "La defensa aérea de Sever destruyó durante la noche 116 drones de las Fuerzas Armadas de Ucrania que volaban en la frontera rusa",
+    "summary_es": "",
+    "quick_summary": "La defensa aérea de Sever destruyó durante la noche 116 drones de las Fuerzas Armadas de Ucrania que volaban en la frontera rusa"
+  },
+  {
+    "id": "4a18edfb52b0",
+    "title_original": "Анатомия конфликта. Как украинские силовики дошли до перестрелки в центре Киева",
+    "summary_original": "Руслан Панкратов — о том, в каком разрезе можно исследовать отдельный эпизод войны украинских силовых ведомств",
+    "link": "https://tass.ru/opinions/28114499",
+    "source_id": "tass_ru",
+    "source_name": "TASS (ТАСС)",
+    "perspective": "russia_official",
+    "language": "ru",
+    "bias_note": "Agencia de noticias estatal de la Federación Rusa (postura oficial del Kremlin).",
+    "published": "2026-09-16T03:00:01+00:00",
+    "categories": [
+      "general"
+    ],
+    "is_translated": true,
+    "title_es": "Anatomía del conflicto. Cómo las fuerzas de seguridad ucranianas terminaron en un tiroteo en el centro de Kiev",
+    "summary_es": "Ruslan Pankratov: sobre el contexto en el que es posible estudiar un episodio separado de la guerra de las fuerzas del orden ucranianas",
+    "quick_summary": "Ruslan Pankratov: sobre el contexto en el que es posible estudiar un episodio separado de la guerra de las fuerzas del orden ucranianas"
+  },
+  {
+    "id": "509e7f408b41",
+    "title_original": "Гаазький трибунал виносить вирок експрезиденту Косова за воєнні злочини",
+    "summary_original": "У середу Спеціальний трибунал щодо воєнних злочинів у Косові винесе вирок колишньому президенту Хашиму Тачі та ще трьом екскомандирам, яких звинувачують у вбивствах і тортурах під час збройного конфлікту із Сербією у 1998-1999 роках.\n\nДжерело: Reuters\n\nДеталі: Прокурори просять призначити 58-річному Тачі та його соратникам по Армії визволення Косова (АВК) покарання у вигляді 45 років позбавлення волі. Усі четверо підсудних категорично відкидають висунуті звинувачення.\n\nЗа даними обвинувачення, під час бойових дій сили АВК розправлялися з політичними опонентами та людьми, яких вважали колаборантами. Прокурори стверджують, що екскомандири несуть відповідальність за вбивство понад 100 людей.\n\nАдвокати Тачі стверджують, що звинувачення є безпідставними та фактично зводяться до спроби переписати історію. Вони зазначають, що немає жодних доказів, які б безпосередньо пов'язували Тачі з будь-яким із імовірних злочинів або дозволяли б зробити висновок, що він контролював інших командирів АВК.\n\nСудовий процес викликав значний резонанс на Балканах. Наслідки війни та проголошення незалежності Косова у 2008 році досі залишаються гострим джерелом напруги між Приштиною та Белградом.\n\nДля більшості косовських албанців Тачі та бійці АВК є національними героями, які вибороли свободу.\n\nНапередодні оголошення вироку у багатьох містах Косова встановили великі екрани зі зворотним відліком часу, а на головних вулицях масово вивісили прапори Армії визволення Косова.\n\nЧерез високу ймовірність масових заворушень місцева поліція разом із міжнародними миротворчими силами вжила безпрецедентних заходів безпеки, готуючись до сплесків насильства.\n\nСША та низка європейських дипломатичних представництв закликали своїх громадян уникати будь-яких скупчень людей у Косові.\n\nДовідково: Армія визволення Косова, яка складалася з етнічних албанців, вела партизанську війну проти сербських сил, підконтрольних тодішньому лідеру Югославії Слободану Мілошевичу.\n\nВійна супроводжувалася масовими етнічними чистк...",
+    "link": "https://www.pravda.com.ua/news/2026/09/16/8053633/",
+    "source_id": "ukrainska_pravda_ukr",
+    "source_name": "Ukrainska Pravda (UKR)",
+    "perspective": "ukraine",
+    "language": "uk",
+    "bias_note": "Edición original en ucraniano con actualización continua.",
+    "published": "2026-09-16T02:52:00+00:00",
+    "categories": [
+      "general"
+    ],
+    "is_translated": true,
+    "title_es": "El Tribunal de La Haya condena al expresidente de Kosovo por crímenes de guerra",
+    "summary_es": "El miércoles, el Tribunal Especial para Crímenes de Guerra de Kosovo sentenciará al ex presidente Hashim Thaci y a otros tres ex comandantes acusados ​​de asesinato y tortura durante el conflicto armado de 1998-1999 con Serbia.\n\nFuente: Reuters\n\nDetalles: Los fiscales piden que Thaci, de 58 años, y sus asociados del Ejército de Liberación de Kosovo (ELK) sean condenados a 45 años de prisión. Los cuatro acusados ​​niegan categóricamente los cargos.\n\nSegún la acusación, durante las hostilidades las fuerzas del AVK se enfrentaron a opositores políticos y a personas que consideraban colaboracionistas. Los fiscales afirman que los excomandantes son responsables de la muerte de más de 100 personas.",
+    "quick_summary": "El miércoles, el Tribunal Especial para Crímenes de Guerra de Kosovo sentenciará al ex presidente Hashim Thaci y a otros tres ex comandantes acusados ​​de asesinato y tortura duran..."
+  },
+  {
+    "id": "43744c661b1d",
+    "title_original": "В Конгрессе США приняли резолюцию с требованием прекратить войну с Ираном",
+    "summary_original": "Документ не имеет юридической силы и носит рекомендательный характер",
+    "link": "https://tass.ru/mezhdunarodnaya-panorama/28115489",
+    "source_id": "tass_ru",
+    "source_name": "TASS (ТАСС)",
+    "perspective": "russia_official",
+    "language": "ru",
+    "bias_note": "Agencia de noticias estatal de la Federación Rusa (postura oficial del Kremlin).",
+    "published": "2026-09-16T02:43:45+00:00",
+    "categories": [
+      "general"
+    ],
+    "is_translated": true,
+    "title_es": "El Congreso de Estados Unidos aprobó una resolución exigiendo el fin de la guerra con Irán",
+    "summary_es": "El documento no tiene fuerza legal y tiene carácter consultivo.",
+    "quick_summary": "El documento no tiene fuerza legal y tiene carácter consultivo."
+  },
+  {
+    "id": "761974f02f3a",
+    "title_original": "Немецкий политик сравнил Зеленского с сидящим в бункере Гитлером",
+    "summary_original": "",
+    "link": "https://ria.ru/20260916/zelenskiy-2117923155.html",
     "source_id": "ria_novosti",
     "source_name": "RIA Novosti (РИА)",
     "perspective": "russia_official",
     "language": "ru",
     "bias_note": "Medio de comunicación estatal ruso subordinado a Rossiya Segodnya.",
-    "published": "2026-09-15T22:25:20+00:00",
+    "published": "2026-09-16T02:33:25+00:00",
     "categories": [
-      "economia"
+      "general"
     ],
     "is_translated": true,
-    "title_es": "El Congreso de los estados unidos aprobó el proyecto de resolución sobre sanciones contra rusia",
+    "title_es": "Un político alemán comparó a Zelensky con Hitler sentado en un búnker",
     "summary_es": "",
-    "quick_summary": "El Congreso de los estados unidos aprobó el proyecto de resolución sobre sanciones contra rusia"
+    "quick_summary": "Un político alemán comparó a Zelensky con Hitler sentado en un búnker"
   },
   {
-    "id": "85b7e49e4a01",
-    "title_original": "Times: Бернэм обсудит Украину на первой встрече с Трампом в Нью-Йорке",
-    "summary_original": "По информации газеты, переговоры запланированы на 22 сентября на полях сессии Генассамблеи ООН",
-    "link": "https://tass.ru/mezhdunarodnaya-panorama/28115225",
-    "source_id": "tass_ru",
-    "source_name": "TASS (ТАСС)",
-    "perspective": "russia_official",
-    "language": "ru",
-    "bias_note": "Agencia de noticias estatal de la Federación Rusa (postura oficial del Kremlin).",
-    "published": "2026-09-15T22:20:30+00:00",
-    "categories": [
-      "diplomacia"
-    ],
-    "is_translated": true,
-    "title_es": "Times: Burnham hablará sobre Ucrania en su primera reunión con Trump en Nueva York",
-    "summary_es": "Según el periódico, las negociaciones están previstas para el 22 de septiembre en el marco de la sesión de la Asamblea General de la ONU",
-    "quick_summary": "Según el periódico, las negociaciones están previstas para el 22 de septiembre en el marco de la sesión de la Asamblea General de la ONU"
-  },
-  {
-    "id": "cb0294bd0e83",
-    "title_original": "Пророссийский хакер заблокировал серверы поставщика военных товаров для ВСУ",
+    "id": "a6c691112db3",
+    "title_original": "СМИ: администрация Трампа обсудила вопросы безопасности ИИ с Anthropic",
     "summary_original": "",
-    "link": "https://ria.ru/20260916/khaker-2117916000.html",
+    "link": "https://ria.ru/20260916/ii-2117923023.html",
     "source_id": "ria_novosti",
     "source_name": "RIA Novosti (РИА)",
     "perspective": "russia_official",
     "language": "ru",
     "bias_note": "Medio de comunicación estatal ruso subordinado a Rossiya Segodnya.",
-    "published": "2026-09-15T22:19:54+00:00",
+    "published": "2026-09-16T02:26:13+00:00",
     "categories": [
       "general"
     ],
     "is_translated": true,
-    "title_es": "Un hacker prorruso bloqueó los servidores de un proveedor de material militar para las Fuerzas Armadas de Ucrania",
+    "title_es": "Medios de comunicación: La administración Trump analiza la seguridad de la IA con Anthropic",
     "summary_es": "",
-    "quick_summary": "Un hacker prorruso bloqueó los servidores de un proveedor de material militar para las Fuerzas Armadas de Ucrania"
+    "quick_summary": "Medios de comunicación: La administración Trump analiza la seguridad de la IA con Anthropic"
   },
   {
-    "id": "b4e2a8facf32",
-    "title_original": "В Харьковской ВГА заявили о критическом состоянии ВСУ в волчанском котле",
-    "summary_original": "У украинских солдат почти нет стабильной связи и снабжения, сообщил замглавы ВГА Харьковской области по обороне и безопасности Евгений Лисняк",
-    "link": "https://tass.ru/armiya-i-opk/28115219",
-    "source_id": "tass_ru",
-    "source_name": "TASS (ТАСС)",
+    "id": "b8f4469d4a50",
+    "title_original": "В Минобороны рассказали о значении освобождения Новоандреевки",
+    "summary_original": "",
+    "link": "https://ria.ru/20260916/spetsoperatsiya-2117922886.html",
+    "source_id": "ria_novosti",
+    "source_name": "RIA Novosti (РИА)",
     "perspective": "russia_official",
     "language": "ru",
-    "bias_note": "Agencia de noticias estatal de la Federación Rusa (postura oficial del Kremlin).",
-    "published": "2026-09-15T22:18:46+00:00",
+    "bias_note": "Medio de comunicación estatal ruso subordinado a Rossiya Segodnya.",
+    "published": "2026-09-16T02:24:02+00:00",
     "categories": [
       "frente"
     ],
     "is_translated": true,
-    "title_es": "La Administración Militar de Jarkov anunció el estado crítico de las Fuerzas Armadas de Ucrania en el caldero Volchansky",
-    "summary_es": "Los soldados ucranianos casi no tienen comunicaciones ni suministros estables, dijo Yevgeny Lisnyak, subdirector de la Administración Militar Regional de Defensa y Seguridad de Kharkiv.",
-    "quick_summary": "Los soldados ucranianos casi no tienen comunicaciones ni suministros estables, dijo Yevgeny Lisnyak, subdirector de la Administración Militar Regional de Defensa y Seguridad de Kha..."
+    "title_es": "El Ministerio de Defensa habló sobre la importancia de la liberación de Novoandreevka",
+    "summary_es": "",
+    "quick_summary": "El Ministerio de Defensa habló sobre la importancia de la liberación de Novoandreevka"
   },
   {
-    "id": "d9dcbbf30e9a",
-    "title_original": "Финляндия направляет Украине 34-й пакет военной помощи",
+    "id": "c14c7c990068",
+    "title_original": "Боец рассказал о пленении боевика ВСУ в Харьковском кольце",
     "summary_original": "",
-    "link": "https://ria.ru/20260916/finlyandiya-2117915642.html",
+    "link": "https://ria.ru/20260916/spetsoperatsiya-2117922361.html",
     "source_id": "ria_novosti",
     "source_name": "RIA Novosti (РИА)",
     "perspective": "russia_official",
     "language": "ru",
     "bias_note": "Medio de comunicación estatal ruso subordinado a Rossiya Segodnya.",
-    "published": "2026-09-15T22:14:22+00:00",
+    "published": "2026-09-16T02:15:09+00:00",
     "categories": [
       "general"
     ],
     "is_translated": true,
-    "title_es": "Finlandia envía su 34º paquete de ayuda militar a Ucrania",
+    "title_es": "El combatiente habló sobre la captura de un militante de las Fuerzas Armadas de Ucrania en el círculo de Jarkov",
     "summary_es": "",
-    "quick_summary": "Finlandia envía su 34º paquete de ayuda militar a Ucrania"
+    "quick_summary": "El combatiente habló sobre la captura de un militante de las Fuerzas Armadas de Ucrania en el círculo de Jarkov"
   },
   {
-    "id": "eafc2192aec7",
-    "title_original": "Эксперт Киселев заявил, что кол-центры Зеленского грабят людей в Европе",
-    "summary_original": "По словам военного эксперта, работу мошенников курировали силовые структуры Украины",
-    "link": "https://tass.ru/armiya-i-opk/28115205",
-    "source_id": "tass_ru",
-    "source_name": "TASS (ТАСС)",
-    "perspective": "russia_official",
-    "language": "ru",
-    "bias_note": "Agencia de noticias estatal de la Federación Rusa (postura oficial del Kremlin).",
-    "published": "2026-09-15T22:01:25+00:00",
+    "id": "dbcd4f72617d",
+    "title_original": "У Палаті представників США назвали дату голосування за масштабні санкції проти РФ",
+    "summary_original": "Фінальне голосування за законопроєкт про суттєве посилення санкцій щодо Росії відбудеться в Палаті представників США у середу, 16 вересня.\n\nДжерело: кореспондент \"Радіо Свобода\" Алекс Рауфоглу в соцмережі Х\n\nДеталі: Конгресмен від Республіканської партії Майкл Маккол повідомив, що особисто куруватиме обговорення документа безпосередньо перед вирішальним голосуванням у сесійній залі.\n\n\"Завтра я керуватиму дебатами в залі Палати представників щодо фінального ухвалення закону про санкції Ліндсі Грема\", –заявив Маккол.\n\nПісля подолання процедурних бар'єрів до української громади звернувся співавтор ініціативи, сенатор-демократ Річард Блюменталь. Він запевнив у непохитній підтримці України та наголосив, що закон здатен \"спопелити\" воєнну машину Володимира Путіна.\n\n\"Ми не заспокоїмось, поки Україна не стане захищеною вільною нацією\", – сказав Блюменталь.\n\n\"Єдиний спосіб зупинити хуліганів – відштовхнути їх і вдарити в обличчя\", – наголосив сенатор.\n\nЩо передувало:\n\nПалата представників США у вівторок, 15 вересня, подолала ключову процедурну перешкоду та розблокувала розгляд законопроєкту, який уповноважує президента Дональда Трампа запроваджувати мита проти країн, що купують російські енергоносії.\n\nЗакон надає президенту США Дональду Трампу право запроваджувати стовідсоткові мита проти держав, які імпортують російську нафту і газ або допомагають Москві уникати дії міжнародних санкцій.\n\nДокумент також суттєво розширює персональні санкції проти російського військового керівництва та іноземних постачальників, забороняє нові американські інвестиції в економіку РФ, спрямований проти російського \"тіньового флоту\" нафтових танкерів, а також посилює обмеження на експорт до Росії товарів, що їх можуть використані для виготовлення зброї.",
+    "link": "https://www.pravda.com.ua/news/2026/09/16/8053632/",
+    "source_id": "ukrainska_pravda_ukr",
+    "source_name": "Ukrainska Pravda (UKR)",
+    "perspective": "ukraine",
+    "language": "uk",
+    "bias_note": "Edición original en ucraniano con actualización continua.",
+    "published": "2026-09-16T02:14:00+00:00",
     "categories": [
-      "general"
+      "economia"
     ],
     "is_translated": true,
-    "title_es": "El experto Kiselyov afirmó que los centros de llamadas de Zelensky roban a la gente en Europa",
-    "summary_es": "Según un experto militar, el trabajo de los estafadores fue supervisado por las fuerzas de seguridad de Ucrania.",
-    "quick_summary": "Según un experto militar, el trabajo de los estafadores fue supervisado por las fuerzas de seguridad de Ucrania."
+    "title_es": "La Cámara de Representantes de Estados Unidos anunció la fecha de la votación sobre las sanciones a gran escala contra la Federación Rusa.",
+    "summary_es": "La votación final sobre el proyecto de ley para reforzar significativamente las sanciones contra Rusia tendrá lugar en la Cámara de Representantes de Estados Unidos el miércoles 16 de septiembre.\n\nFuente: Alex Raufoglu, corresponsal de Radio Svoboda en la red social Kh\n\nDetalles: El congresista republicano Michael McCaul dijo que moderará personalmente la discusión del documento justo antes de la crucial votación en el pleno.\n\n\"Mañana dirigiré el debate en la Cámara de Representantes sobre la aprobación final de la Ley de Sanciones Lindsey Graham\", dijo McCaul.",
+    "quick_summary": "La votación final sobre el proyecto de ley para reforzar significativamente las sanciones contra Rusia tendrá lugar en la Cámara de Representantes de Estados Unidos el miércoles 16..."
   },
   {
-    "id": "dea43640e5b1",
-    "title_original": "В конгрессе США отклонили резолюцию об импичменте Трампа",
+    "id": "55dd1dbc74eb",
+    "title_original": "В Киеве объявили воздушную тревогу",
     "summary_original": "",
-    "link": "https://ria.ru/20260916/impichment-2117915355.html",
+    "link": "https://ria.ru/20260916/trevoga-2117922088.html",
     "source_id": "ria_novosti",
     "source_name": "RIA Novosti (РИА)",
     "perspective": "russia_official",
     "language": "ru",
     "bias_note": "Medio de comunicación estatal ruso subordinado a Rossiya Segodnya.",
-    "published": "2026-09-15T21:56:21+00:00",
+    "published": "2026-09-16T02:10:00+00:00",
     "categories": [
       "general"
     ],
     "is_translated": true,
-    "title_es": "El Congreso de EE.UU. rechazó la resolución para impeachment a Trump",
+    "title_es": "En Kyiv se anunció una alerta de ataque aéreo",
     "summary_es": "",
-    "quick_summary": "El Congreso de EE.UU. rechazó la resolución para impeachment a Trump"
+    "quick_summary": "En Kyiv se anunció una alerta de ataque aéreo"
   },
   {
-    "id": "0147761fb97f",
-    "title_original": "Мін'юст США звинуватив агентів розвідки РФ у підготовці вбивств та фінансуванні тероризму",
-    "summary_original": "Міністерство юстиції США висунуло обвинувачення групі громадян Росії, яких американська влада пов'язує з російськими спецслужбами, у фінансуванні тероризму та змові з метою вчинення замовних убивств по всьому світу.\n\nДжерело: генеральний прокурор США Тодд Бланш під час пресконференції в Рожевому саду Білого дому, передає ABC News\n\nДеталі: За словами генпрокурора, підозрювані працювали на російську розвідку й планували серію вбивств по усьому світі.\n\nЗокрема, група готувала замах на \"російського дисидента\", який, на їхню думку, перебував у Вашингтоні.\n\nБланш не назвав імен обвинувачених, не зазначив, на якого саме російського опозиціонера готувався замах, а також не повідомив, коли саме його планували здійснити.\n\nСправу розглядають у Федеральному суді Південного округу Нью-Йорка.\n\nЩо передувало:\n\nЗахідні країни неодноразово фіксували активність російських кілерів на своїй території. Найвідомішими інцидентами є отруєння колишнього офіцера ФСБ Олександра Литвиненка в Лондоні 2006 року, а також замах на колишнього агента ГРУ Сергія Скрипаля та його доньку Юлію в британському Солсбері 2018 року із застосуванням хімічної зброї класу \"Новачок\".\n\nУ серпні 2019 року в Берліні російський офіцер Вадим Красіков застрелив колишнього чеченського польового командира Зелімхана Хангошвілі .\n\nМіністерство юстиції США регулярно відкриває кримінальні провадження проти громадян РФ за кіберзлочини, шпигунство та обхід санкцій. Водночас викриття планів щодо фізичного усунення дисидентів безпосередньо на американській території свідчить про значну ескалацію діяльності російських спецслужб.",
+    "id": "59c898228c8b",
+    "title_original": "У війні проти України загинув ще один російський генерал – росЗМІ",
+    "summary_original": "На війні проти України загинув командир 4-ї окремої мотострілецької бригади Збройних сил РФ генерал-майор Антон Груніс невдовзі після доповіді російському правителю Володимиру Путіну про \"захоплення\" Костянтинівки.\n\nДжерело: російське пропагандистське агентство Anna News із посиланням на джерело в 4-й ОМСБр, російський Telegram-канал спільноти випускників суворовських училищ \" Суворовское Братство \", російське незалежне медіа ASTRA\n\nДеталі: Точні обставини, дата та місце ліквідації російського генерала наразі не розкриваються.\n\nЛише 28 серпня Міністерство оборони РФ повідомило , що очільник відомства Андрій Білоусов нагородив Груніса найвищою державною відзнакою – вручив \"Золоту Зірку\" Героя Росії \"за мужність і героїзм, виявлені під час виконання військового обов'язку\".\n\nПідрозділ ліквідованого генерала брав безпосередню участь у боях за місто Костянтинівка на Донеччин, яке російські окупанти намагаються захопити з жовтня 2025 року.\n\nЩе в липні російський Генштаб та особисто Груніс доповідали очільнику Кремля про нібито повну окупацію міста. Речник Генерального штабу ЗСУ спростовував ці заяви .\n\nЗгідно з відкритими даними, Груніс закінчив Казанське суворовське училище у 1996 році, не досягнувши 17-річного віку. Він брав участь у війнах у Чечні та проти Грузії.\n\nУ 2021 році генерал пішов у запас, однак повернувся до лав армії РФ після початку повномасштабного вторгнення в Україну. Під його командуванням окупаційні сили діяли на Бахмутському та Костянтинівському напрямках.\n\n4-та ОМСБр (в/ч 40318), якою керував Груніс, була сформована у 2014 році на базі незаконних збройних формувань так званої \"ЛНР\". Зокрема, до її складу входило терористичне угруповання \"Призрак\".\n\nПісля інтеграції цих формувань до складу регулярних збройних сил РФ бригаду включили до 2-го армійського корпусу. Згодом вона увійшла до складу новоствореної 3-ї гвардійської загальновійськової армії Південного військового округу Росії.",
+    "link": "https://www.pravda.com.ua/news/2026/09/16/8053630/",
+    "source_id": "ukrainska_pravda_ukr",
+    "source_name": "Ukrainska Pravda (UKR)",
+    "perspective": "ukraine",
+    "language": "uk",
+    "bias_note": "Edición original en ucraniano con actualización continua.",
+    "published": "2026-09-15T23:58:00+00:00",
+    "categories": [
+      "frente"
+    ],
+    "is_translated": true,
+    "title_es": "Otro general ruso murió en la guerra contra Ucrania - rosZMI",
+    "summary_es": "En la guerra contra Ucrania, el comandante de la cuarta brigada separada de fusileros motorizados de las Fuerzas Armadas de la Federación Rusa, el general de división Anton Grunis, murió poco después de informar al gobernante ruso Vladimir Putin sobre la \"captura\" de Kostiantynivka.\n\nFuente: agencia de propaganda rusa Anna News con referencia a una fuente de la 4.ª Brigada Militar, el canal ruso Telegram de la comunidad de graduados de las escuelas de Suvorov \"Suvorovskoe Bratstvo\", los medios independientes rusos ASTRA\n\nDetalles: Las circunstancias exactas, la fecha y el lugar de la liquidación del general ruso no se han revelado actualmente.\n\nRecién el 28 de agosto, el Ministerio de Defensa de la Federación de Rusia informó que el jefe del departamento, Andriy Bilousov, otorgó a Grunis el premio estatal más alto: la \"Estrella de Oro\" del Héroe de Rusia \"por el coraje y el heroísmo demostrados durante el desempeño del deber militar\".",
+    "quick_summary": "En la guerra contra Ucrania, el comandante de la cuarta brigada separada de fusileros motorizados de las Fuerzas Armadas de la Federación Rusa, el general de división Anton Grunis,..."
+  },
+  {
+    "id": "bd938b16eaa4",
+    "title_original": "Палата представників США дала хід законопроєкту \"про пекельні санкції\" щодо Росії",
+    "summary_original": "Палата представників США у вівторок подолала ключову процедурну перешкоду та розблокувала розгляд законопроєкту, який уповноважує президента Дональда Трампа запроваджувати мита проти країн, що купують російські енергоносії.\n\nДжерело: The Hill\n\nДеталі: Процедурне рішення, яке відкриває шлях до остаточного розгляду документа, перебувало під загрозою зриву. Ситуацію врятували двоє конгресменів-демократів – Джаред Голден та Марі Глюзенкамп Перес, які вдруге за останні два тижні порушили партійну дисципліну та підтримали просування ініціативи.\n\nЗавдяки їхнім голосам рішення ухвалили з мінімальною перевагою – 214 \"за\" проти 211 \"проти\".\n\nЦей крок дав старт дебатам та відкрив шлях до фінального голосування за законопроєкт про санкції проти Росії, головним ініціатором якого був покійний сенатор-республіканець Ліндсі Грем.\n\nВиступаючи на слуханнях Комітету з питань регламенту Палати представників, конгресмен-республіканець Майкл Маккол назвав голосування за законопроєкт критично важливим кроком, який має надіслати чіткий сигнал російському правителю Володимиру Путіну про підтримку України Сполученими Штатами.\n\n\"Сенатор Ліндсі Грем чудово розумів ці глобальні загрози, і саме тому він понад рік працював над цим законопроєктом, який я пообіцяв йому внести на розгляд Палати представників\", – зазначив Маккол.\n\n\"Коли ми озиратимемося на цей момент у майбутньому, я хочу, щоб ми могли сказати: ми зробили все можливе, щоб покласти край цій війні\", – підсумував Маккол.\n\nПроти ініціативи виступили представники Демократичної партії. Попри декларовану підтримку України, вони наголошують, що законопроєкт надає Трампу повноваження запроваджувати мита, які Верховний Суд США раніше визнав неправомірними.\n\nУ спільній заяві конгресмени-демократи підкреслили, що запропонований варіант закону принесе \"більше шкоди, ніж користі\".\n\n\"Цей законопроєкт суттєво розширить повноваження президента запроваджувати мита, при цьому не вимагаючи обов'язкових санкцій проти Росії, що в обох випадках є неприй...",
+    "link": "https://www.pravda.com.ua/news/2026/09/16/8053629/",
+    "source_id": "ukrainska_pravda_ukr",
+    "source_name": "Ukrainska Pravda (UKR)",
+    "perspective": "ukraine",
+    "language": "uk",
+    "bias_note": "Edición original en ucraniano con actualización continua.",
+    "published": "2026-09-15T22:54:00+00:00",
+    "categories": [
+      "economia"
+    ],
+    "is_translated": true,
+    "title_es": "La Cámara de Representantes de Estados Unidos aprobó un proyecto de ley \"sobre sanciones infernales\" contra Rusia",
+    "summary_es": "La Cámara de Representantes de Estados Unidos superó el martes un obstáculo procesal clave y desbloqueó un proyecto de ley que autoriza al presidente Donald Trump a imponer aranceles a los países que compran energía rusa.\n\nFuente: La colina\n\nDetalles: Una decisión procesal que allana el camino para la consideración final del documento corría el riesgo de verse alterada. La situación fue salvada por dos congresistas demócratas, Jared Golden y Marie Glusenkamp Pérez, que rompieron la disciplina partidista por segunda vez en las últimas dos semanas y apoyaron la promoción de la iniciativa.\n\nGracias a sus votos, la decisión se adoptó con un margen mínimo: 214 \"a favor\" contra 211 \"en contra\".",
+    "quick_summary": "La Cámara de Representantes de Estados Unidos superó el martes un obstáculo procesal clave y desbloqueó un proyecto de ley que autoriza al presidente Donald Trump a imponer arancel..."
+  },
+  {
+    "id": "8e8f3c9bc3f3",
+    "title_original": "У США викрили п'ятьох агентів РФ, що готувала вбивства і теракти",
+    "summary_original": "Генеральний прокурор США Тодд Бланш повідомив, що Міністерство юстиції висунуло обвинувачення п'ятьом учасникам агентурної мережі спецслужб РФ, які вербували виконавців для терактів у країнах Європи та готували убивство російського дисидента у Сполучених Штатах.\n\nДжерело: пресреліз Міністерства юстиції США , ABC News\n\nПряма мова Бланша: \"Наше завдання – не дозволити супротивникам Америки чинити насильство й терор на американській землі. І саме це ми робимо завдяки роботі ФБР та прокурорів Міністерства юстиції\".\n\nДеталі: За словами генпрокурора, підозрювані працювали на російську розвідку й планували серію вбивств по усьому світі.\n\nЗокрема, група готувала замах на \"російського дисидента\", який, на їхню думку, перебував у Вашингтоні.\n\nСправу розглядають у Федеральному суді Південного округу Нью-Йорка.\n\nДоповнено: Згідно з розсекреченим обвинувальним актом, російські агенти щонайменше з 2024 року працюють на розвідувальні служби Російської Федерації і спеціалізувалися на організації замовних убивств і терактів.\n\n\"Ця мережа є одним із підрозділів апарату Російської Федерації для здійснення убивств. Її діяльність була зосереджена на російських дисидентах і перебіжчиках, а віднедавна – на країнах, які вважаються союзниками України\" – йдеться у повідомленні відомства.\n\nКерівниками агентурної мережі слідство вважає 63-річного колишнього полковника російських спецслужб Юрія Храмєєва (\"Полковник Юрій\") та його сина, 27-річного офіцера ФСБ Кирила Храмєєва. До керівного складу також входив 35-річний громадянин Куби Оеміс Ромагоза Дурруті, який проживає в Росії.\n\nЩе двоє обвинувачених – 35-річний громадянин Куби Яйдель Дельгадо Суарес (\"Вікінг\") і 22-річний громадянин Венесуели Анхель Едуардо Кастро – виконували завдання з пошуку та вербування потенційних виконавців у США.\n\n\"Ці обвинувачені, за даними слідства, діяли як частина глобальної мережі найманих убивць, що досягла меж Сполучених Штатів, намагаючись вербувати громадян США та іноземців для здійснення вбивств за вказівк...",
     "link": "https://www.pravda.com.ua/news/2026/09/16/8053628/",
     "source_id": "ukrainska_pravda_ukr",
     "source_name": "Ukrainska Pravda (UKR)",
@@ -163,31 +296,31 @@
     "bias_note": "Edición original en ucraniano con actualización continua.",
     "published": "2026-09-15T21:52:00+00:00",
     "categories": [
-      "economia"
+      "general"
     ],
     "is_translated": true,
-    "title_es": "El Ministerio de Justicia de Estados Unidos acusó a agentes de inteligencia rusos de preparar asesinatos y financiar el terrorismo.",
-    "summary_es": "El Departamento de Justicia de Estados Unidos ha acusado a un grupo de ciudadanos rusos, a quienes las autoridades estadounidenses han vinculado con los servicios de inteligencia rusos, de financiar el terrorismo y conspirar para cometer asesinatos por encargo en todo el mundo.\n\nFuente: El fiscal general de Estados Unidos, Todd Blanche, durante una conferencia de prensa en el jardín de rosas de la Casa Blanca, informa ABC News.\n\nDetalles: Según el fiscal general, los sospechosos trabajaron para la inteligencia rusa y planearon una serie de asesinatos en todo el mundo.\n\nEn particular, el grupo estaba preparando un intento de asesinato de un \"disidente ruso\" que, en su opinión, se encontraba en Washington.",
-    "quick_summary": "El Departamento de Justicia de Estados Unidos ha acusado a un grupo de ciudadanos rusos, a quienes las autoridades estadounidenses han vinculado con los servicios de inteligencia r..."
+    "title_es": "En Estados Unidos quedaron expuestos cinco agentes de la Federación Rusa que preparaban asesinatos y atentados terroristas.",
+    "summary_es": "El fiscal general de Estados Unidos, Todd Blanche, anunció que el Ministerio de Justicia acusó a cinco miembros de la red de agencias de inteligencia rusas que reclutaron ejecutores de ataques terroristas en países europeos y prepararon el asesinato de un disidente ruso en Estados Unidos.\n\nFuente: comunicado de prensa del Departamento de Justicia de EE.UU., ABC News\n\nDiscurso directo de Blanche: \"Nuestro trabajo es evitar que los adversarios de Estados Unidos cometan violencia y terror en suelo estadounidense. Y eso es exactamente lo que estamos haciendo gracias al trabajo de los fiscales del FBI y del Departamento de Justicia\".\n\nDetalles: Según el fiscal general, los sospechosos trabajaron para la inteligencia rusa y planearon una serie de asesinatos en todo el mundo.",
+    "quick_summary": "El fiscal general de Estados Unidos, Todd Blanche, anunció que el Ministerio de Justicia acusó a cinco miembros de la red de agencias de inteligencia rusas que reclutaron ejecutore..."
   },
   {
-    "id": "28354d5bde49",
-    "title_original": "Лантратова рассказала о переговорах с Киевом по поиску пропавших без вести",
-    "summary_original": "",
-    "link": "https://ria.ru/20260916/peregovory-2117915145.html",
-    "source_id": "ria_novosti",
-    "source_name": "RIA Novosti (РИА)",
-    "perspective": "russia_official",
-    "language": "ru",
-    "bias_note": "Medio de comunicación estatal ruso subordinado a Rossiya Segodnya.",
-    "published": "2026-09-15T21:47:42+00:00",
+    "id": "0f784ec82e7a",
+    "title_original": "Russia attacked Moldova twice because Zelensky was there, he says - The Kyiv Independent",
+    "summary_original": "Russia attacked Moldova twice because Zelensky was there, he says The Kyiv Independent",
+    "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQOWVCVXJDUEFxZ3ktajF0aHprQnJPek5uc1NId3lKeHhQUzJJNGRLUE9lejVrWUZPeXJOLUx6VllaeVhZQmpZdDR1c3BMd0stT3h2MDMzX3Rna0lWcE5jQW9nWWxlaDZYdEgxb1ljVHRhMGlaWXl0b1BWTEJ4UVI2VkxEdW1HNFVfcjBJUk1MTzRkMmJZdXNxdw?oc=5",
+    "source_id": "kyiv_independent",
+    "source_name": "The Kyiv Independent",
+    "perspective": "ukraine",
+    "language": "en",
+    "bias_note": "Principal medio ucraniano independiente en inglés fundado por periodistas locales.",
+    "published": "2026-09-15T20:58:05+00:00",
     "categories": [
-      "diplomacia"
+      "general"
     ],
     "is_translated": true,
-    "title_es": "Lantratova habló sobre las negociaciones con Kyiv sobre la búsqueda de personas desaparecidas",
-    "summary_es": "",
-    "quick_summary": "Lantratova habló sobre las negociaciones con Kyiv sobre la búsqueda de personas desaparecidas"
+    "title_es": "Rusia atacó dos veces a Moldavia porque Zelensky estaba allí, dice - The Kyiv Independent",
+    "summary_es": "Rusia atacó dos veces a Moldavia porque Zelensky estaba allí, dice The Kyiv Independent",
+    "quick_summary": "Rusia atacó dos veces a Moldavia porque Zelensky estaba allí, dice The Kyiv Independent"
   },
   {
     "id": "65fa28ec85ab",
@@ -203,10 +336,10 @@
     "categories": [
       "drones"
     ],
-    "is_translated": true,
     "title_es": "Medios de comunicación: El dron ruso encontrado en Polonia no está expuesto a los rayos X",
     "summary_es": "",
-    "quick_summary": "Medios de comunicación: El dron ruso encontrado en Polonia no está expuesto a los rayos X"
+    "quick_summary": "Medios de comunicación: El dron ruso encontrado en Polonia no está expuesto a los rayos X",
+    "is_translated": true
   },
   {
     "id": "85beb74a997c",
@@ -222,10 +355,10 @@
     "categories": [
       "frente"
     ],
-    "is_translated": true,
     "title_es": "Fiscal General \"404\". Cómo Ruslan Kravchenko abandonó el país",
     "summary_es": "A finales de junio del año pasado, el día del nombramiento de Ruslan Kravchenko como fiscal general, \"Pravda ucraniana\" señaló que la presentación urgente por parte del presidente del candidato más joven para este cargo en la historia del país puede estar relacionada con el intento de salvar a uno de los camaradas más cercanos de Volodymyr Zelenskyi, Oleksiy Chernyshov, la primera \"víctima\" de la independencia de NABU y SAP.\n\nEn aquel momento parecía que la máxima contramedida al trabajo de los órganos anticorrupción era transferir los procedimientos penales de NABU y SAP a las fuerzas del orden bajo el control de la Oficina del Presidente. Como ocurrió con el subdirector del OP, Oleg Tatarov.\n\nDentro de un mes quedará claro que Kravchenko fue designado no para llevar un caso, sino para subordinar todos los casos de organismos anticorrupción independientes al Fiscal General, que depende políticamente del presidente y del parlamento. Esta audacia se producirá \"bajo la salsa\" de la lucha contra las llamadas influencias rusas en NABU y la firma de falsas sospechas a los detectives por parte del propio departamento dirigido por Kravchenko.\n\nAl final, después de 5 meses y después de un intento fallido de capturar a las autoridades anticorrupción, los empleados de NABU tuvieron que ser liberados del centro de prisión preventiva. Sin embargo, Kravchenko permaneció en el cargo. Y, como ya se vio este lunes 14 de septiembre, no sólo para proteger a los diputados de la monomayoría presidencial, sino también para realizar un nuevo ataque a la vertical anticorrupción (es el fiscal general quien tiene la autoridad para firmar un aviso de sospecha a los diputados del pueblo - UP).",
-    "quick_summary": "A finales de junio del año pasado, el día del nombramiento de Ruslan Kravchenko como fiscal general, \"Pravda ucraniana\" señaló que la presentación urgente por parte del presidente..."
+    "quick_summary": "A finales de junio del año pasado, el día del nombramiento de Ruslan Kravchenko como fiscal general, \"Pravda ucraniana\" señaló que la presentación urgente por parte del presidente...",
+    "is_translated": true
   },
   {
     "id": "33f8b4741dc8",
@@ -241,10 +374,29 @@
     "categories": [
       "general"
     ],
-    "is_translated": true,
     "title_es": "La guerra con Irán le costó a Estados Unidos 38 mil millones de dólares en los primeros cinco meses",
     "summary_es": "",
-    "quick_summary": "La guerra con Irán le costó a Estados Unidos 38 mil millones de dólares en los primeros cinco meses"
+    "quick_summary": "La guerra con Irán le costó a Estados Unidos 38 mil millones de dólares en los primeros cinco meses",
+    "is_translated": true
+  },
+  {
+    "id": "57a47f975272",
+    "title_original": "Zelensky claims Russia tried twice to attack his plane with drones - Ukrinform",
+    "summary_original": "Zelensky claims Russia tried twice to attack his plane with drones Ukrinform",
+    "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNaUFERF9ybEw3ckNTTU5kejhYbkFydHJTVDBDQmdCeUVPVHItUExxakFxY2dwSG1GOG1Cb0V4YmtsUkpCbUg5R1RWcGFRVGJkVE1iZTJEZW1mak9qMmRyUlktRHl6LUxPSlZZUl8wYm1yaWJtUHRRWmxJT2VMazhPZUhRMFVtc0NoNWpiUWZwTVNmWnJzc1NRYVhweldyMUZDNjRaYW4tTmRQZnVxZUI3NDFiOG5Qd0hRYzRCSGp30gHDAUFVX3lxTE9hM2lROHRnNFZIN1lRbkd6amFhb0p2VlZyd1ZYWjMwUTFRMGFJTFNpSjhtMHljaFRZUlotdUR5dzlmREVCWEJUUXB4S19EVlphWTBEanhqajF6UlJNUzJMby11b2FJa2xDRzJWZ0cyemx6MkRPOEYzX1VwWFJId3FZeHR4R2UwbFVpLTJKQ2lOUkVSZXZGQV9IRzBuTHF5b2dXRExRYjI3SjJiWTVxZ0I1eXpuRlpMNHFvcS15ZmtXaWplaw?oc=5",
+    "source_id": "ukrinform",
+    "source_name": "Ukrinform",
+    "perspective": "ukraine",
+    "language": "en",
+    "bias_note": "Agencia nacional de noticias oficial del Estado ucraniano.",
+    "published": "2026-09-15T19:59:00+00:00",
+    "categories": [
+      "drones"
+    ],
+    "is_translated": true,
+    "title_es": "Zelensky afirma que Rusia intentó dos veces atacar su avión con drones - Ukrinform",
+    "summary_es": "Zelensky afirma que Rusia intentó dos veces atacar su avión con drones Ukrinform",
+    "quick_summary": "Zelensky afirma que Rusia intentó dos veces atacar su avión con drones Ukrinform"
   },
   {
     "id": "e0efb9be8e41",
@@ -260,10 +412,10 @@
     "categories": [
       "general"
     ],
-    "is_translated": true,
     "title_es": "Han aparecido los nombres de los principales candidatos al cargo de Fiscal General: fuentes",
     "summary_es": "\"Pravda de Ucrania\" se enteró de que entre los principales candidatos al cargo de Fiscal General de Ucrania se encuentran los jefes de las fiscalías regionales de Khmelnytskyi y Dnipropetrovsk.\n\nFuente: fuentes de la UP en círculos políticos.\n\nDetalles: Según los interlocutores, se trata del jefe de la fiscalía regional de Dnipropetrovsk, Valery Pryhozhanov, y del jefe de la fiscalía regional de Khmelnytskyi, Anton Kovalskyi.\n\nSegún las fuentes, lo más probable es que la fiscalía esté a cargo de Anton Kovalskyi.",
-    "quick_summary": "\"Pravda de Ucrania\" se enteró de que entre los principales candidatos al cargo de Fiscal General de Ucrania se encuentran los jefes de las fiscalías regionales de Khmelnytskyi y Dn..."
+    "quick_summary": "\"Pravda de Ucrania\" se enteró de que entre los principales candidatos al cargo de Fiscal General de Ucrania se encuentran los jefes de las fiscalías regionales de Khmelnytskyi y Dn...",
+    "is_translated": true
   },
   {
     "id": "264e189efcf5",
@@ -280,10 +432,10 @@
       "frente",
       "drones"
     ],
-    "is_translated": true,
     "title_es": "El Estado Mayor informa de 219 enfrentamientos militares desde el inicio de la jornada",
     "summary_es": "Desde el comienzo del día 15 de septiembre se han producido 210 enfrentamientos en el frente, 38 de ellos en dirección Pokrovsky.\n\nFuente: resumen del Estado Mayor de las Fuerzas Armadas de Ucrania a las 22:00\n\nLiteralmente: \"Desde el comienzo de este día se han producido un total de 219 enfrentamientos militares.\n\nEl enemigo llevó a cabo 68 ataques aéreos y lanzó 249 bombas aéreas guiadas. Además, utilizó 4.153 drones kamikazes para la destrucción y llevó a cabo 1.638 ataques contra zonas pobladas y posiciones de nuestras tropas\".",
-    "quick_summary": "Desde el comienzo del día 15 de septiembre se han producido 210 enfrentamientos en el frente, 38 de ellos en dirección Pokrovsky."
+    "quick_summary": "Desde el comienzo del día 15 de septiembre se han producido 210 enfrentamientos en el frente, 38 de ellos en dirección Pokrovsky.",
+    "is_translated": true
   },
   {
     "id": "fecd621c0451",
@@ -300,10 +452,10 @@
       "frente",
       "drones"
     ],
-    "is_translated": true,
     "title_es": "Zelensky dijo que Rusia lanzó dos veces drones a Moldavia mientras su avión estaba allí.",
     "summary_es": "El presidente ucraniano, Vladimir Zelensky, dijo que recientemente drones rusos volaron dos veces al espacio aéreo de Moldavia mientras su avión presidencial estaba allí. Habló sobre esto en una entrevista con CBS News.\n\n\"Mi avión presidencial estaba en Moldavia, y por eso atacaron a Moldavia. Utilizaron el espacio aéreo moldavo. Tal vez no quisieron atacarme personalmente... <...> No contamos esto en los medios, pero cuando regresamos a casa, nuevamente a través de Chisinau, hicieron lo mismo\", dijo Zelensky.\n\nA la pregunta aclaratoria del periodista sobre si Moscú intentaba intimidar de esta manera a Zelensky, el presidente de Ucrania respondió afirmativamente.\n\nZelensky habló sobre los incidentes en Moldavia, respondiendo a una solicitud para comentar sobre el ataque de un dron ruso a un tren, que se encontraba no lejos de un tren especial en el que viajaban diplomáticos y funcionarios europeos de Ucrania a Polonia.",
-    "quick_summary": "El presidente ucraniano, Vladimir Zelensky, dijo que recientemente drones rusos volaron dos veces al espacio aéreo de Moldavia mientras su avión presidencial estaba allí."
+    "quick_summary": "El presidente ucraniano, Vladimir Zelensky, dijo que recientemente drones rusos volaron dos veces al espacio aéreo de Moldavia mientras su avión presidencial estaba allí.",
+    "is_translated": true
   },
   {
     "id": "f51cb4f26e4e",
@@ -320,10 +472,10 @@
       "frente",
       "drones"
     ],
-    "is_translated": true,
     "title_es": "Zelenskyi dijo que la Federación Rusa atacó dos veces un avión con él en Moldavia en las últimas semanas.",
     "summary_es": "El presidente de Ucrania, Volodymyo Zelenskyy, dijo que en las últimas semanas la Federación Rusa atacó dos veces el avión que lo llevaba a bordo.\n\nFuente: entrevista de CBS News a Zelensky\n\nDiscurso directo: \"Mi avión presidencial estaba en Moldavia, y por eso atacaron Moldavia. Cuando regresábamos a casa, nuevamente a través de Chisinau, hicieron lo mismo\".\n\nDetalles: El presidente añadió que era parte de una estrategia rusa para intimidarlo a él y a otros líderes extranjeros.",
-    "quick_summary": "El presidente de Ucrania, Volodymyo Zelenskyy, dijo que en las últimas semanas la Federación Rusa atacó dos veces el avión que lo llevaba a bordo."
+    "quick_summary": "El presidente de Ucrania, Volodymyo Zelenskyy, dijo que en las últimas semanas la Federación Rusa atacó dos veces el avión que lo llevaba a bordo.",
+    "is_translated": true
   },
   {
     "id": "4c2db5fc5249",
@@ -339,10 +491,10 @@
     "categories": [
       "drones"
     ],
-    "is_translated": true,
     "title_es": "Un dron se estrella cerca de un aeródromo militar en Alemania — medios - Ukrinform",
     "summary_es": "Un dron se estrella cerca de un aeródromo militar en Alemania — medios Ukrinform",
-    "quick_summary": "Un dron se estrella cerca de un aeródromo militar en Alemania — medios Ukrinform"
+    "quick_summary": "Un dron se estrella cerca de un aeródromo militar en Alemania — medios Ukrinform",
+    "is_translated": true
   },
   {
     "id": "4cab07474ac7",
@@ -358,10 +510,10 @@
     "categories": [
       "general"
     ],
-    "is_translated": true,
     "title_es": "Medios de comunicación: La administración Trump planea vender armas por valor de 2.800 millones de dólares a Israel",
     "summary_es": "",
-    "quick_summary": "Medios de comunicación: La administración Trump planea vender armas por valor de 2.800 millones de dólares a Israel"
+    "quick_summary": "Medios de comunicación: La administración Trump planea vender armas por valor de 2.800 millones de dólares a Israel",
+    "is_translated": true
   },
   {
     "id": "a0caf3f09cda",
@@ -382,6 +534,44 @@
     "summary_es": "En los próximos días se introducirá un límite único de combustible en la región de Leningrado: “30 litros por gasolinera”, informó a Fontanka el servicio de prensa del gobierno regional. No explicaron qué significan 30 litros por repostaje; probablemente estemos hablando de 30 litros por coche.\n\nEl gobierno llamó a esto una \"medida temporal\", hasta el 1 de octubre. La propuesta para introducir dicho límite fue hecha por las compañías petroleras, como dijo anteriormente el gobernador Alexander Drozdenko.\n\n\"Han abandonado los códigos QR y los cupones para la población; son inconvenientes innecesarios. El sistema par-impar está en reserva, pero por ahora intentaremos prescindir de él\", dijo.\n\nEl gobernador calificó de “complicada” la situación del combustible en la región. Lo principal, en su opinión, sigue siendo \"evitar el pánico\", que \"alimenta la demanda urgente\". Drozdenko dijo que alrededor del 20% de las gasolineras privadas y pequeñas dejaron de funcionar \"debido a la imposibilidad de comprar los volúmenes necesarios en la bolsa de valores\".",
     "quick_summary": "En los próximos días se introducirá un límite único de combustible en la región de Leningrado: “30 litros por gasolinera”, informó a Fontanka el servicio de prensa del gobierno reg...",
     "is_translated": true
+  },
+  {
+    "id": "2ea6908e89bc",
+    "title_original": "Ukraine war latest: New interceptors for Russian jet-powered drones 'successfully tested,' Zelensky says - The Kyiv Independent",
+    "summary_original": "Ukraine war latest: New interceptors for Russian jet-powered drones 'successfully tested,' Zelensky says The Kyiv Independent",
+    "link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQZGpCQWxMNjJHSE9TT0w4ckZha3VZMXJQeXdEeXdSczJoYW05YWstQXhZTmEwbWpEY3VTNndQdGUyNzAxT2hKa2NWQk52Vy1pS1dzNHpWMXJPajc3WkZNQXpMeHRaR3pSR2NmaUVxcm82WGpvVVhRclNrNmlVcXlnbkEyYmF1bDdYTjBBaDlIVGNyNFVKMWlCenRCU0xKTnRDNUtsRk5SSm40UHdvSFRpQ2stZklDcUFheEYzcE1wN2RQTkNDeV9VNzd5Mk1nOTJ5bVBLUTBxUU93V0w4?oc=5",
+    "source_id": "kyiv_independent",
+    "source_name": "The Kyiv Independent",
+    "perspective": "ukraine",
+    "language": "en",
+    "bias_note": "Principal medio ucraniano independiente en inglés fundado por periodistas locales.",
+    "published": "2026-09-15T17:51:38+00:00",
+    "categories": [
+      "drones"
+    ],
+    "is_translated": true,
+    "title_es": "Lo último en la guerra de Ucrania: nuevos interceptores para aviones no tripulados rusos propulsados ​​por aviones 'propulsados ​​con éxito', dice Zelensky - The Kyiv Independent",
+    "summary_es": "Lo último en la guerra de Ucrania: nuevos interceptores para aviones no tripulados rusos propulsados ​​por aviones 'propulsados ​​con éxito', dice Zelensky The Kyiv Independent",
+    "quick_summary": "Lo último en la guerra de Ucrania: nuevos interceptores para aviones no tripulados rusos propulsados ​​por aviones 'propulsados ​​con éxito', dice Zelensky The Kyiv Independent"
+  },
+  {
+    "id": "c51ca74aac48",
+    "title_original": "Ukraine largely absent from Republican midterm convention stage, but party members weigh in offstage - The Kyiv Independent",
+    "summary_original": "Ukraine largely absent from Republican midterm convention stage, but party members weigh in offstage The Kyiv Independent",
+    "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOQkl3clJPMVZiZFdUem5PUkVtenpsUk11azlfY1M5d0o4Zm5Db3NnN0hueVk1V3dwTnFqbWxTVDNpalBROXhxMFp5M2dqMkFBaHJTZzFMRnhPa29yQ2xlUnByVkFldFFJRzVLOWVMZnBQOTdrZ0xZYnhVRUtDeUhjSVJ1RS1ZQU1vY1VtUWJRTjhzcTQzcU81ODVLem1MTWhfLWlaZ09JdTZQYXpOb1FUbHVOeE4zRnpxZ3RyalBkM1JWMl9UV2Zj?oc=5",
+    "source_id": "kyiv_independent",
+    "source_name": "The Kyiv Independent",
+    "perspective": "ukraine",
+    "language": "en",
+    "bias_note": "Principal medio ucraniano independiente en inglés fundado por periodistas locales.",
+    "published": "2026-09-15T17:46:34+00:00",
+    "categories": [
+      "general"
+    ],
+    "is_translated": true,
+    "title_es": "Ucrania estuvo en gran medida ausente de la convención republicana de mitad de período, pero los miembros del partido opinan fuera del escenario - The Kyiv Independent",
+    "summary_es": "Ucrania estuvo prácticamente ausente de la convención republicana de mitad de período, pero los miembros del partido opinan fuera del escenario The Kyiv Independent",
+    "quick_summary": "Ucrania estuvo prácticamente ausente de la convención republicana de mitad de período, pero los miembros del partido opinan fuera del escenario The Kyiv Independent"
   },
   {
     "id": "60a2e8906151",
@@ -422,23 +612,23 @@
     "is_translated": true
   },
   {
-    "id": "ea5e6ea398a1",
-    "title_original": "China & Taiwan Update, September 15, 2026 - understandingwar.org",
-    "summary_original": "China & Taiwan Update, September 15, 2026 understandingwar.org",
-    "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQeW5UMU1zY0dHTUV6S3A5RHNHZ19iMksxRDltMlNLNktrakZHcm1NOE5kWnhuX0hFX0R2azdVZlhrcWZNUUg4SFREdC1EZGxhMW51cDc0MjNWa2x2VzZQaXVUR3dsR3FKbFd4em5tZ2dtXzROeHJocjByN0hIR1lGekQ2d1AzWE10dHAxeE9iYmhtN1E?oc=5",
-    "source_id": "isw_assessments",
-    "source_name": "Institute for the Study of War (ISW)",
-    "perspective": "international",
+    "id": "33227b313b26",
+    "title_original": "Over 500 locomotives destroyed or damaged by Russian attacks, Ukraine says - The Kyiv Independent",
+    "summary_original": "Over 500 locomotives destroyed or damaged by Russian attacks, Ukraine says The Kyiv Independent",
+    "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQeXV3YkpQQzlzS0lmZTNoRndYSjN0b09HVUtqUElGeWRaZWxQZHlQU01NdEVVaG5lZTBjUDNYcmpyeGtzMVUxS0lIdUdYRUhDY25JUlI0eUFMRDdPaUJNZk55dVZyM0pyTzBmZG04LW1OMUFyeGRqNGctTm9fXzUzXzY0NDBVbko1aGhKRnk1S1JDSGVLbHhZT3FpWmhWcXFvdVU3MTJSRGl2cFBtY3hBUHR1aGNaT2M?oc=5",
+    "source_id": "kyiv_independent",
+    "source_name": "The Kyiv Independent",
+    "perspective": "ukraine",
     "language": "en",
-    "bias_note": "Centro de estudios estratégicos estadounidense líder mundial en mapas y análisis del frente.",
-    "published": "2026-09-15T17:37:33+00:00",
+    "bias_note": "Principal medio ucraniano independiente en inglés fundado por periodistas locales.",
+    "published": "2026-09-15T17:38:47+00:00",
     "categories": [
       "general"
     ],
     "is_translated": true,
-    "title_es": "Actualización sobre China y Taiwán, 15 de septiembre de 2026 - listeningwar.org",
-    "summary_es": "Actualización sobre China y Taiwán, 15 de septiembre de 2026 listeningwar.org",
-    "quick_summary": "Actualización sobre China y Taiwán, 15 de septiembre de 2026 listeningwar.org"
+    "title_es": "Más de 500 locomotoras destruidas o dañadas por ataques rusos, dice Ucrania - The Kyiv Independent",
+    "summary_es": "Más de 500 locomotoras destruidas o dañadas por los ataques rusos, según Ucrania The Kyiv Independent",
+    "quick_summary": "Más de 500 locomotoras destruidas o dañadas por los ataques rusos, según Ucrania The Kyiv Independent"
   },
   {
     "id": "f65d181f972e",
@@ -478,6 +668,25 @@
     "summary_es": "Los estados miembros de la Unión Europea pueden reforzar el control sobre el movimiento de diplomáticos rusos dentro del espacio Schengen, prohibir la emisión de visas a excombatientes rusos y reducir el número de visas de turista para los rusos.",
     "quick_summary": "Los estados miembros de la Unión Europea pueden reforzar el control sobre el movimiento de diplomáticos rusos dentro del espacio Schengen, prohibir la emisión de visas a excombatie...",
     "is_translated": true
+  },
+  {
+    "id": "e687893de0e0",
+    "title_original": "EU fear of escalation only encourages Russia to test new limits — MEP - Ukrinform",
+    "summary_original": "EU fear of escalation only encourages Russia to test new limits — MEP Ukrinform",
+    "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPb2Ryb0dIUl9pMThaTzhKSnA4NGxjZ04ycWItLS1qVUVYOGV1WkI0V0FvU1gtNlRWWm1qWWZXOUIzN2U1RF9UUXZ4dEFKenVhb3FUd1VycTJXOWJLMUNMSkJxakNoYWNvaUQtVkxERlc2bFB6RVNWaFVzcXRpaGxNTVNkOWdrM2xZVFZTM3FsM3dIam42MlNtb0tFRWVQVm92QVgyR21kbVk1dnBsTW1fZWdBbkhrYnBXdW4wS2N2a9IBxAFBVV95cUxPaEZGbmtmU1Z4RkRvbUVodHNnLUdob1NweHRIaWk4ZzUwMjFvaVRXY3FjVk5PQXZjMVpoTnhYZ3Z5a0UzTDhCNHF3ODBMNzRkbzNpSS14bFRENkdCLVY5bkdaaGJIZ0lRY2VETnB2QXVGNDBWNHBnQmJDZkNzZ0d4ZkJibURDdHN4YVBpcEVnRzkzWi14Uy1xSTdOQWNvSHA0Q1FPb1lLbVJEUVNXQnpmaXAzVzhnOEJRT0dnZWYta1dUaUd6?oc=5",
+    "source_id": "ukrinform",
+    "source_name": "Ukrinform",
+    "perspective": "ukraine",
+    "language": "en",
+    "bias_note": "Agencia nacional de noticias oficial del Estado ucraniano.",
+    "published": "2026-09-15T17:21:00+00:00",
+    "categories": [
+      "general"
+    ],
+    "is_translated": true,
+    "title_es": "El miedo de la UE a una escalada solo alienta a Rusia a probar nuevos límites: eurodiputado - Ukrinform",
+    "summary_es": "El miedo de la UE a una escalada solo alienta a Rusia a probar nuevos límites: eurodiputado Ukrinform",
+    "quick_summary": "El miedo de la UE a una escalada solo alienta a Rusia a probar nuevos límites: eurodiputado Ukrinform"
   },
   {
     "id": "3cbfae2e7dfa",
@@ -596,7 +805,7 @@
   {
     "id": "0783f2b4d2c3",
     "title_original": "Черги та натовп людей: чому на українських пунктах пропуску немає укриттів та як себе вберегти",
-    "summary_original": "\"Сонечко, яке укриття? Можеш в ліс побігти і заховатись\" , – почула Вероніка з подругою на українсько-польському кордоні від водія автобуса, у якому вони їхали.\n\nЩе кілька хвилин тому дівчата спали, чекаючи своєї черги на пункті пропуску \"Ягодин\" на кордоні з Польщею. Їх розбудив гучний вибух, після якого Вероніка ще довго стояла, спостерігаючи за димом та вогнем неподалік.\n\n\"Ми дуже сильно нервували, бо навколо було безліч бензовозів, один за одним. Ми розуміли, що якщо вогонь перекинеться, усе це підірветься\" , – пригадала Вероніка в коментарі УП.\n\nРосія двічі вдарила безпілотниками поблизу КПП \"Ягодин\" 13 вересня: спочатку по вантажівках та АЗС , а через кілька годин – по локомотиву потяга, який прямував з Києва до Варшави.\n\nПеред ударом на кордоні перебував дипломатичний потяг з іноземними високопосадовцями, серед яких був експремʼєр Великої Британії Борис Джонсон. В іншому потязі, який ще не встиг пройти кордон, їхав колишній глава ЦРУ Девід Петреус.\n\nСаме у цей час до Польщі потягом №67 прямувала киянка Олена Сімонова. Разом з іншими пасажирами вона евакуювалась незадовго до удару по локомотиву. Люди стояли просто неба, працівники УЗ рекомендували пасажирам відходити до озера, однак Олені було незрозуміло, де саме воно розташоване та чи справді безпечно біля нього перебувати.\n\n\"Дехто побіг, дехто крикнув. Деякі дівчата плакали. Найзібранішими були мами з малюками.\n\nМи з чоловіком знайшли бетонний куток і вирішили, що там безпечніше. Єдине, що я розуміла – я не хотіла йти з натовпом, бо в мене було відчуття, що вони (росіяни – УП) так і вдарять по скупченню людей\" , – сказала Олена.\n\nАтаки на кордонно-пропускні пункти стають все частішими. Від 2022 року українські КПП страждали від російських атак 11 разів, 7 з них – лише в 2026 році.\n\nЧому Росія почала активно бити по пунктах пропуску, які КПП найчастіше страждали від ворожих безпілотників, чому на кордоні немає укриттів та що робити людям, якщо вони перебувають там під час атаки – читайте у форматі \"УП.Кор...",
+    "summary_original": "\"Сонечко, яке укриття? Можеш в ліс побігти і заховатись\" , – почула Вероніка з подругою на українсько-польському кордоні від водія автобуса, в якому вони їхали.\n\nЩе кілька хвилин тому дівчата спали, чекаючи своєї черги на пункті пропуску \"Ягодин\" на кордоні з Польщею. Їх розбудив гучний вибух, після якого Вероніка ще довго стояла, спостерігаючи за димом та вогнем неподалік.\n\n\"Ми дуже сильно нервували, бо навколо було безліч бензовозів, один за одним. Ми розуміли, що якщо вогонь перекинеться, усе це підірветься\" , – пригадала Вероніка в коментарі УП.\n\nРосія двічі вдарила безпілотниками поблизу КПП \"Ягодин\" 13 вересня: спочатку по вантажівках та АЗС , а через кілька годин – по локомотиву потяга, який прямував з Києва до Варшави.\n\nПеред ударом на кордоні перебував дипломатичний потяг з іноземними високопосадовцями, серед яких був експрем'єр Великої Британії Борис Джонсон. В іншому поїзді, який ще не встиг пройти кордон, їхав колишній глава ЦРУ Девід Петреус.\n\nСаме в цей час до Польщі потягом № 67 прямувала киянка Олена Сімонова. Разом з іншими пасажирами вона евакуювалась незадовго до удару по локомотиву. Люди стояли просто неба, працівники УЗ рекомендували пасажирам відходити до озера, однак Олені було незрозуміло, де саме воно розташоване та чи справді безпечно біля нього перебувати.\n\n\"Дехто побіг, дехто крикнув. Деякі дівчата плакали. Найзібранішими були мами з малюками.\n\nМи з чоловіком знайшли бетонний куток і вирішили, що там безпечніше. Єдине, що я розуміла – я не хотіла йти з натовпом, бо в мене було відчуття, що вони (росіяни – УП) так і вдарять по скупченню людей\" , – сказала Олена.\n\nАтаки на кордонно-пропускні пункти стають все частішими. Від 2022 року українські КПП страждали від російських атак 11 разів, 7 з них – лише в 2026 році.\n\nЧому Росія почала активно бити по пунктах пропуску, які КПП найчастіше страждали від ворожих безпілотників, чому на кордоні немає укриттів та що робити людям, якщо вони перебувають там під час атаки – читайте у форматі \"УП. К...",
     "link": "https://www.pravda.com.ua/articles/2026/09/15/8053592/",
     "source_id": "ukrainska_pravda_ukr",
     "source_name": "Ukrainska Pravda (UKR)",
@@ -629,44 +838,6 @@
     "title_es": "Un dron desconocido se estrella a 1 km de una base aérea militar alemana",
     "summary_es": "Un dron no identificado se estrelló cerca de Hannover, a aproximadamente 1 km de la base aérea de la Bundeswehr en Wunstorf. La policía alemana busca restos e investiga su origen.",
     "quick_summary": "Un dron no identificado se estrelló cerca de Hannover, a aproximadamente 1 km de la base aérea de la Bundeswehr en Wunstorf. La policía alemana busca restos e investiga su origen.",
-    "is_translated": true
-  },
-  {
-    "id": "6efb9cf6e191",
-    "title_original": "ЗМІ: За кілометр від авіабази Бундесверу розбився невідомий дрон",
-    "summary_original": "У Німеччині триває масштабна поліцейська операція після виявлення уламків дрона на схід від озера Штайнхуде, що поблизу Ганновера.\n\nДжерело : \" Європейська правда \" з посиланням на Bild\n\nДеталі : Наразі численні правоохоронці проводять пошуки інших уламків. За даними Державного управління кримінальної поліції (LKA), дрон впав у безлюдній відкритій місцевості.\n\nЗазначається, що ця територія розташована лише за один кілометр від авіабази Збройних сил Німеччини у Вунсторфі. Бундесвер підтвердив це виданню Bild.\n\nОскільки територія, на якій стався інцидент, є досить великою, на місці працюють численні співробітники екстрених служб.\n\nУ цьому регіоні також розташований військовий аеродром Вунсторф (Нижня Саксонія).\n\nПоліція проводить обшук території силами великого контингенту.\n\nСлідчі знають про цю знахідку з понеділка. За даними LKA, наразі немає жодних ознак небезпеки для населення. Проте пошуки триватимуть.\n\nНаразі залишається незрозумілим, кому належить безпілотник і звідки він взявся. Слідчі мають намір вилучити та проаналізувати інші частини дрона. Лише після цього з'являться додаткові подробиці щодо обставин інциденту.\n\nНагадаємо, 1 вересня Німеччина прямо звинуватила Росію у гібридній атаці в аеропорту Лейпцига на початку серпня та оголосила заходи у відповідь.\n\nЧитайте детально про диверсійні дрони в аеропорту Лейпцига та відповідь Берліна .",
-    "link": "https://www.pravda.com.ua/news/2026/09/15/8053595/",
-    "source_id": "ukrainska_pravda_ukr",
-    "source_name": "Ukrainska Pravda (UKR)",
-    "perspective": "ukraine",
-    "language": "uk",
-    "bias_note": "Edición original en ucraniano con actualización continua.",
-    "published": "2026-09-15T16:19:00+00:00",
-    "categories": [
-      "drones"
-    ],
-    "title_es": "Medios: un dron desconocido se estrelló a un kilómetro de la base aérea de la Bundeswehr",
-    "summary_es": "En Alemania se está llevando a cabo una operación policial a gran escala después de que se encontraran los restos de un dron al este del lago Steinhude, cerca de Hannover.",
-    "quick_summary": "En Alemania se está llevando a cabo una operación policial a gran escala después de que se encontraran los restos de un dron al este del lago Steinhude, cerca de Hannover.",
-    "is_translated": true
-  },
-  {
-    "id": "c1d58b2efc46",
-    "title_original": "\"Управлінські функції\" в ОГП виконує Максим Крим, у родичів якого знайшли паспорти РФ – ЗМІ",
-    "summary_original": "Після відсторонення з посади генерального прокурора Руслана Кравченка відповідні \"управлінські функції\" в ОГП наразі виконує його заступник Максим Крим.\n\nДжерело : hromadske з посиланням на начальницю управління інформаційної політики та комунікацій ОГП Мар'яну Гайовську, \"Суспільне\" , \"Слідство.Інфо\"\n\nПряма мова : \"За розподілом обов'язків як заступник генерального прокурора він здійснює відповідні управлінські функції, крім тих повноважень і процесуальних рішень, які законом віднесені виключно до компетенції генерального прокурора\".\n\nДеталі : За даними \"Слідство.Інфо\" з посиланням на проєкт KibOrg і російські бази даних, дружина Крима та її батьки отримали російські паспорти у квітні 2014 року — після початку окупації Криму.\n\nЗа даними редакції \"Слідства.Інфо\", дружина заступника генпрокурора Максима Крима - Ганна Крим отримала паспорт громадянки Російської Федерації 2 квітня 2014 року. У документі вказана реєстрація в Севастополі.\n\nЇї батько Вячеслав Юшков і мати Лариса Юшкова отримали російські паспорти 30 квітня 2014 року. Обоє також були зареєстровані в Севастополі.\n\n\"Слід зазначити, що після 18 березня Росія розгорнула в Криму примусову паспортизацію і фактично видавала свої паспорти всім кримчанам. Ті, хто хотів зберегти українське громадянство, мусили особисто написати відмову від російського паспорта у визначених пунктах міграційної служби\", - говориться у публікації.\n\nСтаном на 2026 рік дані про російський паспорт Ганни Крим залишаються актуальними. Водночас редакції не вдалося встановити, чи анулювала вона цей паспорт або ж чи користується ним зараз.\n\nЯк дізналися журналісти, у 2014-му Максим Крим служив в органах військової прокуратури Кримського регіону. За словами тодішнього головного військового прокурора Анатолія Матіоса, навесні 2014 року Крим разом із Русланом Кравченком знищили документи Кримської прокуратури з нагляду у військовій сфері та виїхали на материкову Україну. Про це Матіос розповідав \"Бабелю\".\n\nГанна Крим родом із Севастополя. \"Ми ...",
-    "link": "https://www.pravda.com.ua/news/2026/09/15/8053593/",
-    "source_id": "ukrainska_pravda_ukr",
-    "source_name": "Ukrainska Pravda (UKR)",
-    "perspective": "ukraine",
-    "language": "uk",
-    "bias_note": "Edición original en ucraniano con actualización continua.",
-    "published": "2026-09-15T16:17:00+00:00",
-    "categories": [
-      "general"
-    ],
-    "title_es": "Las \"funciones de dirección\" en la UGP las desempeña Maxim Krym, cuyos familiares encontraron pasaportes de la Federación Rusa - medios de comunicación",
-    "summary_es": "El fiscal general adjunto Maksym Krym dirige temporalmente la OGP. La esposa de Crimea y sus padres recibieron pasaportes rusos en 2014, los datos siguen siendo relevantes.",
-    "quick_summary": "El fiscal general adjunto Maksym Krym dirige temporalmente la OGP. La esposa de Crimea y sus padres recibieron pasaportes rusos en 2014, los datos siguen siendo relevantes.",
     "is_translated": true
   },
   {
@@ -728,22 +899,22 @@
     "is_translated": true
   },
   {
-    "id": "915df54217ac",
-    "title_original": "У НАТО назвали \"безвідповідальними діями\" постріли Росії у данський вертоліт",
-    "summary_original": "У НАТО назвали \"безвідповідальними діями Росії\" те, що в понеділок російський фрегат випустив сигнальні ракети в бік вертольота Збройних сил Данії в міжнародних водах поблизу Гедсера.\n\nДжерело : \" Європейська правда\" з посиланням на коментар речниці НАТО Еллісон Гарт данській агенції Ritzau, TV2\n\nДеталі : За її словами, Данія поінформувала союзників про інцидент, під час якого російський фрегат випустив сигнальні ракети в бік данського військового вертольота.\n\n\"Це ще один безвідповідальний вчинок Росії, спрямований на залякування союзників. Але Росії це не вдається. Ми продовжуємо захищати нашу територію і продовжуємо підтримувати Україну\", – сказала Еллісон Гарт.\n\nНагадаємо, Данія викликала російського посла після того, як у понеділок російський фрегат випустив дві сигнальні ракети в бік данського вертольота.\n\nПрем'єрка Данії Метте Фредеріксен, коментуючи інцидент, заявила, що Росія посилила гібридну війну проти Європи .\n\nПосол РФ у Копенгагені заявив, що це данський військовий гелікоптер \"спровокував\" російський фрегат своїми маневрами.",
-    "link": "https://www.pravda.com.ua/news/2026/09/15/8053588/",
-    "source_id": "ukrainska_pravda_ukr",
-    "source_name": "Ukrainska Pravda (UKR)",
+    "id": "57956e8369a4",
+    "title_original": "Belarus holds 'defensive' military drills near borders with Poland, Lithuania - The Kyiv Independent",
+    "summary_original": "Belarus holds 'defensive' military drills near borders with Poland, Lithuania The Kyiv Independent",
+    "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNcjNYVVRzdXNwZm05QzZ2Y3VZdnp5cWlnVXhiZXlKMWRFOFlRQmdkRXczdWtWQU0xS2cweVo1cThINzI2X0JtQTUyVnNJUVJvUkJYVzE2cDZRT0dwdnhsRkJDbTluZndNalQyVTdtSWlZZXVTVVpXOTVYQWxuRGctbFhkWnFXdnFVa1B3UkhrQXNjUWpRQS1QOQ?oc=5",
+    "source_id": "kyiv_independent",
+    "source_name": "The Kyiv Independent",
     "perspective": "ukraine",
-    "language": "uk",
-    "bias_note": "Edición original en ucraniano con actualización continua.",
-    "published": "2026-09-15T15:49:00+00:00",
+    "language": "en",
+    "bias_note": "Principal medio ucraniano independiente en inglés fundado por periodistas locales.",
+    "published": "2026-09-15T15:39:30+00:00",
     "categories": [
       "general"
     ],
-    "title_es": "La OTAN calificó de \"acciones irresponsables\" los disparos de Rusia contra un helicóptero danés.",
-    "summary_es": "La OTAN calificó de \"acciones irresponsables de Rusia\" el hecho de que el lunes una fragata rusa disparara misiles de señales contra un helicóptero de las Fuerzas Armadas danesas en aguas internacionales cerca de Gedser.",
-    "quick_summary": "La OTAN calificó de \"acciones irresponsables de Rusia\" el hecho de que el lunes una fragata rusa disparara misiles de señales contra un helicóptero de las Fuerzas Armadas danesas e...",
+    "title_es": "Bielorrusia realiza ejercicios militares \"defensivos\" cerca de las fronteras con Polonia y Lituania - The Kyiv Independent",
+    "summary_es": "Bielorrusia realiza ejercicios militares \"defensivos\" cerca de las fronteras con Polonia y Lituania The Kyiv Independent",
+    "quick_summary": "Bielorrusia realiza ejercicios militares \"defensivos\" cerca de las fronteras con Polonia y Lituania The Kyiv Independent",
     "is_translated": true
   },
   {
@@ -785,6 +956,25 @@
     "is_translated": true
   },
   {
+    "id": "73e38dd701bf",
+    "title_original": "There's one massive problem with Trump's Ukraine diesel price theory - The Kyiv Independent",
+    "summary_original": "There's one massive problem with Trump's Ukraine diesel price theory The Kyiv Independent",
+    "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPaGVaM0Q3TW16XzliajZGNTZwMTd4UDlDUThBdzhpQkFrVFJWcDluVTVGVHpYSVZVOExubzNqRzVoWEtNVlVrU2JIVTZ2Z3BRaEoxZXA1Q01yTl9aM2kwS3dwRDRmUy1mdk43SUNuMkxOSnI1aGFkS3Y5WnlOb3NOZHZ6SldWTlVweEVuSWpYbnpBVWlaQzdjWU9sWQ?oc=5",
+    "source_id": "kyiv_independent",
+    "source_name": "The Kyiv Independent",
+    "perspective": "ukraine",
+    "language": "en",
+    "bias_note": "Principal medio ucraniano independiente en inglés fundado por periodistas locales.",
+    "published": "2026-09-15T14:57:45+00:00",
+    "categories": [
+      "general"
+    ],
+    "title_es": "Hay un problema enorme con la teoría de Trump sobre el precio del diésel en Ucrania - The Kyiv Independent",
+    "summary_es": "Hay un gran problema con la teoría de Trump sobre el precio del diésel en Ucrania The Kyiv Independent",
+    "quick_summary": "Hay un gran problema con la teoría de Trump sobre el precio del diésel en Ucrania The Kyiv Independent",
+    "is_translated": true
+  },
+  {
     "id": "6cc00647270d",
     "title_original": "Бывший автогонщик Никита Мазепин может стать владельцем разработчика игр «Мир танков» и «Мир кораблей»",
     "summary_original": "Владельцем крупнейшей игровой компании России «Леста Игры», изъятой у прошлых владельцев, может стать Никита Мазепин — бывший автогонщик и сын основного акционера «Уралхима» Дмитрия Мазепина , сообщают источники Forbes.\n\nПо словам одного из них, сделка еще не завершена, но близка к этому: «Он [Мазепин-младший] вписался в эту историю одним из первых, еще осенью прошлого года». Собеседники издания оценили компанию в 30–35 миллиардов рублей.\n\nПредставитель Никиты Мазепина подтвердила, что «Группа УКМ», которую возглавляет бывший автогонщик, «проводит ряд сделок в сфере цифровых технологий, финтеха и ИИ».\n\n«Леста Игры» управляет в России проектами «Мир танков», «Мир кораблей» и Tanks Blitz. Ранее она входила в состав компании Wargaming белорусского бизнесмена Виктора Кислого, но после начала большой войны в феврале 2022 года Wargaming ушла с российского и белорусского рынков. Игровой бизнес в обеих странах перешел под управление «Леста Игры».\n\nВ 2025 году Кислого и владельца компании «Леста Игры» Малика Хатажаева объявили участниками «экстремистского объединения». Поводом послужил сбор средств в поддержку Украины, который проводила компания Wargaming после ухода из России. В итоге компанию «Леста Игры» национализировали.\n\nВ рейтинге Forbes самых дорогих интернет-компаний за 2026 год «Леста Игры» заняла 12-е место с оценкой 1,6 миллиарда долларов.\n\nЕще о «Леста Игры»\n\nРазработчиков российской версии World of Tanks объявили экстремистами. Компанию хотят передать новому владельцу Но она все равно пытается доказать свой патриотизм акциями в поддержку войны",
@@ -802,6 +992,26 @@
     "title_es": "El ex piloto de carreras Nikita Mazepin puede convertirse en el propietario del desarrollador de los juegos \"World of Tanks\" y \"World of Ships\".",
     "summary_es": "El propietario de la mayor empresa de juegos de Rusia, Lesta Games, confiscada a propietarios anteriores, podría convertirse en Nikita Mazepin, ex piloto de carreras e hijo del principal accionista de Uralchem, Dmitry Mazepin, según informan las fuentes a Forbes.\n\nSegún uno de ellos, el acuerdo aún no se ha cerrado, pero está cerca: \"Él [Mazepin Jr.] fue uno de los primeros en encajar en esta historia, allá por el otoño del año pasado\". Los interlocutores de la publicación valoraron la empresa entre 30 y 35 mil millones de rublos.\n\nEl representante de Nikita Mazepina confirmó que el grupo UKM, encabezado por el ex piloto de carreras, está \"realizando una serie de transacciones en el campo de las tecnologías digitales, fintech e inteligencia artificial\".\n\nLesta Igry gestiona los proyectos World of Tanks, World of Ships y Tanks Blitz en Rusia. Anteriormente formaba parte de la empresa Wargaming del empresario bielorruso Viktor Kisly, pero tras el inicio de la gran guerra en febrero de 2022, Wargaming abandonó los mercados ruso y bielorruso. El negocio del juego en ambos países quedó bajo el control de Lesta Igra.",
     "quick_summary": "El propietario de la mayor empresa de juegos de Rusia, Lesta Games, confiscada a propietarios anteriores, podría convertirse en Nikita Mazepin, ex piloto de carreras e hijo del pri...",
+    "is_translated": true
+  },
+  {
+    "id": "ce4b8abf6800",
+    "title_original": "US could hit Putin's Arctic gas empire by sanctioning 14 LNG tankers - The Kyiv Independent",
+    "summary_original": "US could hit Putin's Arctic gas empire by sanctioning 14 LNG tankers The Kyiv Independent",
+    "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOMkhNaXlPeDQ5Q2NqNmlUVS1RTkttYTI3MEJHYklORHJ4dHBKQ0V0SWF6NUk0RWlqTHE5czdqTWRIUjlOb1hMRkMxZlNUeU5VRm9fdWxqdi01SEFNVnl1X3FsdEtzcTZLYzVIWk1SLUxGbEdJY3VtT0pWbVBkQ1ZzVENtZ2ZBVUxVTXhDeDRTU2ZHaUowOUF6NWZEWnk?oc=5",
+    "source_id": "kyiv_independent",
+    "source_name": "The Kyiv Independent",
+    "perspective": "ukraine",
+    "language": "en",
+    "bias_note": "Principal medio ucraniano independiente en inglés fundado por periodistas locales.",
+    "published": "2026-09-15T14:47:27+00:00",
+    "categories": [
+      "armamento",
+      "economia"
+    ],
+    "title_es": "Estados Unidos podría golpear el imperio de gas ártico de Putin al sancionar a 14 buques cisterna de GNL - The Kyiv Independent",
+    "summary_es": "Estados Unidos podría golpear el imperio de gas ártico de Putin al sancionar a 14 buques cisterna de GNL The Kyiv Independent",
+    "quick_summary": "Estados Unidos podría golpear el imperio de gas ártico de Putin al sancionar a 14 buques cisterna de GNL The Kyiv Independent",
     "is_translated": true
   },
   {
@@ -841,6 +1051,25 @@
     "title_es": "Dos personas muertas y casas dañadas en el ataque ruso a la zona residencial de Slaviansk",
     "summary_es": "Un ataque ruso en una zona residencial de Slaviansk, en el óblast de Donetsk, mató a un hombre y una mujer, hirió a otra mujer y dañó tres casas.",
     "quick_summary": "Un ataque ruso en una zona residencial de Slaviansk, en el óblast de Donetsk, mató a un hombre y una mujer, hirió a otra mujer y dañó tres casas.",
+    "is_translated": true
+  },
+  {
+    "id": "2f1b6ea26c9c",
+    "title_original": "Ukraine has 'successfully tested' new interceptor against Russian jet-powered drones, Zelensky says - The Kyiv Independent",
+    "summary_original": "Ukraine has 'successfully tested' new interceptor against Russian jet-powered drones, Zelensky says The Kyiv Independent",
+    "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOZ193YjMyZlFQZ0xrbklJOXJzdWV6SWNmR01JUGtwLVFjSkJVUkNvN0ZTZ0o0UFZEOE13TFRMbno5VUlRUkRpXzB3OG5KVkJqclIweUdBdnIxQnJ0c3AxSUs4M09rWHZqYWxtckZZaFdjVVV1UkFPX0R4MEdicVJSMDdac2hIWGhqYTBXOGFkMlZucHBPUkVQaENjZ3BDR1ltTURTNDVIRldld1pENzBZUU5TUko?oc=5",
+    "source_id": "kyiv_independent",
+    "source_name": "The Kyiv Independent",
+    "perspective": "ukraine",
+    "language": "en",
+    "bias_note": "Principal medio ucraniano independiente en inglés fundado por periodistas locales.",
+    "published": "2026-09-15T14:37:35+00:00",
+    "categories": [
+      "drones"
+    ],
+    "title_es": "Ucrania ha \"probado con éxito\" un nuevo interceptor contra aviones no tripulados rusos, dice Zelensky - The Kyiv Independent",
+    "summary_es": "Ucrania ha \"probado con éxito\" un nuevo interceptor contra aviones no tripulados rusos, dice Zelensky The Kyiv Independent",
+    "quick_summary": "Ucrania ha \"probado con éxito\" un nuevo interceptor contra aviones no tripulados rusos, dice Zelensky The Kyiv Independent",
     "is_translated": true
   },
   {
@@ -1098,9 +1327,28 @@
     "is_translated": true
   },
   {
-    "id": "8504ec870019",
-    "title_original": "Выборы уже начались. В прифронтовых регионах вовсю идет досрочное голосование — и за ним почти никто не следит. Это открывает возможность манипулировать голосами по меньшей мере 11% избирателей - Новая газета Европа",
-    "summary_original": "Выборы уже начались. В прифронтовых регионах вовсю идет досрочное голосование — и за ним почти никто не следит. Это открывает возможность манипулировать голосами по меньшей мере 11% избирателей Новая газета Европа",
+    "id": "553bda758a1f",
+    "title_original": "EU approves $115 million to turn Baltic port near Russia into NATO naval hub - The Kyiv Independent",
+    "summary_original": "EU approves $115 million to turn Baltic port near Russia into NATO naval hub The Kyiv Independent",
+    "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOdHlVb1d4bms0U1JFLXlXOU04SXE4Qm10Nm8zeU9GVW1nckI4d1g4cjdiZTh3a2IzT2lkU2JIQm83TTktY0pEcGUyc0ZfWXpsOTN3WVRIOEFWUmRwUHo1X3BldkVmT1BibFhTdXFUZGwzdWlwUkt3bnhuY1F4S3NGdThrQ0g1clRyMXJQLW9TRjZzeFI1M2pFak11TmFuNWJwUW52SGJsRQ?oc=5",
+    "source_id": "kyiv_independent",
+    "source_name": "The Kyiv Independent",
+    "perspective": "ukraine",
+    "language": "en",
+    "bias_note": "Principal medio ucraniano independiente en inglés fundado por periodistas locales.",
+    "published": "2026-09-15T12:42:30+00:00",
+    "categories": [
+      "general"
+    ],
+    "title_es": "La UE aprueba 115 millones de dólares para convertir el puerto del Báltico cerca de Rusia en un centro naval de la OTAN - The Kyiv Independent",
+    "summary_es": "La UE aprueba 115 millones de dólares para convertir el puerto del Báltico cerca de Rusia en un centro naval de la OTAN The Kyiv Independent",
+    "quick_summary": "La UE aprueba 115 millones de dólares para convertir el puerto del Báltico cerca de Rusia en un centro naval de la OTAN The Kyiv Independent",
+    "is_translated": true
+  },
+  {
+    "id": "4695edc97967",
+    "title_original": "Выборы уже начались. В прифронтовых регионах вовсю идет досрочное голосование — и за ним почти никто не следит. Это открывает возможность манипулировать голосами по меньшей мере 11% избирателей - novayagazeta.eu",
+    "summary_original": "Выборы уже начались. В прифронтовых регионах вовсю идет досрочное голосование — и за ним почти никто не следит. Это открывает возможность манипулировать голосами по меньшей мере 11% избирателей novayagazeta.eu",
     "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE5XNHN3eTZTVm5oOHhFOWx5MDM1UENnTjYtYjVqSkgzSHBkLThjY3N3S2o5ODVXU3VxYVh6cWRtOWlwVUV5V2hJUG5XWW5vZ0hlY1hRWHR2MFVfVFY0SjZScklTakRrMG5hQmd0SXo4ejVxUdIBd0FVX3lxTFA5V1pYWEVXWkM5REdYUXQxamljVkh3b0NFbnQ4ZVRCX1dUZ0F2bWpreXE0dEtwTVNPNjNoeFRzUnZXTWVXaGxoR1FteEkxcUcwZ3p4cU1MRk5FWUhnVFhMdEpyZmoxeUIxcnJsZlV6RlpDejFSQTln?oc=5",
     "source_id": "novaya_gazeta",
     "source_name": "Novaya Gazeta Europe",
@@ -1112,9 +1360,28 @@
       "general"
     ],
     "is_translated": true,
-    "title_es": "Las elecciones ya han comenzado. En las regiones de primera línea, la votación anticipada está en pleno apogeo y casi nadie la observa. Esto abre la posibilidad de manipular los votos de al menos el 11% de los electores - Novaya Gazeta Europe",
-    "summary_es": "Las elecciones ya han comenzado. En las regiones de primera línea, la votación anticipada está en pleno apogeo y casi nadie la observa. Esto abre la posibilidad de manipular los votos de al menos el 11% de los votantes Novaya Gazeta Europa",
+    "title_es": "Las elecciones ya han comenzado. En las regiones de primera línea, la votación anticipada está en pleno apogeo y casi nadie la observa. Esto abre la posibilidad de manipular los votos de al menos el 11% de los electores - novayagazeta.eu",
+    "summary_es": "Las elecciones ya han comenzado. En las regiones de primera línea, la votación anticipada está en pleno apogeo y casi nadie la observa. Esto abre la posibilidad de manipular los votos de al menos el 11% de los electores novayagazeta.eu",
     "quick_summary": "Las elecciones ya han comenzado. En las regiones de primera línea, la votación anticipada está en pleno apogeo y casi nadie la observa."
+  },
+  {
+    "id": "d1b6fcf0d8cf",
+    "title_original": "Russia suffers over 300,000 military losses in Ukraine since start of 2026, General Staff says - The Kyiv Independent",
+    "summary_original": "Russia suffers over 300,000 military losses in Ukraine since start of 2026, General Staff says The Kyiv Independent",
+    "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOSGR3OVVib2FuXzd2Ukk5aVF0alNsSV83Z3hxNXNwVjh1ZnVqNFVLVnZGcFNTNzdHT1NMLWl5eE1HNUkyWFE2eEsySVMxQU9BTV9rcXRjczVUTndudjVZUUtnZXRTNWRmSjRDdmlyMTNFSnlsR1l3Z1lGb05Ec1llZUtROVdjekgzUmtaWVBHdkVSUThESnJnRi15aGRNc25qOFRkem5xeENCeXpYVGtaU2E2ZTRjdnUwdUxLMDRHWF83TmJL?oc=5",
+    "source_id": "kyiv_independent",
+    "source_name": "The Kyiv Independent",
+    "perspective": "ukraine",
+    "language": "en",
+    "bias_note": "Principal medio ucraniano independiente en inglés fundado por periodistas locales.",
+    "published": "2026-09-15T12:22:35+00:00",
+    "categories": [
+      "general"
+    ],
+    "title_es": "Rusia sufre más de 300.000 pérdidas militares en Ucrania desde principios de 2026, dice el Estado Mayor - The Kyiv Independent",
+    "summary_es": "Rusia sufre más de 300.000 pérdidas militares en Ucrania desde principios de 2026, dice el Estado Mayor The Kyiv Independent",
+    "quick_summary": "Rusia sufre más de 300.000 pérdidas militares en Ucrania desde principios de 2026, dice el Estado Mayor The Kyiv Independent",
+    "is_translated": true
   },
   {
     "id": "72813b71d0c5",
@@ -1133,6 +1400,25 @@
     "title_es": "Lavrov confía en que Rusia recuperará los activos congelados en la UE",
     "summary_es": "El Ministro de Asuntos Exteriores ruso, Sergei Lavrov, ha dicho que Rusia garantizará la devolución de sus reservas de oro y divisas extranjeras congeladas en la UE.\n\nFuente: agencia de noticias rusa Interfax, según lo informado por la europea Pravda.\n\nDetalles: Lavrov dijo que la \"agresión jurídica de los países occidentales\" se manifiesta tanto en \"una interpretación expansiva del derecho internacional como en la reescritura de estas normas para adaptarlas a sus necesidades\". Como ejemplo citó la situación de los activos del Banco Central de Rusia, que fueron congelados en el depósito Euroclear de Bruselas.\n\n\"La Comisión Europea, como he dicho antes, todavía quiere confiscar estos activos y luego devolvérnoslos sólo después de que paguemos a Ucrania ciertas reparaciones. Garantizaremos la devolución de nuestras reservas de oro y divisas, de eso no tengo ninguna duda\", dijo el Ministro de Asuntos Exteriores ruso.",
     "quick_summary": "El Ministro de Asuntos Exteriores ruso, Sergei Lavrov, ha dicho que Rusia garantizará la devolución de sus reservas de oro y divisas extranjeras congeladas en la UE.",
+    "is_translated": true
+  },
+  {
+    "id": "187d1ea903d1",
+    "title_original": "What to expect on Ukraine in the EU's big yearly roundup - The Kyiv Independent",
+    "summary_original": "What to expect on Ukraine in the EU's big yearly roundup The Kyiv Independent",
+    "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQS19vS3RNNEtwdWZRSUo1elg3QVJNSEVzcEMxbmVYTF9NbVN1ZjJQY0N2Y2h1dnRFS2kzc3ltX1FSY2hyVUt1ZExqaVBTb0ZkeTE2NWd2RFlmeVBWaUdDQndNUVlrWWhjdDJNc21FcjdXaEVrcEwzY05KaUtFQ3FlUGRiNDJPVlZiMUJNZg?oc=5",
+    "source_id": "kyiv_independent",
+    "source_name": "The Kyiv Independent",
+    "perspective": "ukraine",
+    "language": "en",
+    "bias_note": "Principal medio ucraniano independiente en inglés fundado por periodistas locales.",
+    "published": "2026-09-15T12:08:26+00:00",
+    "categories": [
+      "general"
+    ],
+    "title_es": "Qué esperar de Ucrania en el gran resumen anual de la UE - The Kyiv Independent",
+    "summary_es": "Qué esperar de Ucrania en el gran resumen anual de la UE The Kyiv Independent",
+    "quick_summary": "Qué esperar de Ucrania en el gran resumen anual de la UE The Kyiv Independent",
     "is_translated": true
   },
   {
@@ -1212,6 +1498,25 @@
     "title_es": "Dinamarca dice que un buque de guerra ruso disparó bengalas contra un helicóptero militar",
     "summary_es": "El primer ministro danés acusó a Rusia de comportamiento \"imprudente\", mientras que el Kremlin aún no se ha pronunciado.",
     "quick_summary": "El primer ministro danés acusó a Rusia de comportamiento \"imprudente\", mientras que el Kremlin aún no se ha pronunciado.",
+    "is_translated": true
+  },
+  {
+    "id": "2a0a8a44b89c",
+    "title_original": "US envoy arrives in Belarus as US seeks prisoner releases, path to unfreeze assets - The Kyiv Independent",
+    "summary_original": "US envoy arrives in Belarus as US seeks prisoner releases, path to unfreeze assets The Kyiv Independent",
+    "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNenlqZEs2a1pGRDZxb2dzTDRxMkgyckVybzBMTS1ZSzVvWVpMRU83emFralU3ODFmcGRwUEtzNnVjRzUyX2ZTT2p4RlZaN2VPZlpMVGc2WEp2ZVVpU0tyakc5eHh3aTR6VWxyekFYSE1PYndRNU9WMUZXekVWM3JobHZKZmlRUmFRdDZDVDhaaw?oc=5",
+    "source_id": "kyiv_independent",
+    "source_name": "The Kyiv Independent",
+    "perspective": "ukraine",
+    "language": "en",
+    "bias_note": "Principal medio ucraniano independiente en inglés fundado por periodistas locales.",
+    "published": "2026-09-15T11:39:17+00:00",
+    "categories": [
+      "general"
+    ],
+    "title_es": "El enviado de Estados Unidos llega a Bielorrusia mientras Estados Unidos busca la liberación de prisioneros y el camino para descongelar activos - The Kyiv Independent",
+    "summary_es": "El enviado de Estados Unidos llega a Bielorrusia mientras Estados Unidos busca la liberación de prisioneros y el camino para descongelar activos The Kyiv Independent",
+    "quick_summary": "El enviado de Estados Unidos llega a Bielorrusia mientras Estados Unidos busca la liberación de prisioneros y el camino para descongelar activos The Kyiv Independent",
     "is_translated": true
   },
   {
@@ -1410,9 +1715,9 @@
     "is_translated": true
   },
   {
-    "id": "c4e3cc2dbc39",
-    "title_original": "FT: Путин не хочет заключать энергетическое перемирие с Украиной. Трамп поторопился с заявлением о договоренности - Новая газета Европа",
-    "summary_original": "FT: Путин не хочет заключать энергетическое перемирие с Украиной. Трамп поторопился с заявлением о договоренности Новая газета Европа",
+    "id": "530ba7ae2a4f",
+    "title_original": "FT: Путин не хочет заключать энергетическое перемирие с Украиной. Трамп поторопился с заявлением о договоренности - novayagazeta.eu",
+    "summary_original": "FT: Путин не хочет заключать энергетическое перемирие с Украиной. Трамп поторопился с заявлением о договоренности novayagazeta.eu",
     "link": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxNWUxtMFpGV3IwVXdwNFN3Q2ZoLXJuYjhqTnMzWXJiQVVuQjRCT24yd2VTTDFZME5INHI3LVA0cGFwU1ZHbGFiQ3dVbkE5eW1EbWxSaU0ydXZkU3RNcEpKalhwdS1XTU44dTloT2pTYjdRdkhZX29LTmZSLTFiQmc1QXVwVDNiZFBXdHlobkhBeFdRc3BiQkNyd1l2WUp0RGJScEM3Z1BXTDVBUnpmUlJraEZ0WGYycTl4SGpVMWpzeUc5b1hVbWI0aEpCQkp3N1BHcVpSdHNEOUhJOTdIVzNhc3BCNFE4U3pTVXRtdW9MN2prdHRPcDlGWkd30gH_AUFVX3lxTE1laUJmaE5zTkxtRmlzTGYtZjRDWmhDX3pNLUlfY1RaT1RfWkVlWmRWOUpxdHRqUjZrSm9oOXlkS2h5eXYzWU9CdE55VE5rYVJLX0x0UkZtWW5iejdHOWdLcDF6WFdHS3F1NjVjZUl2UDFKQzJHN1JscUlFM180akMyUmJ3ajdNV2hadllmYlBqUGF2TEwwNXE0VXhXZUpqUkZjT3FrS1NFREdpeUduWENpMVliUG1hTE9DLTdGVUkyampzcVMzX1o1aVNuZS12OUY2NjRYSHEzVTBZV3RHaXVwZHRkaEJ3QmF6UktXengxcmdIZDQ5SVYwXzZYYW9LYw?oc=5",
     "source_id": "novaya_gazeta",
     "source_name": "Novaya Gazeta Europe",
@@ -1424,9 +1729,9 @@
       "diplomacia"
     ],
     "is_translated": true,
-    "title_es": "FT: Putin no quiere concluir una tregua energética con Ucrania. Trump se apresuró a anunciar un acuerdo - Novaya Gazeta Europe",
-    "summary_es": "FT: Putin no quiere concluir una tregua energética con Ucrania. Trump se apresuró a anunciar el acuerdo Novaya Gazeta Europa",
-    "quick_summary": "FT: Putin no quiere concluir una tregua energética con Ucrania. Trump se apresuró a anunciar el acuerdo Novaya Gazeta Europa"
+    "title_es": "FT: Putin no quiere concluir una tregua energética con Ucrania. Trump se apresuró a anunciar el acuerdo - novayagazeta.eu",
+    "summary_es": "FT: Putin no quiere concluir una tregua energética con Ucrania. Trump se apresuró a anunciar un acuerdo novayagazeta.eu",
+    "quick_summary": "FT: Putin no quiere concluir una tregua energética con Ucrania. Trump se apresuró a anunciar un acuerdo novayagazeta.eu"
   },
   {
     "id": "2c2921d292bc",
@@ -1448,9 +1753,9 @@
     "is_translated": true
   },
   {
-    "id": "5a27c2f1e388",
-    "title_original": "Склад Ozon в Таганроге, АЗС в Киеве и беспилотник над Литвой. Главное о последних ударах - Новая газета Европа",
-    "summary_original": "Склад Ozon в Таганроге, АЗС в Киеве и беспилотник над Литвой. Главное о последних ударах Новая газета Европа",
+    "id": "a1b9571e6291",
+    "title_original": "Склад Ozon в Таганроге, АЗС в Киеве и беспилотник над Литвой. Главное о последних ударах - novayagazeta.eu",
+    "summary_original": "Склад Ozon в Таганроге, АЗС в Киеве и беспилотник над Литвой. Главное о последних ударах novayagazeta.eu",
     "link": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPUFlIbDhJZTNPVXNfSVNKd2U1MW1UUjd5emNyaVdrLWFCVW1CWnJMTDRzeVlEeGs2TmNpRG5SM2lXbU9kVVlRbTV1R1RnakI5OVQ0cDc4MkRWRmxPeVh5Qkt0WXdaazB3clNzLUg5bG9uMEkwUU90RnFJOFhWZjlqRVcwb182bWEtd0JmLVc1RlkzUUszVFpYMGlrQkNrZVEtaHVmVnZuUGFTV0NRVmhuMnR5bEtxZmthc3VSMWJLdUE4eWptRVBhdnRsOFAxNjcydFo40gHYAUFVX3lxTE4yQW94SGM1LXFHN2E1UUpTWEJkMFhyY3dqQUtzNEJXOVJ4Y09HbmVDN2kxTmpGUWZHeElXVHhaQmpvTUFyTzhVMHZ1Ql9yUWJOb3pYSlFiNEtXNWhLV2pXWDVyWDBaQnU5SHF3a25sa1kxeEhSclpBTGw0dFJqdWhUNzdGVUVPTEF1cnFhMm42c1R4MEVkV0JWRUQtbWdvNE9YZEtOYllPelRyeDZMYkN6bXFrWE5LdFNWanhCUjV5bmwtUW82Z2ZQaXJwVHBadFJXQ2ZMZ3NXUQ?oc=5",
     "source_id": "novaya_gazeta",
     "source_name": "Novaya Gazeta Europe",
@@ -1461,10 +1766,10 @@
     "categories": [
       "general"
     ],
-    "title_es": "Almacén de Ozon en Taganrog, gasolinera en Kiev y un dron sobre Lituania. Lo principal de los últimos golpes - Novaya Gazeta Europa",
-    "summary_es": "Almacén de Ozon en Taganrog, gasolinera en Kiev y un dron sobre Lituania. Lo principal de las últimas huelgas Novaya Gazeta Europa",
-    "quick_summary": "Almacén de Ozon en Taganrog, gasolinera en Kiev y un dron sobre Lituania. Lo principal de las últimas huelgas Novaya Gazeta Europa",
-    "is_translated": true
+    "is_translated": true,
+    "title_es": "Almacén de Ozon en Taganrog, gasolinera en Kiev y un dron sobre Lituania. Lo principal de los últimos golpes - novayagazeta.eu",
+    "summary_es": "Almacén de Ozon en Taganrog, gasolinera en Kiev y un dron sobre Lituania. Lo principal de los últimos golpes novayagazeta.eu",
+    "quick_summary": "Almacén de Ozon en Taganrog, gasolinera en Kiev y un dron sobre Lituania. Lo principal de los últimos golpes novayagazeta.eu"
   },
   {
     "id": "32b697f93f06",
@@ -1486,9 +1791,9 @@
     "is_translated": true
   },
   {
-    "id": "187dec8017a5",
-    "title_original": "Iran Update, September 14, 2026 - understandingwar.org",
-    "summary_original": "Iran Update, September 14, 2026 understandingwar.org",
+    "id": "3d4132e724f2",
+    "title_original": "Iran Update, September 14, 2026 - Institute for the Study of War",
+    "summary_original": "Iran Update, September 14, 2026 Institute for the Study of War",
     "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOSy1Qa0dsZ1ZpSVZWQmZESWh3R1lveXZjdDZYdU9uMEtWQmM2YjNPcHhsXy1qdVQzREszdzhhcTA5dnVzUGUyQzNtaGFBRFBQcWhPTm5ocUdCTTNKV05pRl9wMktpekVGNndxQkl3dVF6NU5LbGMtdFlhME90VTB5WDRVa2NFUzQ?oc=5",
     "source_id": "isw_assessments",
     "source_name": "Institute for the Study of War (ISW)",
@@ -1499,15 +1804,15 @@
     "categories": [
       "general"
     ],
-    "is_translated": true,
-    "title_es": "Actualización sobre Irán, 14 de septiembre de 2026 - listeningwar.org",
-    "summary_es": "Actualización sobre Irán, 14 de septiembre de 2026 listeningwar.org",
-    "quick_summary": "Actualización sobre Irán, 14 de septiembre de 2026 listeningwar.org"
+    "title_es": "Actualización de Irán, 14 de septiembre de 2026 - Instituto para el Estudio de la Guerra",
+    "summary_es": "Actualización de Irán, 14 de septiembre de 2026 Instituto para el Estudio de la Guerra",
+    "quick_summary": "Actualización de Irán, 14 de septiembre de 2026 Instituto para el Estudio de la Guerra",
+    "is_translated": true
   },
   {
-    "id": "6dff41a5d08a",
-    "title_original": "Трамп заявил, что Украина и Россия договорились не атаковать энергообъекты друг друга. Зеленский заявил о готовности прекратить удары, Кремль пока это не комментирует - Новая газета Европа",
-    "summary_original": "Трамп заявил, что Украина и Россия договорились не атаковать энергообъекты друг друга. Зеленский заявил о готовности прекратить удары, Кремль пока это не комментирует Новая газета Европа",
+    "id": "a9609c085502",
+    "title_original": "Трамп заявил, что Украина и Россия договорились не атаковать энергообъекты друг друга. Зеленский заявил о готовности прекратить удары, Кремль пока это не комментирует - novayagazeta.eu",
+    "summary_original": "Трамп заявил, что Украина и Россия договорились не атаковать энергообъекты друг друга. Зеленский заявил о готовности прекратить удары, Кремль пока это не комментирует novayagazeta.eu",
     "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPcEhJV0FYM0RFZV9hSE5FaUtLb2tyQVJvTV96VGRha1dWeHNnMzNNR1M3ZHFORF9RMHJpdmVQcEktZUNUelk2aHpTeUhiQ3dHb0FLM2hwVEZRZk90VVZFa1hPay1OTVBXdm84NUxyQlM2eXFLVmZmVmRZaFN5LXV6emMxT3ZrVDU5bEdGVENTbG53TmtmcTVnRVMxVG5LR2NhMU9LcDg2b0kzS2hYb05IMDRQd0zSAboBQVVfeXFMTnhXZ09Kbmh1QnNFbWxUUUFKc3V3MnNjTEpHcnprYzJNZDJCQ29Eenl5RjJXTUJqU2JSdlM0bi1tTXBlNjhySk1NdktJM21IcWJhWURWenZ5NFZuWmJfSFZrRUpTODNoUE1ldWhRbEtZSUp0VVZDV0dCTWJPUmw4QlZOLTZXSFF6c0RVVjNFRVo4SXk0SkVVTWJiY0hBTWh3eTdmLVdjNG4zVTRtd3M3ZUNOOHk3Zmo3SW9B?oc=5",
     "source_id": "novaya_gazeta",
     "source_name": "Novaya Gazeta Europe",
@@ -1519,10 +1824,10 @@
       "frente",
       "diplomacia"
     ],
-    "title_es": "Trump dijo que Ucrania y Rusia acordaron no atacar las instalaciones energéticas de cada uno. Zelensky anunció su disposición a detener los ataques, el Kremlin aún no se ha pronunciado al respecto - Novaya Gazeta Europe",
-    "summary_es": "Trump dijo que Ucrania y Rusia acordaron no atacar las instalaciones energéticas de cada uno. Zelensky anunció su disposición a detener los ataques, el Kremlin aún no se ha pronunciado al respecto Novaya Gazeta Europa",
-    "quick_summary": "Trump dijo que Ucrania y Rusia acordaron no atacar las instalaciones energéticas de cada uno.",
-    "is_translated": true
+    "is_translated": true,
+    "title_es": "Trump dijo que Ucrania y Rusia acordaron no atacar las instalaciones energéticas de cada uno. Zelensky anunció su disposición a detener los ataques, el Kremlin aún no se ha pronunciado al respecto - novayagazeta.eu",
+    "summary_es": "Trump dijo que Ucrania y Rusia acordaron no atacar las instalaciones energéticas de cada uno. Zelensky anunció su disposición a detener los ataques, el Kremlin aún no se ha pronunciado al respecto novayagazeta.eu",
+    "quick_summary": "Trump dijo que Ucrania y Rusia acordaron no atacar las instalaciones energéticas de cada uno."
   },
   {
     "id": "19bf42101608",
@@ -1544,9 +1849,9 @@
     "is_translated": true
   },
   {
-    "id": "df42e243f0cb",
-    "title_original": "Иркутянке, приговоренной к 15 годам колонии за попытку съездить к парню в Украину, ужесточили наказание - Новая газета Европа",
-    "summary_original": "Иркутянке, приговоренной к 15 годам колонии за попытку съездить к парню в Украину, ужесточили наказание Новая газета Европа",
+    "id": "d0869a52f7c9",
+    "title_original": "Иркутянке, приговоренной к 15 годам колонии за попытку съездить к парню в Украину, ужесточили наказание - novayagazeta.eu",
+    "summary_original": "Иркутянке, приговоренной к 15 годам колонии за попытку съездить к парню в Украину, ужесточили наказание novayagazeta.eu",
     "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxOZm5OWTdOZjR5YmZkZ3d3eng2bE1hQ19DZVhIeVV4MGI2anY3MTNON3BrRmQ0U1E1OUNXbWhRMkNYdXdVVjNOZHg3UTd1RVA4UjUxMDhPTEtiMGczbDZTVnFkaUxzanR4TXM1bXhUZUpCX3duTDFBM3NRRzNXdUcyY2R1SkZFR21GQkoxRFZaUDgtdHkzNEZvR3ZJb0J2RXlDZlE0R1F6NmJvRFZfSENqU2wyZ0JqMGY2QU1pZFREcjNkT3JidjdjTER5cjRqdnJJUUZQY2FpMXloZ3JGRUllTFlyWTR5Y2fSAewBQVVfeXFMTkJNRGlNNHNEbXRtaldXcC1iVWI4M0NINXVPaXVrcFpnT004MjYxSjBndFVEM0xVbVM2cTFFTlRSY1lnQnNTOWhXNk1kek1rT3IzR0xmc25pVU5taHBkWmVoeU9VQWlPcVNCQl9UbVluYVBYMkxPSW4xVWt6U3VxenRtLW5ZbDRoMHRuVVZEQWZmNXY1bUpON0ppSnd4Wi1LYjVFZzZ1VVJ5VjZNWmliMGpMaXRKbXZyWXhJNnR3aGNablYwRTd0azVHWU1iRmVmSHBtWXFqa3NHaVRoUElyWVZGbC0wTmNxVnRINk4?oc=5",
     "source_id": "novaya_gazeta",
     "source_name": "Novaya Gazeta Europe",
@@ -1557,15 +1862,15 @@
     "categories": [
       "general"
     ],
-    "title_es": "Se endurece la pena para una mujer de Irkutsk condenada a 15 años de prisión por intentar visitar a su novio en Ucrania - Novaya Gazeta Europa",
-    "summary_es": "Se endurece el castigo para una mujer de Irkutsk condenada a 15 años de prisión por intentar visitar a su novio en Ucrania Novaya Gazeta Europa",
-    "quick_summary": "Se endurece el castigo para una mujer de Irkutsk condenada a 15 años de prisión por intentar visitar a su novio en Ucrania Novaya Gazeta Europa",
-    "is_translated": true
+    "is_translated": true,
+    "title_es": "Se endurece la pena para una mujer de Irkutsk condenada a 15 años de prisión por intentar visitar a su novio en Ucrania - novayagazeta.eu",
+    "summary_es": "Se endurece el castigo para una mujer de Irkutsk condenada a 15 años de prisión por intentar visitar a su novio en Ucrania novayagazeta.eu",
+    "quick_summary": "Se endurece el castigo para una mujer de Irkutsk condenada a 15 años de prisión por intentar visitar a su novio en Ucrania novayagazeta.eu"
   },
   {
-    "id": "bc98e34c92b4",
-    "title_original": "Шахтеры Донбасса собираются устроить забастовку во время выборов из-за невыплаты зарплат - Новая газета Европа",
-    "summary_original": "Шахтеры Донбасса собираются устроить забастовку во время выборов из-за невыплаты зарплат Новая газета Европа",
+    "id": "b4f511b524c8",
+    "title_original": "Шахтеры Донбасса собираются устроить забастовку во время выборов из-за невыплаты зарплат - novayagazeta.eu",
+    "summary_original": "Шахтеры Донбасса собираются устроить забастовку во время выборов из-за невыплаты зарплат novayagazeta.eu",
     "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNV2F6S1UwSkRvRjJHazZTMjZBZllVaWJUT01Hcmg3bEJZUXdreTFmai16SHNaMHhEbmhBbnY2ZjA2azhMZWRBNXg4dWtWWUFGeUh5WHEtaGpTclgybnBvY3QtNnd1SWdLQkhaa1dkREpfNG5HTjhuVHJwTEQ2clVldEFUMklGSHNqYjJ5MFBJRFM2YUl3WTlNNkhmT0RJQXdyeURnMjVzMFNTZWlRRy1adU0wMUFLY3ZncXlKUjZiZTFnWWRnMXAtM0Vna2piRkVYYzZZNlp4eUHSAd4BQVVfeXFMTVBDZ09COTRqdmlIQ3hlZjItNEdzWHFvMm5tYWJweEduRUJ0SE9XbVNXaFM1UVI5Tm5ianRKTzYtMUR0T0xsa1RQZVluODFvS05GWHBHUDJEUndhUlB0eXN3d21obkxWZk9JQmd3bXEyOXYyYUd2VDJsdjBMbjhMeGdWWTV2dWlpbk52WEhTdHhpU1pMVHluOTdJVTkteXBSYTFZWDdNcXh1ejI3YnVMSzR0Nlg3aEFpa01wWjF2aFdvb3BRMEJzWE9XOWZlNlhKVzVmZmt2LTRTcnR5NWln?oc=5",
     "source_id": "novaya_gazeta",
     "source_name": "Novaya Gazeta Europe",
@@ -1576,10 +1881,10 @@
     "categories": [
       "general"
     ],
-    "title_es": "",
-    "summary_es": "Los mineros de Donbass se declararán en huelga durante las elecciones por falta de pago de salarios Novaya Gazeta Europa",
-    "quick_summary": "Los mineros de Donbass se declararán en huelga durante las elecciones por falta de pago de salarios Novaya Gazeta Europa",
-    "is_translated": true
+    "is_translated": true,
+    "title_es": "Los mineros de Donbass se declararán en huelga durante las elecciones por falta de pago de salarios - novayagazeta.eu",
+    "summary_es": "Los mineros de Donbass se declararán en huelga durante las elecciones por falta de pago de salarios novayagazeta.eu",
+    "quick_summary": "Los mineros de Donbass se declararán en huelga durante las elecciones por falta de pago de salarios novayagazeta.eu"
   },
   {
     "id": "1f3c8689e687",
@@ -1658,9 +1963,9 @@
     "is_translated": true
   },
   {
-    "id": "2bfe792d1daf",
-    "title_original": "Генпрокурор Украины после обысков в своем ведомстве обвинил главу НАБУ в подделке документов. После этого он уехал из страны - Новая газета Европа",
-    "summary_original": "Генпрокурор Украины после обысков в своем ведомстве обвинил главу НАБУ в подделке документов. После этого он уехал из страны Новая газета Европа",
+    "id": "0fd2bbc84db4",
+    "title_original": "Генпрокурор Украины после обысков в своем ведомстве обвинил главу НАБУ в подделке документов. После этого он уехал из страны - novayagazeta.eu",
+    "summary_original": "Генпрокурор Украины после обысков в своем ведомстве обвинил главу НАБУ в подделке документов. После этого он уехал из страны novayagazeta.eu",
     "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxON0ZoWlV6dl9jMk9IQml4UUVDcjY3c3pNVDV4NkZ3bl9oY2ozdmtqSnhoblEtTnRYeUtqZkltcjVaenlZUkJqNzI0MTR6SU9OMXhRam9sam1jLTdUOUsxQmhUVW1nZGpuVTlBX2tSdWVONUJBWmVfRmF2dlpOWnNYU1ZZazNZdkpsUi1ZaktzVWpWbU9qSUVqZ2NUNWxsODRDQzlUZ3VfV1RxaU9LNzNEbFpZR3RrQ1h6ZW1LS1Ric0fSAcYBQVVfeXFMUG01MWYwamZWV0Nya0JlLVdkVDRpV1ZwNnhHTDJ4MXRaREllbVNieWp2TDNEQVIzUElZQVdnX2gxRGRlZlJDV3NjTVludXdJY3pidWQyLWtaUXdSVHFJR2tPQkt6MjRLLXBSMTMwX2NDRDRXaUhLSDY1bS1IU3Y5bENIQ0h2aV8zRm5pdEg1eFRoVzNORzhOcFNKeDhXM1h4UExvSGd3QlpRckUzdFRrMEhKVm5kNHQ3el9wUTdhMDF2WXJzVFVR?oc=5",
     "source_id": "novaya_gazeta",
     "source_name": "Novaya Gazeta Europe",
@@ -1671,10 +1976,10 @@
     "categories": [
       "general"
     ],
-    "title_es": "Después de registros en su departamento, el Fiscal General de Ucrania acusó al jefe de NABU de falsificar documentos. Después abandonó el país - Novaya Gazeta Europa",
-    "summary_es": "Después de registros en su departamento, el Fiscal General de Ucrania acusó al jefe de NABU de falsificar documentos. Posteriormente abandonó el país Novaya Gazeta Europa.",
-    "quick_summary": "Después de registros en su departamento, el Fiscal General de Ucrania acusó al jefe de NABU de falsificar documentos. Posteriormente abandonó el país Novaya Gazeta Europa.",
-    "is_translated": true
+    "is_translated": true,
+    "title_es": "Después de registros en su departamento, el Fiscal General de Ucrania acusó al jefe de NABU de falsificar documentos. Después abandonó el país - novayagazeta.eu",
+    "summary_es": "Después de registros en su departamento, el Fiscal General de Ucrania acusó al jefe de NABU de falsificar documentos. Después abandonó el país novayagazeta.eu",
+    "quick_summary": "Después de registros en su departamento, el Fiscal General de Ucrania acusó al jefe de NABU de falsificar documentos. Después abandonó el país novayagazeta.eu"
   },
   {
     "id": "f3a1597bb1e2",
@@ -1696,9 +2001,9 @@
     "is_translated": true
   },
   {
-    "id": "c0320b32cc27",
-    "title_original": "Малую Токмачку так и не взяли. Чей Купянск? А Святогорск? Вместе с экспертами подводим итоги весенне-летнего наступления России и контратак ВСУ - Новая газета Европа",
-    "summary_original": "Малую Токмачку так и не взяли. Чей Купянск? А Святогорск? Вместе с экспертами подводим итоги весенне-летнего наступления России и контратак ВСУ Новая газета Европа",
+    "id": "9e8625830eaf",
+    "title_original": "Малую Токмачку так и не взяли. Чей Купянск? А Святогорск? Вместе с экспертами подводим итоги весенне-летнего наступления России и контратак ВСУ - novayagazeta.eu",
+    "summary_original": "Малую Токмачку так и не взяли. Чей Купянск? А Святогорск? Вместе с экспертами подводим итоги весенне-летнего наступления России и контратак ВСУ novayagazeta.eu",
     "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOd0tuN0cxbmNfYnR2dWtOdUlobGFBMHdCSVp4OHRBZ0lEWkFHcDItYzYwV0g0SnBja0h1YVRNanZxZnlYcmwwODB4S2xfdXJGSlZVNXhDRkRIZTRRbFBNbFNINVVCOWNkZmdCal81Y2hNeXVuMlZlWU1meGtkdnRtb1FR0gGHAUFVX3lxTE83cTU5Vlp4ZDd6cVZPMmlPVGEyZDhhenNsYUVDTHNfdzk2azl4RTJWUlpCX1J5RkgyRWZCSERfR2pyZm1hcXBOMV9jdER2VTNHeDd1eFk0cmhDLUhIMVZJb1RneC0xUGxhNy14MFczU2dEQkxpTFFZTlg3Y280YlJaUEZXVTN2TQ?oc=5",
     "source_id": "novaya_gazeta",
     "source_name": "Novaya Gazeta Europe",
@@ -1710,8 +2015,8 @@
       "frente"
     ],
     "is_translated": true,
-    "title_es": "Malaya Tokmachka nunca fue secuestrada. ¿De quién es Kupyansk? ¿Y Sviatogorsk? Junto con los expertos, resumimos los resultados de la ofensiva rusa de primavera-verano y los contraataques de las Fuerzas Armadas de Ucrania - Novaya Gazeta Europa",
-    "summary_es": "Malaya Tokmachka nunca fue secuestrada. ¿De quién es Kupyansk? ¿Y Sviatogorsk? Junto con los expertos, resumimos los resultados de la ofensiva rusa de primavera-verano y los contraataques de las Fuerzas Armadas de Ucrania Novaya Gazeta Europa",
+    "title_es": "Malaya Tokmachka nunca fue secuestrada. ¿De quién es Kupyansk? ¿Y Sviatogorsk? Junto con los expertos, resumimos los resultados de la ofensiva rusa de primavera-verano y los contraataques de las Fuerzas Armadas de Ucrania - novayagazeta.eu",
+    "summary_es": "Malaya Tokmachka nunca fue secuestrada. ¿De quién es Kupyansk? ¿Y Sviatogorsk? Junto con los expertos, resumimos los resultados de la ofensiva rusa de primavera-verano y los contraataques de las Fuerzas Armadas de Ucrania novayagazeta.eu",
     "quick_summary": "Malaya Tokmachka nunca fue secuestrada. ¿De quién es Kupyansk?"
   },
   {
@@ -1728,15 +2033,15 @@
     "categories": [
       "economia"
     ],
-    "is_translated": true,
     "title_es": "Rusia suspende las exportaciones de gas natural a Armenia para realizar trabajos de reparación",
     "summary_es": "Los clientes de energía recibirán suministro de gas de reservas nacionales e importaciones adicionales de Irán durante el mantenimiento.",
-    "quick_summary": "Los clientes de energía recibirán suministro de gas de reservas nacionales e importaciones adicionales de Irán durante el mantenimiento."
+    "quick_summary": "Los clientes de energía recibirán suministro de gas de reservas nacionales e importaciones adicionales de Irán durante el mantenimiento.",
+    "is_translated": true
   },
   {
-    "id": "67796006b720",
-    "title_original": "Assessed Control of Terrain in the Novopavlivka Direction, September 13, 2026 at 1:30 PM ET - understandingwar.org",
-    "summary_original": "Assessed Control of Terrain in the Novopavlivka Direction, September 13, 2026 at 1:30 PM ET understandingwar.org",
+    "id": "63a289e8cb3d",
+    "title_original": "Assessed Control of Terrain in the Novopavlivka Direction, September 13, 2026 at 1:30 PM ET - Institute for the Study of War",
+    "summary_original": "Assessed Control of Terrain in the Novopavlivka Direction, September 13, 2026 at 1:30 PM ET Institute for the Study of War",
     "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPbFNYNkJvZWVVaHlLSUN2a1NtaE5Yc0dReXp5T1lsdEpleHItcUROSUVlQ2E0X21lZUFSQ0c1aXFoLXpzQlh2blBpaVFFd01JOHJFOVpURTVxeTJnUXg5eElQNFE5Rl83ZW1SS1UxVU00NXJXdkM2a3ktUzdLLXhqVEI4eUdTM3VPZjFxMDh0VXRSdDF4VTJuRWN6V2Z2QktycG9kVTQzQUdtenBHNTFISFVhS1pWQ1QtdVVzUVBEcw?oc=5",
     "source_id": "isw_assessments",
     "source_name": "Institute for the Study of War (ISW)",
@@ -1748,9 +2053,9 @@
       "general"
     ],
     "is_translated": true,
-    "title_es": "Control evaluado del terreno en la dirección de Novopavlivka, 13 de septiembre de 2026 a las 1:30 p.m. ET - listeningwar.org",
-    "summary_es": "Control evaluado del terreno en la dirección de Novopavlivka, 13 de septiembre de 2026 a las 1:30 p.m. ET listeningwar.org",
-    "quick_summary": "Control evaluado del terreno en la dirección de Novopavlivka, 13 de septiembre de 2026 a las 1:30 p.m. ET listeningwar.org"
+    "title_es": "Control evaluado del terreno en la dirección de Novopavlivka, 13 de septiembre de 2026 a las 13:30 ET - Instituto para el Estudio de la Guerra",
+    "summary_es": "Control evaluado del terreno en la dirección de Novopavlivka, 13 de septiembre de 2026 a las 13:30 ET Instituto para el Estudio de la Guerra",
+    "quick_summary": "Control evaluado del terreno en la dirección de Novopavlivka, 13 de septiembre de 2026 a las 13:30 ET Instituto para el Estudio de la Guerra"
   },
   {
     "id": "bb4c4b69c066",
@@ -1805,10 +2110,10 @@
     "categories": [
       "general"
     ],
-    "is_translated": true,
     "title_es": "Los atletas rusos piden el fin de la prohibición del atletismo mundial",
     "summary_es": "Argumentaron que más de 4 años de exclusión han privado de sus carreras a una generación de deportistas.",
-    "quick_summary": "Argumentaron que más de 4 años de exclusión han privado de sus carreras a una generación de deportistas."
+    "quick_summary": "Argumentaron que más de 4 años de exclusión han privado de sus carreras a una generación de deportistas.",
+    "is_translated": true
   },
   {
     "id": "2ce0b8c27a25",
@@ -1824,10 +2129,10 @@
     "categories": [
       "general"
     ],
-    "is_translated": true,
     "title_es": "Trump le dice a Zelensky de Ucrania que deje de atacar el diésel ruso",
     "summary_es": "\"El señor Zelensky tiene que hacer una cosa: tiene que dejar de eliminar el combustible diesel en Rusia\", dijo Trump a los periodistas.",
-    "quick_summary": "\"El señor Zelensky tiene que hacer una cosa: tiene que dejar de eliminar el combustible diesel en Rusia\", dijo Trump a los periodistas."
+    "quick_summary": "\"El señor Zelensky tiene que hacer una cosa: tiene que dejar de eliminar el combustible diesel en Rusia\", dijo Trump a los periodistas.",
+    "is_translated": true
   },
   {
     "id": "840e699bd42b",
@@ -1843,10 +2148,10 @@
     "categories": [
       "general"
     ],
-    "is_translated": true,
     "title_es": "Likhachev de Rosatom dice que Ucrania atacó camiones de combustible y puso en peligro la planta de Zaporizhzhia",
     "summary_es": "La planta de Zaporizhzhia, la más grande de Europa, fue capturada por las fuerzas rusas en las primeras semanas de la guerra de Ucrania.",
-    "quick_summary": "La planta de Zaporizhzhia, la más grande de Europa, fue capturada por las fuerzas rusas en las primeras semanas de la guerra de Ucrania."
+    "quick_summary": "La planta de Zaporizhzhia, la más grande de Europa, fue capturada por las fuerzas rusas en las primeras semanas de la guerra de Ucrania.",
+    "is_translated": true
   },
   {
     "id": "20e594ab5691",
@@ -1862,15 +2167,15 @@
     "categories": [
       "civil"
     ],
-    "is_translated": true,
     "title_es": "Ataques rusos matan a nueve personas e hieren a decenas en Ucrania mientras Moscú dice que afectaron barcos y plantas",
     "summary_es": "La cifra de muertes civiles ha aumentado marcadamente en Ucrania durante los últimos dos meses a medida que Rusia intensifica los ataques contra plantas de energía y otras infraestructuras.",
-    "quick_summary": "La cifra de muertes civiles ha aumentado marcadamente en Ucrania durante los últimos dos meses a medida que Rusia intensifica los ataques contra plantas de energía y otras infraest..."
+    "quick_summary": "La cifra de muertes civiles ha aumentado marcadamente en Ucrania durante los últimos dos meses a medida que Rusia intensifica los ataques contra plantas de energía y otras infraest...",
+    "is_translated": true
   },
   {
-    "id": "490a90b87509",
-    "title_original": "Russian Offensive Campaign Assessment, September 12, 2026 - understandingwar.org",
-    "summary_original": "Russian Offensive Campaign Assessment, September 12, 2026 understandingwar.org",
+    "id": "e84f123d9253",
+    "title_original": "Russian Offensive Campaign Assessment, September 12, 2026 - Institute for the Study of War",
+    "summary_original": "Russian Offensive Campaign Assessment, September 12, 2026 Institute for the Study of War",
     "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNeE9PN2U1WC01VjlGV2tEaG1EZVFNNGotbk5hV0NBVTJoV0MyVG5LbEh4dW4zLUt2MFM5MndSc1JJamttWHFlRW1wdm1RelROQkJyU2daV2xkZU9la3dYTDNfOGk0WlVYTDhJLWRXZTR4OFdJYkFTMlBxcHc2WnZLbTdranN2ZFp2bk5paDhNaC1USGI2QTV2cnVwWFBRcGF2ZmNTMVh6NXUxWEtiVVE?oc=5",
     "source_id": "isw_assessments",
     "source_name": "Institute for the Study of War (ISW)",
@@ -1881,10 +2186,10 @@
     "categories": [
       "frente"
     ],
-    "is_translated": true,
-    "title_es": "Evaluación de la campaña ofensiva rusa, 12 de septiembre de 2026 - listeningwar.org",
-    "summary_es": "Evaluación de la campaña ofensiva rusa, 12 de septiembre de 2026 listeningwar.org",
-    "quick_summary": "Evaluación de la campaña ofensiva rusa, 12 de septiembre de 2026 listeningwar.org"
+    "title_es": "Evaluación de la campaña ofensiva rusa, 12 de septiembre de 2026 - Instituto para el Estudio de la Guerra",
+    "summary_es": "Evaluación de la campaña ofensiva rusa, 12 de septiembre de 2026 Instituto para el Estudio de la Guerra",
+    "quick_summary": "Evaluación de la campaña ofensiva rusa, 12 de septiembre de 2026 Instituto para el Estudio de la Guerra",
+    "is_translated": true
   },
   {
     "id": "72cdd459e63e",
@@ -1925,9 +2230,28 @@
     "is_translated": true
   },
   {
-    "id": "fc9ef1685da5",
-    "title_original": "Iran Update, September 11, 2026 - understandingwar.org",
-    "summary_original": "Iran Update, September 11, 2026 understandingwar.org",
+    "id": "c46c9012ec0e",
+    "title_original": "Kremlin Says No Decision Yet on Putin's G20 Visit, Dismisses Zelensky's Meeting Proposal",
+    "summary_original": "In April, the Kremlin said Putin could travel to the G20 summit after U.S. President ​Donald Trump suggested his attendance would be very helpful.",
+    "link": "https://www.themoscowtimes.com/2026/09/12/kremlin-says-no-decision-yet-on-putins-g20-visit-dismisses-zelenskys-meeting-proposal-a93693",
+    "source_id": "the_moscow_times",
+    "source_name": "The Moscow Times",
+    "perspective": "russia_independent",
+    "language": "en",
+    "bias_note": "Diario ruso independiente en el exilio crítico con las políticas de Putin.",
+    "published": "2026-09-12T13:15:20+00:00",
+    "categories": [
+      "diplomacia"
+    ],
+    "is_translated": true,
+    "title_es": "El Kremlin dice que aún no se ha tomado una decisión sobre la visita de Putin al G20 y rechaza la propuesta de reunión de Zelensky",
+    "summary_es": "En abril, el Kremlin dijo que Putin podría viajar a la cumbre del G20 después de que el presidente estadounidense Donald Trump sugiriera que su asistencia sería de gran ayuda.",
+    "quick_summary": "En abril, el Kremlin dijo que Putin podría viajar a la cumbre del G20 después de que el presidente estadounidense Donald Trump sugiriera que su asistencia sería de gran ayuda."
+  },
+  {
+    "id": "2c7cf70f4e3b",
+    "title_original": "Iran Update, September 11, 2026 - Institute for the Study of War",
+    "summary_original": "Iran Update, September 11, 2026 Institute for the Study of War",
     "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNcjM5WThmQkFpQ096RTBXUW9TQkpRUHJNWlBJM0VtUnozVE14cG8xUGQyUUd0SHkxcFV3Qng3YVo1ZVVQeGNuNjgwTEJ4M3puNk4tRk1WT0RmTzZ5Z2kxNVVyamJtZmhld2NUbDhsaXkxWHlSdThMcTFGOFFEd3dMWElxOXkwdW8?oc=5",
     "source_id": "isw_assessments",
     "source_name": "Institute for the Study of War (ISW)",
@@ -1938,15 +2262,34 @@
     "categories": [
       "general"
     ],
-    "is_translated": true,
-    "title_es": "Actualización sobre Irán, 11 de septiembre de 2026 - listeningwar.org",
-    "summary_es": "Actualización sobre Irán, 11 de septiembre de 2026 listeningwar.org",
-    "quick_summary": "Actualización sobre Irán, 11 de septiembre de 2026 listeningwar.org"
+    "title_es": "Actualización de Irán, 11 de septiembre de 2026 - Instituto para el Estudio de la Guerra",
+    "summary_es": "Actualización de Irán, 11 de septiembre de 2026 Instituto para el Estudio de la Guerra",
+    "quick_summary": "Actualización de Irán, 11 de septiembre de 2026 Instituto para el Estudio de la Guerra",
+    "is_translated": true
   },
   {
-    "id": "93fd1283481d",
-    "title_original": "China & Taiwan Update, September 11, 2026 - understandingwar.org",
-    "summary_original": "China & Taiwan Update, September 11, 2026 understandingwar.org",
+    "id": "04d774884377",
+    "title_original": "Russian Official to Attend G20 Energy Meeting in Houston Next Week, White House Official Says",
+    "summary_original": "The expected appearance comes after the U.S. welcomed Russia's finance minister to a meeting of G20 countries in North Carolina.",
+    "link": "https://www.themoscowtimes.com/2026/09/11/russian-official-to-attend-g20-energy-meeting-in-houston-next-week-white-house-official-says-a93692",
+    "source_id": "the_moscow_times",
+    "source_name": "The Moscow Times",
+    "perspective": "russia_independent",
+    "language": "en",
+    "bias_note": "Diario ruso independiente en el exilio crítico con las políticas de Putin.",
+    "published": "2026-09-11T20:39:00+00:00",
+    "categories": [
+      "general"
+    ],
+    "is_translated": true,
+    "title_es": "Funcionario ruso asistirá a la reunión sobre energía del G20 en Houston la próxima semana, dice un funcionario de la Casa Blanca",
+    "summary_es": "La esperada aparición se produce después de que Estados Unidos recibiera al Ministro de Finanzas de Rusia en una reunión de países del G20 en Carolina del Norte.",
+    "quick_summary": "La esperada aparición se produce después de que Estados Unidos recibiera al Ministro de Finanzas de Rusia en una reunión de países del G20 en Carolina del Norte."
+  },
+  {
+    "id": "10e56b41bdad",
+    "title_original": "China & Taiwan Update, September 11, 2026 - Institute for the Study of War",
+    "summary_original": "China & Taiwan Update, September 11, 2026 Institute for the Study of War",
     "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOcHBLa3JFTFRTVy0wMFF5NmV6dE5Tc1ZucElrZi02U0l4Yy1NS29YUmJ1b1E2aGhVMmZRNWItNGJySHJPcjRZNXpFWVpCNVUtRWloX2VhRmVfMm05d1lkbEs1djc2SFVoczMwblhfNjYxU3dhc0U0ekFSdW5iVHdwWkdzcThpTjFxVFQzQTFsUzdEZVU?oc=5",
     "source_id": "isw_assessments",
     "source_name": "Institute for the Study of War (ISW)",
@@ -1957,15 +2300,34 @@
     "categories": [
       "general"
     ],
-    "is_translated": true,
-    "title_es": "Actualización sobre China y Taiwán, 11 de septiembre de 2026 - listeningwar.org",
-    "summary_es": "Actualización sobre China y Taiwán, 11 de septiembre de 2026 listeningwar.org",
-    "quick_summary": "Actualización sobre China y Taiwán, 11 de septiembre de 2026 listeningwar.org"
+    "title_es": "Actualización sobre China y Taiwán, 11 de septiembre de 2026 - Instituto para el Estudio de la Guerra",
+    "summary_es": "Actualización de China y Taiwán, 11 de septiembre de 2026 Instituto para el Estudio de la Guerra",
+    "quick_summary": "Actualización de China y Taiwán, 11 de septiembre de 2026 Instituto para el Estudio de la Guerra",
+    "is_translated": true
   },
   {
-    "id": "4cabe94711b4",
-    "title_original": "Iran Update, September 10, 2026 - understandingwar.org",
-    "summary_original": "Iran Update, September 10, 2026 understandingwar.org",
+    "id": "ff8874894c4d",
+    "title_original": "Putin Meets Modi as India Hosts BRICS Summit",
+    "summary_original": "A delegation of more than 300 Russian executives is accompanying Putin to New Delhi to negotiate supply chains and food security contracts.",
+    "link": "https://www.themoscowtimes.com/2026/09/11/putin-meets-modi-as-india-hosts-brics-summit-a93686",
+    "source_id": "the_moscow_times",
+    "source_name": "The Moscow Times",
+    "perspective": "russia_independent",
+    "language": "en",
+    "bias_note": "Diario ruso independiente en el exilio crítico con las políticas de Putin.",
+    "published": "2026-09-11T12:52:00+00:00",
+    "categories": [
+      "diplomacia"
+    ],
+    "is_translated": true,
+    "title_es": "Putin se reúne con Modi mientras India organiza la cumbre de los BRICS",
+    "summary_es": "Una delegación de más de 300 ejecutivos rusos acompaña a Putin a Nueva Delhi para negociar cadenas de suministro y contratos de seguridad alimentaria.",
+    "quick_summary": "Una delegación de más de 300 ejecutivos rusos acompaña a Putin a Nueva Delhi para negociar cadenas de suministro y contratos de seguridad alimentaria."
+  },
+  {
+    "id": "939e2016ca77",
+    "title_original": "Iran Update, September 10, 2026 - Institute for the Study of War",
+    "summary_original": "Iran Update, September 10, 2026 Institute for the Study of War",
     "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQZnZvQmVHSHBzdDFKSjRDRVVNck5vOUVRaUxReE9xVXQzeENxc1BRVmhabXpjQ09aSUZ4RGpyaVEwekpOWjA5VFEwZ0FXT0JMQU1DUG9RWDV6UXBhVDNpT3RNNEJFYVh1VTA2S3lHSDJrVlhSblNUZkpSU3d4aHg0VUhjM1VEaDg?oc=5",
     "source_id": "isw_assessments",
     "source_name": "Institute for the Study of War (ISW)",
@@ -1976,15 +2338,15 @@
     "categories": [
       "general"
     ],
-    "is_translated": true,
-    "title_es": "Actualización sobre Irán, 10 de septiembre de 2026 - listeningwar.org",
-    "summary_es": "Actualización sobre Irán, 10 de septiembre de 2026 listeningwar.org",
-    "quick_summary": "Actualización sobre Irán, 10 de septiembre de 2026 listeningwar.org"
+    "title_es": "Actualización de Irán, 10 de septiembre de 2026 - Instituto para el Estudio de la Guerra",
+    "summary_es": "Actualización de Irán, 10 de septiembre de 2026 Instituto para el Estudio de la Guerra",
+    "quick_summary": "Actualización de Irán, 10 de septiembre de 2026 Instituto para el Estudio de la Guerra",
+    "is_translated": true
   },
   {
-    "id": "b06994368e1a",
-    "title_original": "Russian Occupation Update, September 10, 2026 - understandingwar.org",
-    "summary_original": "Russian Occupation Update, September 10, 2026 understandingwar.org",
+    "id": "b8ab3741a043",
+    "title_original": "Russian Occupation Update, September 10, 2026 - Institute for the Study of War",
+    "summary_original": "Russian Occupation Update, September 10, 2026 Institute for the Study of War",
     "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQTWtCM1NzM25vUXpCRVhnT3Fxb1I2QUJNRXRTRFlqQ2dzdUN1aWdaTG9ZNlZaUlZPUTRLLUF2Z3RiMDlNc2dsVHU0R1Z0VmQwUGlRZFcxRFJlcnVHa183RTJrRjQ2WVVBQ2htdy1JaWxWNnpPWTB4V2YxcUY0aE10LVlCVXFIdDZoN2FOQ19IYnhONGV5ZFluR2V6a1JkUQ?oc=5",
     "source_id": "isw_assessments",
     "source_name": "Institute for the Study of War (ISW)",
@@ -1995,9 +2357,142 @@
     "categories": [
       "general"
     ],
+    "title_es": "Actualización sobre la ocupación rusa, 10 de septiembre de 2026 - Instituto para el Estudio de la Guerra",
+    "summary_es": "Actualización sobre la ocupación rusa, 10 de septiembre de 2026 Instituto para el Estudio de la Guerra",
+    "quick_summary": "Actualización sobre la ocupación rusa, 10 de septiembre de 2026 Instituto para el Estudio de la Guerra",
+    "is_translated": true
+  },
+  {
+    "id": "20d5c7942e5d",
+    "title_original": "Russia Is Integrating AI Models into Its Cognitive Warfare Campaign Against Ukraine - Institute for the Study of War",
+    "summary_original": "Russia Is Integrating AI Models into Its Cognitive Warfare Campaign Against Ukraine Institute for the Study of War",
+    "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNbXlaYllQNWUxT0dUZWpFSUQ3bUFJbnNrbzF2cEdDem9JejBFSlZXZWl6TnhhdTR1TTFMUFd5NHJSTVJIclFWSkZiMFh1dlNtWS1xWVRLSEJqNGdHcEtKemtOWEp4b044RzBteTMwSlRpZ2tOb2poYTRFdFZtVld4YTI0MDZpN054VnJ1RUVZWDBQSVhpVFlkVVF1bEJtaXJIM0tyXzdoVnZUdXhlTTVEZURGUnotem1rWXNhQ2hYcWVDVUhqR0RyZnoyTFEtSkd2WGMxUVc4bmpWWkc4QTRR?oc=5",
+    "source_id": "isw_assessments",
+    "source_name": "Institute for the Study of War (ISW)",
+    "perspective": "international",
+    "language": "en",
+    "bias_note": "Centro de estudios estratégicos estadounidense líder mundial en mapas y análisis del frente.",
+    "published": "2026-09-10T15:24:17+00:00",
+    "categories": [
+      "general"
+    ],
+    "title_es": "Rusia está integrando modelos de IA en su campaña de guerra cognitiva contra Ucrania - Instituto para el Estudio de la Guerra",
+    "summary_es": "Rusia está integrando modelos de IA en su campaña de guerra cognitiva contra Ucrania Instituto para el Estudio de la Guerra",
+    "quick_summary": "Rusia está integrando modelos de IA en su campaña de guerra cognitiva contra Ucrania Instituto para el Estudio de la Guerra",
+    "is_translated": true
+  },
+  {
+    "id": "ead76fc2e59d",
+    "title_original": "Iran Update, September 9, 2026 - Institute for the Study of War",
+    "summary_original": "Iran Update, September 9, 2026 Institute for the Study of War",
+    "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQNzNkUFMzeGwwTmU2amMwNkRLRnp2VmVlTTRmdDNjMVp2SlFXUGxickFpT0NEQ0FtaDdBNHlyMEJSaVZpdVVHbnZka3NTaVA2OGlfZzdTenRCRzEzdDVvR1JiX244eUMwbmJoZnY3amFxNGY1OHNPTHJJVmMyc19XVElOVXdZUQ?oc=5",
+    "source_id": "isw_assessments",
+    "source_name": "Institute for the Study of War (ISW)",
+    "perspective": "international",
+    "language": "en",
+    "bias_note": "Centro de estudios estratégicos estadounidense líder mundial en mapas y análisis del frente.",
+    "published": "2026-09-10T00:37:11+00:00",
+    "categories": [
+      "general"
+    ],
+    "title_es": "Actualización sobre Irán, 9 de septiembre de 2026 - Instituto para el Estudio de la Guerra",
+    "summary_es": "Actualización de Irán, 9 de septiembre de 2026 Instituto para el Estudio de la Guerra",
+    "quick_summary": "Actualización de Irán, 9 de septiembre de 2026 Instituto para el Estudio de la Guerra",
+    "is_translated": true
+  },
+  {
+    "id": "ae2bb2284701",
+    "title_original": "Iran Update, September 8, 2026 - Institute for the Study of War",
+    "summary_original": "Iran Update, September 8, 2026 Institute for the Study of War",
+    "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQU2dOdTBGRXVtb1lra0liZUVlcXRKRnlTengtNmR2NE9VNm02aWhHTWlXN185UEpNbUNDb0R0alR6Mlo0SmRtYklic01HN2pKTmpnNlRIZDlDTXhDMUxiTmg3TnpvbG5CQ2VqNWE3dWpwWDBjV08wdW9LdUVmOUpvdjUtdHExQQ?oc=5",
+    "source_id": "isw_assessments",
+    "source_name": "Institute for the Study of War (ISW)",
+    "perspective": "international",
+    "language": "en",
+    "bias_note": "Centro de estudios estratégicos estadounidense líder mundial en mapas y análisis del frente.",
+    "published": "2026-09-09T01:04:35+00:00",
+    "categories": [
+      "general"
+    ],
+    "title_es": "Actualización de Irán, 8 de septiembre de 2026 - Instituto para el Estudio de la Guerra",
+    "summary_es": "Actualización de Irán, 8 de septiembre de 2026 Instituto para el Estudio de la Guerra",
+    "quick_summary": "Actualización de Irán, 8 de septiembre de 2026 Instituto para el Estudio de la Guerra",
+    "is_translated": true
+  },
+  {
+    "id": "4db2c0bab8ad",
+    "title_original": "Iran Update, September 7, 2026 - Institute for the Study of War",
+    "summary_original": "Iran Update, September 7, 2026 Institute for the Study of War",
+    "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPOGNFTTlMQ0R1djd3TlZWT2tkSDJ2MlRMTGwzYXp3bl90TURvdEJLX0kwNVhGaU56OEEwbDg0ekNkR2VQb1ZRQjZxNkViV2hSYWNZVG1QNTBLcWRpWVBsOFRFOEpsdU9IRk5OaXNaTi1XeDhNZUU2eVNHX1l0NUo5cWR0eEtqQQ?oc=5",
+    "source_id": "isw_assessments",
+    "source_name": "Institute for the Study of War (ISW)",
+    "perspective": "international",
+    "language": "en",
+    "bias_note": "Centro de estudios estratégicos estadounidense líder mundial en mapas y análisis del frente.",
+    "published": "2026-09-07T23:47:17+00:00",
+    "categories": [
+      "general"
+    ],
+    "title_es": "Actualización de Irán, 7 de septiembre de 2026 - Instituto para el Estudio de la Guerra",
+    "summary_es": "Actualización de Irán, 7 de septiembre de 2026 Instituto para el Estudio de la Guerra",
+    "quick_summary": "Actualización de Irán, 7 de septiembre de 2026 Instituto para el Estudio de la Guerra",
+    "is_translated": true
+  },
+  {
+    "id": "273d37a0d12c",
+    "title_original": "Russian Offensive Campaign Assessment, June 24, 2026 - Institute for the Study of War",
+    "summary_original": "Russian Offensive Campaign Assessment, June 24, 2026 Institute for the Study of War",
+    "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOaE90WGNoY051TFczU2ZsUlAxVTJvOUhuNGtNNjM1VnU0MlpxbkhlS0xzT2JlY29jNEM4c2NrSW1EVWtOQXRIZGZqbWZzRVA4WkYxSlZycHhmLTRiZmNuNzRLVTdYVGpMbU04RXNVWGh0SGIzRTg2ZnpFcFdsYl82M1o5ZEVhcm8wU0ZiRGdzYWdQeXd0NVV6NEdwbkRIcndMeDlhQTZnRQ?oc=5",
+    "source_id": "isw_assessments",
+    "source_name": "Institute for the Study of War (ISW)",
+    "perspective": "international",
+    "language": "en",
+    "bias_note": "Centro de estudios estratégicos estadounidense líder mundial en mapas y análisis del frente.",
+    "published": "2026-06-24T07:00:00+00:00",
+    "categories": [
+      "frente"
+    ],
     "is_translated": true,
-    "title_es": "Actualización sobre la ocupación rusa, 10 de septiembre de 2026 - listeningwar.org",
-    "summary_es": "Actualización sobre la ocupación rusa, 10 de septiembre de 2026 listeningwar.org",
-    "quick_summary": "Actualización sobre la ocupación rusa, 10 de septiembre de 2026 listeningwar.org"
+    "title_es": "Evaluación de la campaña ofensiva rusa, 24 de junio de 2026 - Instituto para el Estudio de la Guerra",
+    "summary_es": "Evaluación de la campaña ofensiva rusa, 24 de junio de 2026 Instituto para el Estudio de la Guerra",
+    "quick_summary": "Evaluación de la campaña ofensiva rusa, 24 de junio de 2026 Instituto para el Estudio de la Guerra"
+  },
+  {
+    "id": "20342488ab99",
+    "title_original": "Russian Offensive Campaign Assessment, June 15, 2026 - Institute for the Study of War",
+    "summary_original": "Russian Offensive Campaign Assessment, June 15, 2026 Institute for the Study of War",
+    "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOXzk4VHJDY3ZoY0M1MVFKdHZjcWh6RjUwZ2FVaGpSNUs2TW1IMWtnSGRqQy1yNG13ZHNRNWtCeGRaTG9YM3dEVWc3ZnZRRG5GdHlaMnVPN2RLVVBycGxUbjVVaE1RM2puODVsY0czRE9xbkQ3RG5ubHltSGpVM3dHM0NJQmxGZE5qcTVwU2o5V2xGLUhROWRxTndyUEtjSmlUd2tJRWVROA?oc=5",
+    "source_id": "isw_assessments",
+    "source_name": "Institute for the Study of War (ISW)",
+    "perspective": "international",
+    "language": "en",
+    "bias_note": "Centro de estudios estratégicos estadounidense líder mundial en mapas y análisis del frente.",
+    "published": "2026-06-15T07:00:00+00:00",
+    "categories": [
+      "frente"
+    ],
+    "title_es": "Evaluación de la campaña ofensiva rusa, 15 de junio de 2026 - Instituto para el Estudio de la Guerra",
+    "summary_es": "Evaluación de la campaña ofensiva rusa, 15 de junio de 2026 Instituto para el Estudio de la Guerra",
+    "quick_summary": "Evaluación de la campaña ofensiva rusa, 15 de junio de 2026 Instituto para el Estudio de la Guerra",
+    "is_translated": true
+  },
+  {
+    "id": "e73473f3f99e",
+    "title_original": "Home | Institute for the Study of War - Institute for the Study of War",
+    "summary_original": "Home | Institute for the Study of War Institute for the Study of War",
+    "link": "https://news.google.com/rss/articles/CBMiQ0FVX3lxTFBRX2plQTEzNGhLQVN0dDVYcGFKZTZHbDByUk9DVDVPVUF5MjFoZnQ2ZGdJb3pHdThXWGhDT3NtcjUtSVk?oc=5",
+    "source_id": "isw_assessments",
+    "source_name": "Institute for the Study of War (ISW)",
+    "perspective": "international",
+    "language": "en",
+    "bias_note": "Centro de estudios estratégicos estadounidense líder mundial en mapas y análisis del frente.",
+    "published": "2012-05-19T14:23:38+00:00",
+    "categories": [
+      "general"
+    ],
+    "title_es": "Inicio | Instituto para el Estudio de la Guerra - Instituto para el Estudio de la Guerra",
+    "summary_es": "Inicio | Instituto para el Estudio de la Guerra Instituto para el Estudio de la Guerra",
+    "quick_summary": "Inicio | Instituto para el Estudio de la Guerra Instituto para el Estudio de la Guerra",
+    "is_translated": true
   }
 ]
