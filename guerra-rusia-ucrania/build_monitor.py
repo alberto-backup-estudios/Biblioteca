@@ -24,35 +24,53 @@ HISTORICO_FILE = os.path.join(BASE_DIR, "historico_noticias.json")
 ARTICULOS_DIR = os.path.join(BASE_DIR, "articulos_texto")
 OUTPUT_HTML = os.path.join(BASE_DIR, "index.html")
 
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+    "Accept-Language": "ru-RU,ru;q=0.9,uk-UA,uk;q=0.9,en-US,en;q=0.8,es;q=0.7"
+}
+
 # =====================================================================
-# REGLAS DE RELEVANCIA BÉLICA Y ESTRATÉGICA (Priorizar impacto real)
+# REGLAS DE RELEVANCIA BÉLICA Y FILTRO DE RUIDO
 # =====================================================================
+
+PENALTY_PATTERNS = [
+    # Ruido, entretenimiento, farándula, cantantes, festivales, actores
+    r"(фестивал|певиц|певец|гагарин|киркоров|басков|шаман|shaman|актер|актрис|концерт|театр|кино|шоу-биз|знаменитост|celebrity|singer|cantante|concert|concierto|festival|eurovision|gagarina|gagarin|мурал|памятник|шоу|музык|песн)",
+    # Deportes, torneos, juegos
+    r"(шахмат|fide|chess|футбол|football|футбольн|хоккей|баскетбол|спорт|sport|олимпиад|чемпионат|турнир|матч)",
+    # Sucesos locales no bélicos, delitos comunes, accidentes de tráfico
+    r"(дтп|пьян|водитель|пешеход|сбил|авари|криминал|полиция задержала|убийство на почве|бытовой конфликт|грабеж|кража|карманник|зоопарк|погод|weather|климат|туризм|гороскоп|цирк|детсад)",
+    # Asuntos sociales/internos ajenos al conflicto
+    r"(алимент|родительск|детск|ребенок|детей|школ|подростк|соцсет|social media|whiskey|виски|алкогол|тарифы на виски)"
+]
+
+MANDATORY_WAR_PATTERNS = [
+    # Militar y combate (ruso y ucraniano)
+    r"(войн|военн|вооружен|всу|зсу|сво|арми|минобороны|генштаб|фронт|наступлен|штурм|бои|бой|атак|обстрел|снаряд|ракета|дрон|бпла|шахед|герань|пво|ппо|бомбардиров|авиабомб|искандер|кинжал|himars|patriot|atacms|storm shadow|f-16|танк|окоп|потери|погиб|ранен|плен|mobiliz|мобилизац|десант|пехот|командир|бригад|диверс|взрыв)",
+    # Inglés / Español militar
+    r"(war|military|armed forces|frontline|offensive|assault|combat|battle|strike|shelling|missile|drone|uav|air defense|casualties|killed|wounded|pow|troops|army|soldier|general|guerra|militar|frente|ofensiva|asalto|combate|batalla|ataque|bombardeo|misil|dron|defensa aérea|bajas|muertos|heridos|tropas|ejército)",
+    # Diplomacia y sanciones DIRECTAMENTE vinculadas a la guerra / Ucrania / Rusia
+    r"(санкци|sanction|sancion|мирные переговор|peace talks|conversaciones de paz|план побед|victory plan|помощь украине|military aid|ayuda militar|поставки оружия|weapons to ukraine|armas a ucrania)"
+]
 
 HIGH_RELEVANCE_PATTERNS = [
     # Ubicaciones clave del frente y zonas de combate
-    (r"\b(pokrovsk|курск|kursk|покровськ|донбасс|donbas|donetsk|донецк|toretsk|торецк|часов яр|chasiv yar|купянск|kupyansk|куupyansk|kharkiv|харьков|vuhledar|угледар|zaporizhzhia|запорожье|crimea|крым|черное море|black sea|сумы|sumy|белгород|belgorod|брянск|bryansk)\b", 8),
-    # Operaciones militares, combates y ofensivas
-    (r"\b(ofensiva|offensive|avance|advance|asalto|assault|combate|combat|наступление|штурм|бои|прорыв|frontline|frente|линия фронта|liberación|captura|toma|оборона|наступ|бої|зсу|всу|генштаб|минобороны)\b", 7),
-    # Armamento, ataques estratégicos, misiles y drones
-    (r"\b(misil|missile|dron|drone|atacms|storm shadow|f-16|patriot|himars|kinzhal|кинжал|iskander|искандер|shahed|шахед|герань|бпла|refinería|refinery|нпз|depósito|enjambre|defensa aérea|air defense|пво|ппо|авиабомб|bombardeo|strike|атака|raket)\b", 6),
-    # Diplomacia, líderes y geopolítica internacional
-    (r"\b(putin|путин|zelensky|зеленск|trump|трамп|biden|байден|otan|nato|alto el fuego|ceasefire|negociaci|переговор|paz|peace|мирный план|cumbre|summit|sancion|sanction|санкци|embargo|lavrov|лавров|kremlin|кремл)\b", 5),
-    # Bajas, prisioneros de guerra y movilización
-    (r"\b(prisioner|пленн|обмен|intercambio|bajas|casualties|потери|mobiliz|мобилизац|pow|prisioneros)\b", 4),
-]
-
-PENALTY_PATTERNS = [
-    # Ruido, deportes, eventos locales y temas no vinculados al conflicto
-    r"\b(fide|ajedrez|chess|шахмат|futbol|football|футбол|taekwondo|olimp|mural|мурал|памятник|кулинар|gastronom|cocina|cine|festival|фестивал|певиц|певец|актер|актрис|концерт|парковк|дтп|сбил пешехода|зоопарк|театр)\b",
-    r"\b(погода|weather|климат|туризм|tourism|гороскоп|horoscope|космос|золото|цирк)\b",
+    (r"(pokrovsk|покровск|kursk|курск|toretsk|торецк|часов яр|chasiv yar|купянск|kupyansk|kharkiv|харьков|vuhledar|угледар|zaporizhzhia|запорожье|crimea|крым|черное море|black sea|сумы|sumy|белгород|belgorod|брянск|bryansk|донецк|donetsk|луганск|luhansk|херсон|kherson|одесс|odesa)", 12),
+    # Operaciones militares clave, avances y ataques
+    (r"(наступлен|offensive|штурм|assault|avance|advance|прорыв|frontline|линия фронта|captura|toma|liberaci|минобороны|генштаб|генерал|general)", 10),
+    # Armamento pesado, misiles, drones e impactos estratégicos
+    (r"(misil|missile|dron|drone|atacms|storm shadow|f-16|patriot|himars|кинжал|kinzhal|искандер|iskander|шахед|shahed|бпла|refiner|нпз|defensa aérea|air defense|пво|ппо|авиабомб)", 8),
+    # Alta diplomacia bélica y geopolítica
+    (r"(zelensky|зеленск|putin|путин|otan|nato|alto el fuego|ceasefire|negociaci|мирный план|victory plan|peace plan)", 6)
 ]
 
 CATEGORY_PATTERNS = {
     "frente": [
         r"frontline", r"frente", r"combate", r"advance", r"offensive", r"avance",
         r"pokrovsk", r"покровск", r"kursk", r"курск", r"donetsk", r"donbas",
-        r"наступлен", r"штурм", r"бои\b", r"атак", r"наступ", r"бої\b", r"оборон",
-        r"capture", r"toma\b", r"libera", r"territorio", r"kharkiv", r"sumy", r"сумы"
+        r"наступлен", r"штурм", r"бои", r"атак", r"наступ", r"оборон",
+        r"capture", r"toma", r"libera", r"territorio", r"kharkiv", r"sumy", r"сумы"
     ],
     "drones": [
         r"drone", r"дрон", r"uav", r"бпла", r"shahed", r"шахед", r"geran", r"герань",
@@ -66,40 +84,41 @@ CATEGORY_PATTERNS = {
         r"поставка", r"оружие", r"пакет помощ"
     ],
     "diplomacia": [
-        r"peace", r"paz\b", r"negotiat", r"negociaci", r"ceasefire", r"alto el fuego",
+        r"peace", r"paz", r"negotiat", r"negociaci", r"ceasefire", r"alto el fuego",
         r"talks", r"conversaci", r"summit", r"cumbre", r"diplomaci", r"treaty", r"tratado",
         r"переговор", r"мирн", r"соглашени", r"договор", r"перемовини", r"тиша"
     ],
     "economia": [
-        r"sanction", r"sanción", r"sanciones", r"oil", r"petróleo", r"gas\b", r"refinery",
+        r"sanction", r"sanción", r"sanciones", r"oil", r"petróleo", r"gas", r"refinery",
         r"refinería", r"economy", r"economía", r"ruble", r"rublo", r"export",
-        r"санкци", r"нефт", r"газ\b", r"нпз", r"рубл", r"экономік", r"санкці"
+        r"санкци", r"нефт", r"газ", r"нпз", r"рубл", r"экономік", r"санкці"
     ]
 }
 
-def clean_html_text(raw_html, preserve_paras=True):
-    if not raw_html:
-        return ""
-    text = raw_html
-    if preserve_paras:
-        text = re.sub(r"<(p|br|div|li|h[1-6])[^>]*>", "\n\n", text, flags=re.IGNORECASE)
-    cleantext = re.sub(r"<[^>]+>", " ", text)
-    cleantext = html.unescape(cleantext)
-    if preserve_paras:
-        paras = [re.sub(r"\s+", " ", p).strip() for p in cleantext.split("\n\n") if len(p.strip()) > 25]
-        return "\n\n".join(paras)
-    return re.sub(r"\s+", " ", cleantext).strip()
-
 def calculate_relevance(title, body):
     combined = f"{title} {body}".lower()
+
+    # 1. Filtro de Ruido (Penalización severa)
     for pat in PENALTY_PATTERNS:
         if re.search(pat, combined):
-            return -10
+            return -50
 
-    score = 0
+    # 2. Requisito OBLIGATORIO de sustancia bélica directa
+    has_war_context = False
+    for pat in MANDATORY_WAR_PATTERNS:
+        if re.search(pat, combined):
+            has_war_context = True
+            break
+
+    if not has_war_context:
+        return -20
+
+    # 3. Puntuación de impacto estratégico
+    score = 5
     for pat, weight in HIGH_RELEVANCE_PATTERNS:
         if re.search(pat, combined):
             score += weight
+
     return score
 
 def identify_category(text):
@@ -110,8 +129,75 @@ def identify_category(text):
                 return cat_id
     return "frente"
 
-def extract_article_body(entry):
-    """Extrae el cuerpo de texto completo del artículo desde el feed o raspando si es necesario."""
+def extract_full_article_body(entry):
+    """Extrae los párrafos reales y sustanciales de la noticia (raspado web directo)."""
+    title = getattr(entry, "title", "").strip()
+    url = getattr(entry, "link", "")
+
+    if url and not "news.google.com" in url:
+        try:
+            r = requests.get(url, headers=HEADERS, timeout=7)
+            if r.status_code == 200:
+                soup = BeautifulSoup(r.text, "html.parser")
+                for s in soup(["script", "style", "nav", "header", "footer", "aside", "form", "figure", "figcaption"]):
+                    s.decompose()
+
+                paras = []
+
+                # Caso RIA Novosti: sus párrafos están en <div class="article__text">
+                if "ria.ru" in url:
+                    ria_paras = [p.get_text().strip() for p in soup.find_all("div", class_="article__text") if len(p.get_text().strip()) > 35]
+                    if len(ria_paras) >= 2:
+                        return "\n\n".join(ria_paras[:6])
+
+                # Caso Kommersant: párrafos en <p class="doc__text">
+                if "kommersant.ru" in url:
+                    kom_paras = [p.get_text().strip() for p in soup.find_all("p", class_="doc__text") if len(p.get_text().strip()) > 35]
+                    if len(kom_paras) >= 2:
+                        return "\n\n".join(kom_paras[:6])
+
+                # Caso Ukrainska Pravda
+                if "pravda.com.ua" in url:
+                    container = soup.find("div", class_=lambda c: c and "post_text" in str(c).lower()) or soup.find("article")
+                    if container:
+                        up_paras = [p.get_text().strip() for p in container.find_all("p") if len(p.get_text().strip()) > 35]
+                        if len(up_paras) >= 2:
+                            return "\n\n".join(up_paras[:6])
+
+                # Caso Interfax-Ucrania
+                if "interfax.com.ua" in url:
+                    container = soup.find("div", class_="article-content") or soup.find("article")
+                    if container:
+                        inf_paras = [p.get_text().strip() for p in container.find_all("p") if len(p.get_text().strip()) > 35]
+                        if len(inf_paras) >= 2:
+                            return "\n\n".join(inf_paras[:6])
+
+                # Caso Deutsche Welle (DW)
+                if "dw.com" in url:
+                    container = soup.find("div", class_=lambda c: c and "rich-text" in str(c).lower()) or soup.find("article") or soup.find("main")
+                    if container:
+                        dw_paras = [p.get_text().strip() for p in container.find_all("p") if len(p.get_text().strip()) > 35]
+                        if len(dw_paras) >= 2:
+                            return "\n\n".join(dw_paras[:6])
+
+                # Extracción general para Meduza, The Moscow Times, BBC, etc.
+                container = (
+                    soup.find("article") or
+                    soup.find("main") or
+                    soup.find("div", class_=lambda c: c and any(k in str(c).lower() for k in ["article-body", "story-body", "post-body", "generalmaterial"]))
+                )
+                if container:
+                    for p in container.find_all("p"):
+                        t = p.get_text().strip()
+                        if len(t) > 40 and not any(k in t.lower() for k in ["cookie", "telegram", "подпис", "читайте", "subscribe", "privacy policy", "all rights reserved"]):
+                            if t not in paras:
+                                paras.append(t)
+                    if len(paras) >= 2:
+                        return "\n\n".join(paras[:6])
+        except Exception:
+            pass
+
+    # 2. Respaldo RSS (únicamente si contiene texto sustancial multilínea)
     content_val = ""
     if getattr(entry, "content", None):
         try:
@@ -119,30 +205,22 @@ def extract_article_body(entry):
         except Exception:
             pass
 
-    body_raw = content_val or getattr(entry, "description", "") or getattr(entry, "summary", "")
-    body_clean = clean_html_text(body_raw, preserve_paras=True)
+    raw = content_val or getattr(entry, "summary", "") or getattr(entry, "description", "")
+    if raw:
+        soup = BeautifulSoup(raw, "html.parser")
+        paras = [p.get_text().strip() for p in soup.find_all(["p", "div"]) if len(p.get_text().strip()) > 35]
+        if len(paras) >= 2:
+            return "\n\n".join(paras[:6])
+        clean = soup.get_text().strip()
+        if len(clean) >= 250 and clean != title:
+            # Dividir por oraciones si es un párrafo largo
+            sentences = [s.strip() for s in re.split(r"(?<=[.!?])\s+", clean) if len(s.strip()) > 30]
+            if len(sentences) >= 2:
+                mid = len(sentences) // 2
+                return " ".join(sentences[:mid]) + "\n\n" + " ".join(sentences[mid:])
+            return clean
 
-    # Si el texto es muy corto (< 150 caracteres) y hay enlace web, intentar extraer párrafos directamente
-    link = getattr(entry, "link", "")
-    if len(body_clean) < 150 and link and not "google.com" in link:
-        try:
-            r = requests.get(link, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}, timeout=4)
-            if r.status_code == 200:
-                soup = BeautifulSoup(r.text, "html.parser")
-                for tag in soup(["script", "style", "nav", "header", "footer", "aside"]):
-                    tag.decompose()
-                container = soup.find("article") or soup.find("main") or soup.find("div", class_=lambda c: c and any(x in c.lower() for x in ["article", "content", "post", "text", "body"]))
-                if container:
-                    web_paras = [p.get_text().strip() for p in container.find_all("p") if len(p.get_text().strip()) > 35]
-                    if len(web_paras) >= 2:
-                        body_clean = "\n\n".join(web_paras[:5])
-        except Exception:
-            pass
-
-    # Limitar longitud razonable (hasta 1800 caracteres para no saturar traducción)
-    if len(body_clean) > 1800:
-        body_clean = body_clean[:1797] + "..."
-    return body_clean
+    return ""
 
 def translate_single_chunk(text, max_len=600):
     if not text or not text.strip():
@@ -150,7 +228,7 @@ def translate_single_chunk(text, max_len=600):
     text_clean = text.strip()[:max_len]
     try:
         url = "https://clients5.google.com/translate_a/t?client=dict-chrome-ex&sl=auto&tl=es&q=" + urllib.parse.quote(text_clean)
-        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"})
+        req = urllib.request.Request(url, headers=HEADERS)
         with urllib.request.urlopen(req, timeout=6) as resp:
             data = json.loads(resp.read().decode("utf-8"))
             if isinstance(data, list):
@@ -174,7 +252,7 @@ def translate_single_chunk(text, max_len=600):
 
     return text_clean
 
-def translate_full_story(text, max_paragraphs=4):
+def translate_full_story(text, max_paragraphs=6):
     """Traduce la noticia completa párrafo por párrafo al español."""
     if not text or not text.strip():
         return ""
@@ -184,8 +262,8 @@ def translate_full_story(text, max_paragraphs=4):
 
     translated_paras = []
     for p in paragraphs[:max_paragraphs]:
-        t = translate_single_chunk(p, max_len=600)
-        if t and len(t) > 5:
+        t = translate_single_chunk(p, max_len=650)
+        if t and len(t) > 15:
             translated_paras.append(t)
     return "\n\n".join(translated_paras)
 
@@ -199,13 +277,24 @@ def fetch_feed(feed_config):
     bias_note = feed_config.get("bias_note", "")
 
     try:
-        headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
-        resp = requests.get(feed_url, headers=headers, timeout=10)
+        resp = requests.get(feed_url, headers=HEADERS, timeout=10)
         parsed = feedparser.parse(resp.content)
 
         for entry in getattr(parsed, "entries", [])[:30]:
-            title = clean_html_text(getattr(entry, "title", "Sin título"), preserve_paras=False)
-            body = extract_article_body(entry)
+            title = getattr(entry, "title", "Sin título").strip()
+            title = re.sub(r"<[^>]+>", "", title).strip()
+            body = extract_full_article_body(entry)
+
+            # CONTROL DE CALIDAD ESTRICTO:
+            # Descartar artículos sin cuerpo sustancial, con menos de 200 caracteres,
+            # sin múltiples párrafos o donde el cuerpo es copia del título.
+            if not body or len(body.strip()) < 200 or body.strip() == title:
+                continue
+
+            score = calculate_relevance(title, body)
+            if score <= 0:
+                continue
+
             link = getattr(entry, "link", "#")
 
             # Parsear fecha
@@ -220,11 +309,6 @@ def fetch_feed(feed_config):
                         pass
             if not pub_date:
                 pub_date = datetime.now(timezone.utc).isoformat()
-
-            # Calcular puntuación de relevancia
-            score = calculate_relevance(title, body)
-            if score <= 0:
-                continue
 
             art_id = hashlib.md5(f"{feed_id}_{title}".encode("utf-8")).hexdigest()[:12]
             category = identify_category(f"{title} {body}")
@@ -248,8 +332,7 @@ def fetch_feed(feed_config):
 
     return candidates
 
-def select_daily_top_articles(candidates, max_per_perspective=10):
-    """Selecciona los artículos de máxima relevancia divididos equitativamente por perspectiva."""
+def select_daily_top_articles(candidates, max_per_perspective=8):
     by_persp = {}
     for a in candidates:
         p = a["perspective"]
@@ -261,7 +344,6 @@ def select_daily_top_articles(candidates, max_per_perspective=10):
     selected_ids = set()
 
     for p, items in by_persp.items():
-        # Ordenar por puntuación de relevancia descendente, luego por fecha
         items.sort(key=lambda x: (x["relevance_score"], x["published"]), reverse=True)
         count = 0
         for a in items:
@@ -276,10 +358,10 @@ def select_daily_top_articles(candidates, max_per_perspective=10):
     return selected
 
 def save_article_text_file(article, date_folder):
-    """Guarda cada noticia como un archivo de texto/markdown individual en articulos_texto/."""
+    """Guarda cada noticia como un archivo markdown individual en articulos_texto/."""
     os.makedirs(date_folder, exist_ok=True)
-    slug = re.sub(r"[^a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]+", "-", article.get("title_es", "noticia")[:50]).strip("-").lower()
-    filename = f"{article['id']}_{slug}.md"
+    clean_title = re.sub(r"[^a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]+", "-", article.get("title_es", "noticia")[:50]).strip("-").lower()
+    filename = f"{article['id']}_{clean_title}.md"
     filepath = os.path.join(date_folder, filename)
 
     content = f"""# {article.get('title_es', article['title_original'])}
@@ -290,10 +372,11 @@ def save_article_text_file(article, date_folder):
 - **Idioma original:** {article.get('language', '').upper()}
 - **Enlace a la fuente original:** {article.get('link', '#')}
 - **Contexto editorial:** {article.get('bias_note', '')}
+- **Puntuación de relevancia bélica:** {article.get('relevance_score', 0)}
 
 ---
 
-## Noticia Completa en Español:
+## Noticia Completa Traducida al Español:
 
 {article.get('text_es', '')}
 
@@ -326,7 +409,7 @@ def update_historico_and_translate(selected_articles):
         if a["id"] in historico_map:
             saved = historico_map[a["id"]]
             a["title_es"] = saved.get("title_es") or a["title_original"]
-            a["text_es"] = saved.get("text_es") or saved.get("summary_es") or a["text_original"]
+            a["text_es"] = saved.get("text_es") or a["text_original"]
             a["date_added"] = saved.get("date_added", today_str)
         else:
             a["date_added"] = today_str
@@ -337,20 +420,19 @@ def update_historico_and_translate(selected_articles):
                 to_translate.append(a)
 
     if to_translate:
-        print(f"[*] Traduciendo {len(to_translate)} artículos de alta relevancia al español (título y texto completo)...")
+        print(f"[*] Traduciendo {len(to_translate)} artículos sustanciales al español (título y párrafos completos)...")
         for i, a in enumerate(to_translate, 1):
             t_title = translate_single_chunk(a["title_original"], max_len=300)
-            t_text = translate_full_story(a["text_original"], max_paragraphs=5)
+            t_text = translate_full_story(a["text_original"], max_paragraphs=6)
 
             a["title_es"] = t_title if t_title else a["title_original"]
             a["text_es"] = t_text if t_text else a["text_original"]
 
-            # Pausa para no saturar la API
-            time.sleep(0.2)
+            time.sleep(0.25)
             if i % 5 == 0 or i == len(to_translate):
-                print(f"    -> {i}/{len(to_translate)} traducidos y procesados...")
+                print(f"    -> {i}/{len(to_translate)} traducidos con éxito...")
 
-    # Guardar archivos de texto en articulos_texto/ y actualizar hemeroteca
+    # Guardar archivos de texto y actualizar base de datos histórica
     new_count = 0
     for a in selected_articles:
         save_article_text_file(a, today_folder)
@@ -381,7 +463,7 @@ def generate_html_site(daily_articles, historic_articles, perspectives, last_upd
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <meta name="theme-color" content="#020617">
-  <title>Monitor de Guerra Rusia-Ucrania | Inteligencia & Artículos Traducidos</title>
+  <title>Monitor de Guerra Rusia-Ucrania | Artículos Traducidos & Análisis</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -410,7 +492,7 @@ def generate_html_site(daily_articles, historic_articles, perspectives, last_upd
             <h1 class="font-extrabold text-base sm:text-lg tracking-tight text-white">Monitor <span class="text-sky-400">Rusia-Ucrania</span></h1>
             <span class="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-bold">En Vivo</span>
           </div>
-          <p class="text-[11px] text-slate-400 hidden sm:block">Artículos de alta relevancia traducidos al español de fuentes ucranianas, rusas e internacionales</p>
+          <p class="text-[11px] text-slate-400 hidden sm:block">Noticias de alta relevancia traducidas al español de fuentes ucranianas, rusas e internacionales</p>
         </div>
       </div>
 
@@ -436,7 +518,7 @@ def generate_html_site(daily_articles, historic_articles, perspectives, last_upd
     <div class="flex items-center gap-2">
       <div class="relative flex-1">
         <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500"></i>
-        <input type="text" id="searchInput" placeholder="Buscar por ciudad (Pokrovsk, Kursk), líderes, armas (ATACMS, F-16)..." 
+        <input type="text" id="searchInput" placeholder="Buscar por ciudad (Pokrovsk, Kursk, Toretsk), misiles, drones, sanciones..." 
                class="w-full bg-slate-900 border border-slate-800 rounded-xl pl-10 pr-4 py-2 text-xs sm:text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-sky-500 transition">
       </div>
       <button id="savedFilterBtn" class="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 text-xs font-semibold hover:border-slate-700 transition">
@@ -453,7 +535,7 @@ def generate_html_site(daily_articles, historic_articles, perspectives, last_upd
       <button class="persp-pill px-3 py-1.5 rounded-xl font-semibold bg-slate-900 text-slate-400 border border-slate-800 hover:border-slate-700 shrink-0" data-persp="ukraine">🇺🇦 Ucrania</button>
       <button class="persp-pill px-3 py-1.5 rounded-xl font-semibold bg-slate-900 text-slate-400 border border-slate-800 hover:border-slate-700 shrink-0" data-persp="russia_independent">🕊️ Rusia Independiente</button>
       <button class="persp-pill px-3 py-1.5 rounded-xl font-semibold bg-slate-900 text-slate-400 border border-slate-800 hover:border-slate-700 shrink-0" data-persp="russia_official">🇷🇺 Rusia Oficial</button>
-      <button class="persp-pill px-3 py-1.5 rounded-xl font-semibold bg-slate-900 text-slate-400 border border-slate-800 hover:border-slate-700 shrink-0" data-persp="international">🌐 Análisis ISW / BBC</button>
+      <button class="persp-pill px-3 py-1.5 rounded-xl font-semibold bg-slate-900 text-slate-400 border border-slate-800 hover:border-slate-700 shrink-0" data-persp="international">🌐 Análisis BBC / DW</button>
     </div>
 
     <!-- Categorías temáticas -->
@@ -480,7 +562,7 @@ def generate_html_site(daily_articles, historic_articles, perspectives, last_upd
 
   </div>
 
-  <!-- CONTENEDOR DE TARJETAS CON TEXTO COMPLETO -->
+  <!-- CONTENEDOR DE TARJETAS -->
   <main class="max-w-6xl mx-auto px-4 lg:px-8 mt-2">
     <div id="cardsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <!-- Tarjetas renderizadas con JS -->
@@ -490,6 +572,8 @@ def generate_html_site(daily_articles, historic_articles, perspectives, last_upd
   <!-- MODAL DE LECTURA COMPLETA -->
   <dialog id="modal" class="bg-slate-900 text-slate-100 p-0 rounded-2xl border border-slate-800 max-w-2xl w-[92vw] shadow-2xl backdrop:bg-black/75 backdrop:backdrop-blur-sm">
     <div class="p-5 sm:p-6 space-y-4 max-h-[85vh] overflow-y-auto">
+      
+      <!-- Cabecera del modal -->
       <div class="flex items-start justify-between gap-3 border-b border-slate-800 pb-3">
         <div>
           <div id="mBadges" class="flex flex-wrap items-center gap-1.5 text-xs mb-1.5"></div>
@@ -509,6 +593,15 @@ def generate_html_site(daily_articles, historic_articles, perspectives, last_upd
         <!-- Párrafos traducidos -->
       </div>
 
+      <!-- Texto original plegable -->
+      <details class="mt-4 pt-3 border-t border-slate-800/80 text-xs text-slate-400">
+        <summary class="cursor-pointer font-semibold text-slate-400 hover:text-slate-200 flex items-center gap-1.5">
+          <i data-lucide="languages" class="w-3.5 h-3.5 text-sky-400"></i>
+          <span>Contrastar con el texto original sin traducir</span>
+        </summary>
+        <div id="mOriginalStory" class="mt-3 p-3.5 bg-slate-950 rounded-xl border border-slate-800/60 font-mono text-[11px] leading-relaxed text-slate-400 space-y-2"></div>
+      </details>
+
       <!-- Pie de modal -->
       <div class="flex items-center justify-between pt-3 border-t border-slate-800 text-xs">
         <div class="flex items-center gap-2">
@@ -517,11 +610,12 @@ def generate_html_site(daily_articles, historic_articles, perspectives, last_upd
             <span id="mBookmarkLabel">Guardar</span>
           </button>
         </div>
-        <a id="mLink" href="#" target="_blank" class="px-3.5 py-1.5 rounded-xl bg-slate-800 text-slate-400 hover:text-slate-200 flex items-center gap-1.5">
-          <span>Fuente original</span>
+        <a id="mLink" href="#" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-xl bg-slate-800 text-slate-400 hover:text-slate-200 flex items-center gap-1.5">
+          <span>Visitar fuente original</span>
           <i data-lucide="external-link" class="w-3 h-3"></i>
         </a>
       </div>
+
     </div>
   </dialog>
 
@@ -580,7 +674,7 @@ def generate_html_site(daily_articles, historic_articles, perspectives, last_upd
         const bodyText = a.text_es || a.text_original || '';
         
         // Párrafos para la tarjeta
-        const paragraphs = bodyText.split('\\n\\n').filter(p => p.trim());
+        const paragraphs = bodyText.split('\n\n').filter(p => p.trim());
         const firstParagraph = paragraphs[0] || 'Información no disponible.';
         const secondParagraph = paragraphs[1] || '';
         const hasMore = paragraphs.length > 2;
@@ -602,7 +696,7 @@ def generate_html_site(daily_articles, historic_articles, perspectives, last_upd
               <div class="flex items-center justify-between text-xs gap-2 flex-wrap">
                 <div class="flex items-center gap-1.5 truncate">
                   <span class="font-bold text-slate-300 bg-slate-800 px-2 py-0.5 rounded text-[11px] truncate max-w-[140px]">${{a.source_name}}</span>
-                  <span class="text-[10px] text-slate-500 font-mono">${{langBadge}}</span>
+                  <span class="text-[10px] text-slate-500 font-mono">Traducido del ${{langBadge}}</span>
                   ${{catBadge}}
                 </div>
                 <div class="flex items-center gap-1 text-[11px] text-slate-500 font-mono">
@@ -617,10 +711,10 @@ def generate_html_site(daily_articles, historic_articles, perspectives, last_upd
               </h3>
 
               <!-- NOTICIA COMPLETA TRADUCIDA EN ESPAÑOL -->
-              <div class="text-xs sm:text-sm text-slate-300 leading-relaxed space-y-2">
+              <div class="text-xs sm:text-sm text-slate-300 leading-relaxed space-y-2 cursor-pointer" onclick="openModal('${{a.id}}')">
                 <p>${{firstParagraph}}</p>
                 ${{secondParagraph ? `<p>${{secondParagraph}}</p>` : ''}}
-                ${{hasMore ? `<button onclick="openModal('${{a.id}}')" class="text-xs font-semibold text-sky-400 hover:text-sky-300 flex items-center gap-1 pt-1"><span>Leer resto del artículo completo (${{paragraphs.length}} párrafos)...</span> <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i></button>` : ''}}
+                ${{hasMore ? `<div class="text-xs font-semibold text-sky-400 hover:text-sky-300 flex items-center gap-1 pt-1"><span>Ver artículo completo (${{paragraphs.length}} párrafos traducidos)...</span> <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i></div>` : ''}}
               </div>
             </div>
 
@@ -633,9 +727,9 @@ def generate_html_site(daily_articles, historic_articles, perspectives, last_upd
 
               <div class="flex items-center gap-2">
                 <button onclick="openModal('${{a.id}}')" class="px-3 py-1.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-semibold transition text-xs shadow-md shadow-sky-600/20">
-                  Leer en lector
+                  Leer completo
                 </button>
-                <a href="${{a.link}}" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 rounded-xl bg-slate-800 text-slate-400 hover:text-slate-200 text-xs transition" title="Abrir fuente original externa">
+                <a href="${{a.link}}" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 rounded-xl bg-slate-800 text-slate-400 hover:text-slate-200 text-xs transition" title="Abrir fuente original">
                   Fuente ↗
                 </a>
               </div>
@@ -672,8 +766,15 @@ def generate_html_site(daily_articles, historic_articles, perspectives, last_upd
       document.getElementById('mBiasText').textContent = a.bias_note || 'Fuente periodística en zona de conflicto.';
 
       // Párrafos completos traducidos
-      const paragraphs = (a.text_es || a.text_original || '').split('\\n\\n').filter(p => p.trim());
-      document.getElementById('mFullStory').innerHTML = paragraphs.map(p => `<p class="leading-relaxed">${{p}}</p>`).join('');
+      const paragraphs = (a.text_es || a.text_original || '').split('\n\n').filter(p => p.trim());
+      document.getElementById('mFullStory').innerHTML = paragraphs.map(p => `<p class="leading-relaxed mb-3">${{p}}</p>`).join('');
+
+      // Texto original
+      const origParas = (a.text_original || '').split('\n\n').filter(p => p.trim());
+      document.getElementById('mOriginalStory').innerHTML = `
+        <div class="font-bold text-slate-300 mb-1.5">${{a.title_original}}</div>
+        ${{origParas.map(p => `<p class="mb-2">${{p}}</p>`).join('')}}
+      `;
 
       document.getElementById('mLink').href = a.link;
 
@@ -743,13 +844,18 @@ def generate_html_site(daily_articles, historic_articles, perspectives, last_upd
       }};
     }});
 
-    // Búsqueda en vivo
+    // Búsqueda en tiempo real
     document.getElementById('searchInput').addEventListener('input', (e) => {{
       searchQuery = e.target.value;
       render();
     }});
 
-    // Inicializar
+    // Cierre modal con click en backdrop
+    document.getElementById('modal').addEventListener('click', (e) => {{
+      if (e.target.id === 'modal') e.target.close();
+    }});
+
+    // Render inicial
     render();
   </script>
 </body>
@@ -757,6 +863,7 @@ def generate_html_site(daily_articles, historic_articles, perspectives, last_upd
 """
     with open(OUTPUT_HTML, "w", encoding="utf-8") as f:
         f.write(html_content)
+
     print(f"[OK] Sitio HTML generado exitosamente en: {OUTPUT_HTML}")
 
 def main():
@@ -765,7 +872,7 @@ def main():
     print("=" * 65)
 
     if not os.path.exists(CONFIG_FILE):
-        print(f"[ERROR] Archivo no encontrado: {CONFIG_FILE}")
+        print(f"[ERROR] No se encontró el archivo de configuración {CONFIG_FILE}")
         return
 
     with open(CONFIG_FILE, "r", encoding="utf-8") as f:
@@ -785,22 +892,22 @@ def main():
             except Exception as e:
                 print(f"[WARN] Error en feed: {e}")
 
-    print(f"[*] Total de candidatos relevantes evaluados: {len(all_candidates)}")
+    print(f"[*] Total de candidatos relevantes con texto sustancial: {len(all_candidates)}")
 
     # Deduplicar por título normalizado
     seen = set()
     deduped = []
     for a in all_candidates:
-        norm = re.sub(r"[^a-zA-Z0-9\u0400-\u04FF]", "", a["title_original"].lower())[:45]
+        norm = re.sub(r"[^a-zA-Z0-9Ѐ-ӿ]", "", a["title_original"].lower())[:45]
         if norm and norm not in seen:
             seen.add(norm)
             deduped.append(a)
 
     print(f"[*] Candidatos únicos filtrados sin ruido ni baja relevancia: {len(deduped)}")
 
-    # Seleccionar Top diario (hasta 10 por perspectiva, ~35-40 de alta relevancia)
-    daily_selected = select_daily_top_articles(deduped, max_per_perspective=10)
-    print(f"[*] Seleccionados para la Edición de Hoy: {len(daily_selected)} artículos de máxima relevancia.")
+    # Seleccionar Top diario (hasta 8 por perspectiva, noticias de máxima relevancia)
+    daily_selected = select_daily_top_articles(deduped, max_per_perspective=8)
+    print(f"[*] Seleccionados para la Edición de Hoy: {len(daily_selected)} artículos de máxima relevancia bélica.")
 
     # Traducir texto completo y archivar en articulos_texto/ e historico_noticias.json
     daily_articles, historic_articles = update_historico_and_translate(daily_selected)

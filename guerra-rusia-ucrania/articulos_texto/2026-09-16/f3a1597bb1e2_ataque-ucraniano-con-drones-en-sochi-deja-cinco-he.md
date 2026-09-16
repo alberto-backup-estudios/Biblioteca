@@ -5,11 +5,12 @@
 - **Perspectiva:** russia_independent
 - **Idioma original:** EN
 - **Enlace a la fuente original:** https://www.themoscowtimes.com/2026/09/14/ukrainian-drone-strike-in-sochi-wounds-5-a93699
-- **Contexto editorial:** Diario ruso independiente en el exilio crítico con las políticas de Putin.
+- **Contexto editorial:** Diario independiente ruso en el exilio crítico con Putin y con cobertura de ataques en territorio ruso.
+- **Puntuación de relevancia bélica:** 35
 
 ---
 
-## Noticia Completa en Español:
+## Noticia Completa Traducida al Español:
 
 Cinco personas, incluido un niño, resultaron heridas en un ataque nocturno con aviones no tripulados ucranianos en la ciudad turística de Sochi, en el Mar Negro, dijeron funcionarios locales el lunes.
 
@@ -20,6 +21,8 @@ El alcalde de Sochi, Andrei Proshunin, dijo que los bomberos extinguieron los in
 Proshunin anunció más tarde el cierre de las playas de Sochis debido al riesgo constante de ataques con aviones no tripulados.
 
 En la vecina región de Rostov, el gobernador Yury Slyusar dijo que los sistemas de defensa aérea interceptaron 50 drones sobre la región. Informó de daños a la infraestructura civil, pero dijo que nadie resultó herido.
+
+El Ministerio de Defensa de Rusia dijo que interceptó 399 drones ucranianos en toda Rusia y anexó Crimea entre el domingo por la noche y el lunes por la mañana.
 
 ---
 
@@ -36,3 +39,5 @@ Sochi Mayor Andrei Proshunin said firefighters extinguished fires that had broke
 Proshunin later announced the closure of Sochis beache’s due to the ongoing risk of drone strikes.
 
 In the neighboring Rostov region, Governor Yury Slyusar said air defense systems intercepted 50 drones over the region. He reported damage to civilian infrastructure but said that no one was hurt.
+
+Russia’s Defense Ministry said it intercepted 399 Ukrainian drones across Russia and annexed Crimea between Sunday night and Monday morning.

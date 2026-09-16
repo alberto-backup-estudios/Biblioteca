@@ -11,14 +11,14 @@
       "short_name": "Ucrania",
       "icon": "🇺🇦",
       "badge_class": "badge-ukraine",
-      "description": "Cobertura desde el terreno, comunicados del gobierno ucraniano y periodismo de investigación local."
+      "description": "Cobertura desde el terreno, partes del Estado Mayor de las FFAA de Ucrania y periodismo de investigación local."
     },
     "russia_independent": {
       "name": "Rusia Independiente (Exilio / Sin Censura)",
       "short_name": "Rusia Independiente",
       "icon": "🕊️",
       "badge_class": "badge-ru-ind",
-      "description": "Medios rusos perseguidos por el Kremlin operando desde el exterior con altos estándares periodísticos."
+      "description": "Medios rusos independientes operando desde el exterior sin censura del Kremlin."
     },
     "russia_official": {
       "name": "Rusia Oficial (Estatal / Retórica del Kremlin)",
@@ -32,26 +32,17 @@
       "short_name": "Internacional",
       "icon": "🌐",
       "badge_class": "badge-intl",
-      "description": "Análisis estratégico y de inteligencia de fuentes abiertas como el Institute for the Study of War (ISW) y agencias globales."
+      "description": "Análisis estratégico y corresponsalías de medios globales (BBC, Deutsche Welle) y reportes de inteligencia."
     }
   },
   "feeds": [
-    {
-      "id": "kyiv_independent",
-      "name": "The Kyiv Independent",
-      "url": "https://news.google.com/rss/search?q=site:kyivindependent.com&hl=en-US&gl=US&ceid=US:en",
-      "perspective": "ukraine",
-      "language": "en",
-      "bias_note": "Principal medio ucraniano independiente en inglés fundado por periodistas locales.",
-      "requires_war_filter": false
-    },
     {
       "id": "ukrainska_pravda_en",
       "name": "Ukrainska Pravda (EN)",
       "url": "https://www.pravda.com.ua/eng/rss/",
       "perspective": "ukraine",
       "language": "en",
-      "bias_note": "Uno de los periódicos más leídos e históricos de Ucrania.",
+      "bias_note": "Uno de los periódicos más leídos e históricos de Ucrania (versión internacional en inglés).",
       "requires_war_filter": false
     },
     {
@@ -60,25 +51,16 @@
       "url": "https://www.pravda.com.ua/rss/",
       "perspective": "ukraine",
       "language": "uk",
-      "bias_note": "Edición original en ucraniano con actualización continua.",
+      "bias_note": "Edición original en ucraniano con despachos de última hora desde el frente.",
       "requires_war_filter": true
     },
     {
-      "id": "ukrinform",
-      "name": "Ukrinform",
-      "url": "https://news.google.com/rss/search?q=site:ukrinform.net&hl=en-US&gl=US&ceid=US:en",
+      "id": "interfax_ukraine",
+      "name": "Interfax-Ucrania",
+      "url": "https://en.interfax.com.ua/news/general.rss",
       "perspective": "ukraine",
       "language": "en",
-      "bias_note": "Agencia nacional de noticias oficial del Estado ucraniano.",
-      "requires_war_filter": false
-    },
-    {
-      "id": "meduza_ru",
-      "name": "Meduza (RU)",
-      "url": "https://meduza.io/rss/all",
-      "perspective": "russia_independent",
-      "language": "ru",
-      "bias_note": "Principal medio ruso de investigación en el exilio (prohibido por Moscú, sede en Letonia).",
+      "bias_note": "Agencia de noticias ucraniana de referencia para despachos militares y declaraciones gubernamentales.",
       "requires_war_filter": true
     },
     {
@@ -87,25 +69,16 @@
       "url": "https://www.themoscowtimes.com/rss/news",
       "perspective": "russia_independent",
       "language": "en",
-      "bias_note": "Diario ruso independiente en el exilio crítico con las políticas de Putin.",
+      "bias_note": "Diario independiente ruso en el exilio crítico con Putin y con cobertura de ataques en territorio ruso.",
       "requires_war_filter": true
     },
     {
-      "id": "novaya_gazeta",
-      "name": "Novaya Gazeta Europe",
-      "url": "https://news.google.com/rss/search?q=site:novayagazeta.eu&hl=ru&gl=RU&ceid=RU:ru",
+      "id": "meduza_ru",
+      "name": "Meduza (RU)",
+      "url": "https://meduza.io/rss/all",
       "perspective": "russia_independent",
       "language": "ru",
-      "bias_note": "Diario fundado por el Nobel de la Paz Dmitry Muratov, operando desde Europa.",
-      "requires_war_filter": true
-    },
-    {
-      "id": "tass_ru",
-      "name": "TASS (ТАСС)",
-      "url": "https://tass.ru/rss/v2.xml",
-      "perspective": "russia_official",
-      "language": "ru",
-      "bias_note": "Agencia de noticias estatal de la Federación Rusa (postura oficial del Kremlin).",
+      "bias_note": "Principal medio ruso de investigación independiente prohibido por el Kremlin (sede en Letonia).",
       "requires_war_filter": true
     },
     {
@@ -114,17 +87,17 @@
       "url": "https://ria.ru/export/rss2/archive/index.xml",
       "perspective": "russia_official",
       "language": "ru",
-      "bias_note": "Medio de comunicación estatal ruso subordinado a Rossiya Segodnya.",
+      "bias_note": "Agencia estatal rusa del conglomerado Rossiya Segodnya. Postura y partes de guerra oficiales del Kremlin.",
       "requires_war_filter": true
     },
     {
-      "id": "isw_assessments",
-      "name": "Institute for the Study of War (ISW)",
-      "url": "https://news.google.com/rss/search?q=site:understandingwar.org&hl=en-US&gl=US&ceid=US:en",
-      "perspective": "international",
-      "language": "en",
-      "bias_note": "Centro de estudios estratégicos estadounidense líder mundial en mapas y análisis del frente.",
-      "requires_war_filter": false
+      "id": "kommersant",
+      "name": "Kommersant (Коммерсантъ)",
+      "url": "https://www.kommersant.ru/RSS/news.xml",
+      "perspective": "russia_official",
+      "language": "ru",
+      "bias_note": "Diario de referencia ruso sobre política exterior, sanciones, industria militar y economía de guerra.",
+      "requires_war_filter": true
     },
     {
       "id": "bbc_europe",
@@ -132,7 +105,16 @@
       "url": "https://feeds.bbci.co.uk/news/world/europe/rss.xml",
       "perspective": "international",
       "language": "en",
-      "bias_note": "Servicio público británico con amplia red de corresponsales internacionales.",
+      "bias_note": "Servicio público británico con amplia red de corresponsales de guerra e investigación OSINT.",
+      "requires_war_filter": true
+    },
+    {
+      "id": "dw_russian",
+      "name": "Deutsche Welle (DW Ruso)",
+      "url": "https://rss.dw.com/xml/rss-ru-all",
+      "perspective": "international",
+      "language": "ru",
+      "bias_note": "Radiodifusora pública internacional de Alemania con análisis exhaustivo del conflicto para la audiencia rusoparlante.",
       "requires_war_filter": true
     }
   ]

@@ -5,11 +5,12 @@
 - **Perspectiva:** russia_independent
 - **Idioma original:** EN
 - **Enlace a la fuente original:** https://www.themoscowtimes.com/2026/09/15/ukrainian-attack-kills-one-in-belgorod-hits-commercial-and-industrial-sites-across-russia-a93708
-- **Contexto editorial:** Diario ruso independiente en el exilio crítico con las políticas de Putin.
+- **Contexto editorial:** Diario independiente ruso en el exilio crítico con Putin y con cobertura de ataques en territorio ruso.
+- **Puntuación de relevancia bélica:** 25
 
 ---
 
-## Noticia Completa en Español:
+## Noticia Completa Traducida al Español:
 
 Los ataques nocturnos con drones y misiles ucranianos en el sur de Rusia mataron a una persona y afectaron sitios comerciales e industriales, dijeron el martes funcionarios regionales.
 
@@ -20,6 +21,8 @@ En la cercana región de Rostov, el gobernador Yury Slyusar dijo que un almacén
 Ozon confirmó que suspendió las operaciones en la instalación, donde dijo que se produjo un incendio. Nadie resultó herido, dijo la empresa.
 
 Los investigadores federales iniciaron una investigación penal sobre terrorismo por los ataques a Taganrog, citando daños a Ozon y otros edificios residenciales y agrícolas.
+
+El gobernador de la región de Samara, Vyacheslav Fedorishchev, dijo que una "instalación industrial" resultó dañada en los ataques nocturnos. Informes no confirmados decían que se produjo un incendio en la refinería de petróleo de Syzran.
 
 ---
 
@@ -36,3 +39,5 @@ In the nearby Rostov region, Governor Yury Slyusar said an Ozon warehouse was a
 Ozon confirmed that it suspended operations at the facility, where it said a fire broke out. No one was hurt, the company said.
 
 Federal investigators launched a criminal probe into terrorism over the attacks on Taganrog, citing damage to Ozon and other residential and agricultural buildings.
+
+Samara region Governor Vyacheslav Fedorishchev said an “industrial facility” was damaged in overnight strikes. Unconfirmed reports said that a fire broke out at the Syzran Oil Refinery.
