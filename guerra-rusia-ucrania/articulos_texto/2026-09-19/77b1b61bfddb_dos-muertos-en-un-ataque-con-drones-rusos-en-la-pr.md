@@ -34,9 +34,9 @@ Two men were killed in a Russian drone attack on the village of Tekstylne in Khe
 
 Source: Oleksandr Prokudin, Head of Kherson Oblast Military Administration
 
-Details: Prokudin said Russian troops attacked the settlement at around 18:00.
+Details: Prokudin said Russian forces attacked the settlement at around 18:00.
 
-Quote: "Two men sustained fatal injuries in the strike by an enemy drone. The relevant services are currently establishing the identities of those killed.
+Quote: "Two men sustained fatal injuries in a strike by an enemy drone. The appropriate services are currently establishing the identities of those killed.
 
 My sincere condolences to their families and loved ones."
 
