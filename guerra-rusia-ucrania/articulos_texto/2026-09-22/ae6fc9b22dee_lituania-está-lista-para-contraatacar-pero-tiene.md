@@ -1,6 +1,6 @@
 # Lituania está lista para "contraatacar" pero tiene planes de evacuación ante las amenazas de Rusia, le dice el primer ministro a la BBC
 
-- **Fecha de publicación:** 2026-09-22T08:57:08+00:00
+- **Fecha de publicación:** 2026-09-22T13:49:22+00:00
 - **Fuente:** BBC News (Europa)
 - **Perspectiva:** international
 - **Idioma original:** EN
@@ -38,6 +38,6 @@ He told Newsnight if his country was attacked, "we will fight back... we will en
 
 Lithuania, a Nato member, shares a land border with the Russian exclave of Kaliningrad.
 
-"We're thinking about a variety of scenarios, not all of them are being discussed very much publicly," SinkeviÄius told the BBC.
+Nato is thought to have several thousand troops stationed in the Baltic state, including US and German forces.
 
-"We face concrete threats, not on a daily basis, but we're experiencing them and it's a true reality for us."
+Although the US is currently reviewing its deployments in Europe, Lithuanian President Gitanas NausÄda said on Tuesday that a new US troop rotation was on its way to his country.
