@@ -1,6 +1,6 @@
 # Rusia construye el segundo gran puente en Kyiv, la capital de Ucrania
 
-- **Fecha de publicación:** 2026-10-03T12:59:10+00:00
+- **Fecha de publicación:** 2026-10-03T16:16:49+00:00
 - **Fuente:** BBC News (Europa)
 - **Perspectiva:** international
 - **Idioma original:** EN
