@@ -30,11 +30,11 @@ La derrota de Sánchez en el Congreso el viernes aumenta las especulaciones de q
 
 ### 'Anger in the streets': Tens of thousands protest in Spain over housing crisis
 
-Thousands of protesters have taken to the streets across Spain calling for greater protections for tenants after the government failed to get emergency housing legislation through parliament on Friday.
+Thousands of protesters have taken to the streets across Spain calling for greater protections for tenants after the government failed to pass emergency housing legislation in parliament on Friday.
 
-About 50 planned marches are taking place on Saturday in cities including Madrid, Valencia and Barcelona.
+About 50 marches took place on Saturday in cities including Madrid, Valencia and Barcelona.
 
-"There is a lot of anger in the streets," said a spokesperson for the Valencia Tenants' Union, where a demonstration has already started. Clashes have taken place between some protesters and police in the city.
+"There is a lot of anger in the streets," a spokesperson for the Valencia Tenants' Union said. Clashes took have taken place between some protesters and police in the city.
 
 The measures put forward by Pedro SÃ¡nchez's leftist coalition government on Friday followed public outcry over the eviction of an 87-year-old woman from her home last month after she was unable to afford a sharp rent increase.
 
