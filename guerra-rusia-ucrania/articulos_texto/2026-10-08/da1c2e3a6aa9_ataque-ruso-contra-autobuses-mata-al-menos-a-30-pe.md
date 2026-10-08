@@ -1,6 +1,6 @@
 # Ataque ruso contra autobuses mata al menos a 30 personas, dicen funcionarios, mientras aumentan los ataques mortales en Ucrania
 
-- **Fecha de publicación:** 2026-10-08T12:43:56+00:00
+- **Fecha de publicación:** 2026-10-08T16:31:29+00:00
 - **Fuente:** BBC News (Europa)
 - **Perspectiva:** international
 - **Idioma original:** EN
