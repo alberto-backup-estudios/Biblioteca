@@ -1,6 +1,6 @@
 # La UE levanta las sanciones relacionadas con Bielorrusia contra el multimillonario ruso Gutseriev – RFE/RL
 
-- **Fecha de publicación:** 2026-10-08T09:46:35+00:00
+- **Fecha de publicación:** 2026-10-08T09:46:00+00:00
 - **Fuente:** The Moscow Times
 - **Perspectiva:** russia_independent
 - **Idioma original:** EN
