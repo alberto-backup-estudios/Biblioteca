@@ -34,10 +34,10 @@ Ukraine's President Volodymyr Zelensky has condemned Donald Trump's announcement
 
 Zelensky called it a gift to Russian President Vladimir Putin that amounts to "an investment in a war that must be ended, not prolonged", a position quickly backed by Ukraine's European allies.
 
-Trump said Putin had agreed to release 300,000 tonnes of diesel immediately "to the American and global marketplace" followed by 500,000 tonnes in November and another million after that.
+Trump said Putin had agreed to release 300,000 tonnes of diesel immediately "to the American and global marketplace" followed by 500,000 tonnes in November and a further one million after that.
 
-It is understood the US Treasury is suspending sanctions on Russian diesel exports until 7 April as part of the deal, but other assets like those in American banks are still frozen.
+It is understood that the US Treasury is suspending sanctions on Russian diesel exports until 7 April as part of the deal, but other assets like those in American banks are still frozen.
 
 Trump wrote on his Truth Social platform that a further three million tonnes of Russian diesel would be delivered "within a short period", dependent on the condition of its refineries, which have been attacked by Ukraine.
 
-Putin later said Russia, which introduced a ban on diesel exports earlier this year, was willing to supply both the US and global markets with oil and petroleum products, but his statement did not specify amounts.
+Putin later said that Russia, which introduced a ban on diesel exports earlier this year, was willing to supply both the US and global markets with oil and petroleum products, but his statement did not specify amounts.
