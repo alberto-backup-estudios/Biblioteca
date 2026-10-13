@@ -36,7 +36,7 @@ Sir Ken McCallum said threats from foreign adversaries had quadrupled in the las
 
 At an annual speech in London, MI5's chief said Russia was waging hybrid warfare at a time when AI was "supercharging the cyber-security contest between attackers and defenders".
 
-He also warned of rising threats from "extreme right-wing terrorism" and said MI5 had "caught terrorists seeking to exploit Al," including by integrating the technology with drones.
+He also warned of rising threats from "extreme right-wing terrorism" and said MI5 had "caught terrorists seeking to exploit AI," including by integrating the technology with drones.
 
 He said the biggest threat from the misuse of AI was extremist groups using the technology to harness new and existing bioweapons.
 
