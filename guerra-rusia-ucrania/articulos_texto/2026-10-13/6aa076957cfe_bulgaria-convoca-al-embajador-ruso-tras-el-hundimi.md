@@ -1,6 +1,6 @@
 # Bulgaria convoca al embajador ruso tras el hundimiento de un barco en un ataque con drones en el Mar Negro
 
-- **Fecha de publicación:** 2026-10-13T10:57:17+00:00
+- **Fecha de publicación:** 2026-10-13T14:51:59+00:00
 - **Fuente:** BBC News (Europa)
 - **Perspectiva:** international
 - **Idioma original:** EN
@@ -30,14 +30,14 @@ Mitrofanova fue citada más tarde por los medios búlgaros diciendo a Radev que 
 
 ### Bulgaria summons Russian ambassador after ship sinks in Black Sea drone attack
 
-Bulgarian Prime Minister Rumen Radev has summoned the Russian ambassador after two merchant ships were struck in a drone attack off Bulgaria's Black Sea coast.
+Bulgarian Prime Minister Rumen Radev has summoned the Russian ambassador after two merchant ships were struck by drones off Bulgaria's Black Sea coast and one of them sank.
 
-Eleven crew members are missing and one sailor was saved, according to local officials, after one of the vessels sank 17 nautical miles (31km) east of the village of Krapets.
+Six crew members on the Guinea-Bissau-flagged HS Dignity were rescued and 10 others are missing, according to Defence Minister Dimitar Stoyanov, after it went down 17 nautical miles (31km) east of the village of Krapets having sent a distress signal.
 
-The other vessel, Ukrainian owned, was hit by drones 18 nautical miles from the town of Byala and all 15 crew were rescued.
+The other ship, the Ukrainian owned Chelsea-3, was hit by drones 18 nautical miles from the town of Byala and all 15 crew were rescued.
 
-The attacks come a week after two other commercial ships were hit by sea and aerial drones in Bulgaria's exclusive economic zone. One of the ships, the Alfa Watan, sank and all 10 crew, including nine Syrians, are presumed dead.
+The attacks come a week after two other commercial ships were hit by sea and aerial drones in Bulgaria's exclusive economic zone.
+
+One of the ships, the Alfa Watan, sank and all 10 crew, including nine Syrians, are presumed dead.
 
 Radev convened an emergency meeting on Tuesday and said he had summoned Russian envoy Eleonora Mitrofanova. Although there was no conclusive evidence of blame on "either side... the logic suggests that the outcome benefits the Russian Federation", he said.
-
-Mitrofanova was later quoted by Bulgarian media as telling Radev she had no information from Russia's defence ministry relating to the latest attacks. She also said these strikes could have been a provocation by a third party.
