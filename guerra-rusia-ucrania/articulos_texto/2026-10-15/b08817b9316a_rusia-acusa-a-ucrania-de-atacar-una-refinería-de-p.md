@@ -1,6 +1,6 @@
 # Rusia acusa a Ucrania de atacar una refinería de petróleo después de que Zelensky dijera que se reanudarían las huelgas
 
-- **Fecha de publicación:** 2026-10-15T15:09:15+00:00
+- **Fecha de publicación:** 2026-10-15T16:50:18+00:00
 - **Fuente:** BBC News (Europa)
 - **Perspectiva:** international
 - **Idioma original:** EN
@@ -30,14 +30,14 @@ Los funcionarios todavía estaban trabajando para aclarar "las razones y circuns
 
 ### Russia accuses Ukraine of attacking oil refinery after Zelensky says strikes to resume
 
-Russia has accused Ukraine of attacking an oil refinery after Volodymyr Zelensky said such strikes, halted at the request of the US, would resume.
+Russia has accused Ukraine of attacking an oil refinery on Thursday after President Volodymyr Zelensky said such strikes, halted at the request of the US, would resume.
 
-Ukraine's president said he had restricted attacks for three days while Russia had continued striking Ukrainian energy infrastructure. "We're done," he told the Financial Times, external.
+Zelensky said he had restricted attacks for three days while Russia continued striking Ukraine's energy infrastructure. "We're done," he told the Financial Times, external.
 
-Zelensky also accused the US of withdrawing intelligence-sharing on Russian strikes to pressure Kyiv into ending attacks altogether after it struck a deal to import Russian diesel, and he said curbs on Starlink satellite services used by Ukraine's military were deliberate.
+Russian President Vladimir Putin said Kyiv had also tried to hit refineries on Wednesday - which Ukraine denied - but there had been no "significant damage".
 
-Ukrainian defence sources told the BBC some Starlink functionality had resumed as of Thursday morning.
+Zelensky also accused the US of withdrawing intelligence-sharing to pressure Kyiv into ending attacks but Ukrainian defence sources later told the BBC some functionality on Starlink satellite services had resumed.
 
-They said its military service Starshield's "operation while on the move" had been restored, although it remains unclear whether the restrictions to the speed at which drones could fly while still maintaining Starlink internet connection have been fully lifted.
+They said "operation while on the move", part of Starlink's military service Starshield, had been restored, although it remains unclear whether restrictions on the speed at which drones could fly while still maintaining Starlink internet connection have been fully lifted.
 
 Officials were still working to clarify "the reasons and circumstances" behind the move, the sources added.
