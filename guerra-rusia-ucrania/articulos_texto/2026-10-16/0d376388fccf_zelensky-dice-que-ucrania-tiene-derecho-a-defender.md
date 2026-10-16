@@ -1,6 +1,6 @@
 # Zelensky dice que Ucrania tiene derecho a defenderse después de que Trump calificara los últimos ataques de "desgracia"
 
-- **Fecha de publicación:** 2026-10-16T15:22:12+00:00
+- **Fecha de publicación:** 2026-10-16T15:59:30+00:00
 - **Fuente:** BBC News (Europa)
 - **Perspectiva:** international
 - **Idioma original:** EN
@@ -38,6 +38,6 @@ Zelensky, who has been angered by the diesel deal, said he could not accept it, 
 
 Tensions between Washington and Kyiv have escalated over the diesel deal and curbs on Ukraine's battlefield satellite network.
 
-Zelensky's trip to Brussels, following a visit to London, has come at the end of a bruising week. As he arrived at the summit on Friday, where EU leaders rallied around him in support, Zelensky said it was good to be back among allies. "Leaders, real leaders," he said, in a possible slight to the US president.
+Zelensky's trip to Brussels, following a visit to London, has come at the end of a bruising week. As he arrived at the summit on Friday, where EU leaders rallied around him in support, Zelensky said it was good to be back among allies. "Leaders, real leaders," he said, in a possible sleight to the US president.
 
 At the summit, funding for Ukraine and helping it get through another freezing winter - its fifth since Russia's full-scale invasion in 2022 - topped the agenda.
