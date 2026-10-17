@@ -32,12 +32,12 @@ Estados Unidos había advertido previamente que podría dejar de compartir infor
 
 US President Donald Trump has denied limiting Ukraine's access to Starlink's sister internet network Starshield after it restricted drone speed, hampering Kyiv's ability to protect itself from Russian attacks.
 
-"It wasn't me and I don't think it was [Starlink owner] Elon [Musk]," Trump said, hours after Ukrainian President Volodymyr Zelensky said speed had yet to be restored.
+"It wasn't me and I don't think it was [Starlink owner] Elon [Musk]," Trump said, hours after Ukrainian President Volodymyr Zelensky said the usual speed had yet to be restored.
 
-Musk himself suggested the US government might have been behind the restrictions, while Reuters news agency reported on Thursday that the order had come from inside the White House.
+Musk himself suggested the US government might have been behind the restrictions, while news agency Reuters reported on Thursday that the order had come from inside the White House.
 
 Ukraine was hit by several deadly strikes on Tuesday after the network slowdown.
 
-Starlink is a civilian-use high-speed internet network operated by Musk's SpaceX. Starshield - which relies on Starlink- is its military-grade sister service that was designed for the Pentagon.
+Starlink is a civilian-use, high-speed internet network operated by Musk's SpaceX. Starshield - which relies on Starlink - is its military-grade counterpart that was designed for the Pentagon.
 
 The US had previously warned it could withhold sharing intelligence, crucial for Kyiv's defences, if Ukraine did not stop hitting Russian oil refineries.

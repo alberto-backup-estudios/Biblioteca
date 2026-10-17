@@ -30,14 +30,14 @@ Trump aceptó el acuerdo con Vladimir Putin, culpando a los propios ataques de K
 
 ### Trump 'completely wrong' to restrict support for Ukraine, Italian minister tells BBC
 
-Italy's defence minister has said it is a "complete mistake, a major mistake" for the US to limit access to satellite systems and intelligence used by Ukraine to defend itself against Russian attacks.
+Italy's defence minister has said it was a "complete mistake, a major mistake" for the US to limit access to satellite systems and intelligence used by Ukraine to defend itself against Russian attacks.
 
-In a BBC interview, Guido Crosetto warned that any such move by US President Donald Trump's administration "makes absolutely no sense" and risked prolonging Russia's full-scale invasion rather than helping to bring peace.
+Guido Crosetto warned in a BBC interview that any such move by US President Donald Trump's administration "makes absolutely no sense" and risked prolonging Russia's full-scale invasion rather than helping to bring peace.
 
 US officials have said Trump has not asked for the slowdown of internet speeds the US provides to Ukraine and which are vital for its war effort. Trump has also denied that the US has stopped sharing early-warning alerts of incoming Russian aerial attacks with Ukraine.
 
 Crosetto's comments continue Italy's sharpening criticism of the US.
 
-Earlier this week, Prime Minister Giorgia Meloni called Trump's deal to buy diesel from Russia a "very risky choice", and said it would "grant Russia legitimacy" as it bombed cities in Ukraine.
+Earlier this week, Prime Minister Giorgia Meloni called Trump's deal to buy diesel from Russia a "very risky choice" and said it would "grant Russia legitimacy" as it bombed cities in Ukraine.
 
-Trump agreed the deal with Vladimir Putin, blaming Kyiv's own attacks on Russian refineries for rising fuel prices.
+Trump agreed the deal with Russian President Vladimir Putin, blaming Kyiv's own attacks on Russian refineries for rising fuel prices.
