@@ -6,7 +6,7 @@
 - **Idioma original:** EN
 - **Enlace a la fuente original:** https://en.interfax.com.ua/news/general/1224700.html
 - **Contexto editorial:** Agencia de noticias ucraniana de referencia para despachos militares y declaraciones gubernamentales.
-- **Puntuación de relevancia bélica:** 35
+- **Puntuación de relevancia bélica:** 27
 
 ---
 
@@ -31,13 +31,3 @@ Los combatientes del Cuerpo cubrieron más de 15 kilómetros bajo tierra, una di
 ### Khartia Corps conducts world’s first underground counter-offensive operation, codenamed Veles, advancing 15 kilometers
 
 Defense forces, under the command of the 2nd Corps of the National Guard of Ukraine (NGU) Khartia, have broken the positional stalemate in Kupiansk sector, marking a new phase in the liberation of Kharkiv region through an underground operation dubbed Veles.
-
-According to the NGU Khartia press service, the unit has pioneered a new domain of modern warfare—the underground—by traversing over 15 kilometers of subterranean infrastructure to reach the enemy's rear.
-
-The Corps noted that while tunnels have been used in conflicts ranging from Vietnam to Gaza, they were previously employed solely for defense, shelter, or localized acts of sabotage. Meanwhile, near Avdiyivka, the Russian army utilized underground conduits for "meat-grinder" style infantry infiltrations.
-
-Veles stands as the first full-scale, underground counter-offensive maneuver in world history.
-
-Khartia integrated these underground passages into a unified technological framework, incorporating navigation, specialized communications, silent logistics, and synchronized aerial strikes carried out by drones from the Achilles Brigade. "This represents a victory of Ukrainian military planning over the enemy's numerical superiority," the message reads.
-
-The Corps' fighters covered more than 15 kilometers underground—a distance that, on the surface, would often be the site of months-long, grueling combat in this war.
