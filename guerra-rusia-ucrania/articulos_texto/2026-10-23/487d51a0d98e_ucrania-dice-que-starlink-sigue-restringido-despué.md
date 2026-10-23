@@ -1,6 +1,6 @@
 # Ucrania dice que Starlink sigue restringido después de que Trump dijera que se levantaron los límites
 
-- **Fecha de publicación:** 2026-10-23T08:36:32+00:00
+- **Fecha de publicación:** 2026-10-23T16:19:36+00:00
 - **Fuente:** BBC News (Europa)
 - **Perspectiva:** international
 - **Idioma original:** EN
@@ -30,14 +30,14 @@ Agregaron que "actualmente no hay confirmación de que estas restricciones hayan
 
 ### Ukraine says Starlink still restricted after Trump says limits lifted
 
-Ukraine is still recording issues with the Starlink network, sources within the defence ministry say, after Donald Trump said limits on the satellite uplink had been reversed by Elon Musk.
+Ukraine is still recording issues with the Starlink network, sources within the defence ministry say, after Donald Trump said limits had been reversed by Elon Musk who owns the satellite system.
 
 The sources told the BBC that instances of drones experiencing connection loss at speeds of 161km/h (100mph) were being recorded, hampering military operations.
 
 The US president had denied instructing the tech billionaire to restrict connectivity to Starlink's military-grade counterpart, Starshield, before saying on Thursday that Musk had "put it back".
 
-Musk previously said he was not behind the slowdown, which affect Ukraine's ability to use attack drones and co-ordinate defensive operations.
+Asked on Friday, Trump said: "If there is a problem, I will get it straightened out."
 
-The Ukrainian defence ministry sources said the military was constantly monitoring the performance of both the Starlink and Starshield networks.
+Trump added: "I have not spoken to him. I might have to, but I have not. I've heard it was fixed, but if it's not, I'll speak to him."
 
-They added that there was "currently no confirmation that these restrictions have been lifted".
+Musk previously said he was not behind the slowdown, which affected Ukraine's ability to use attack drones and co-ordinate defensive operations.

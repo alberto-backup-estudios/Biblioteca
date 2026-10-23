@@ -32,7 +32,7 @@ Dos semanas después del ataque, mientras los lugareños encuentran aves cubiert
 
 Hello and welcome to Regions Calling, your guide to developments from beyond the Russian capital by The Moscow Times.
 
-In this week’s edition, we are putting the spotlight on the southern Krasnodar region, home to Russia’s vast Black Sea coast, which is reeling from the environmental fallout of a Ukrainian drone attack on a Liberian-flagged Aframax Rio tanker — while officials have offered few details.
+In this week’s edition, we are putting the spotlight on the southern Krasnodar region, home to Russia’s vast Black Sea coast, which is reeling from the environmental fallout of a Ukrainian drone attack on the Liberian-flagged Aframax Rio tanker — while officials have offered few details.
 
 On the evening of Oct. 6, apocalyptic photos of a thick plume of smoke rising from the burning sea against a bright dusk sky flooded the Russian internet.
 
