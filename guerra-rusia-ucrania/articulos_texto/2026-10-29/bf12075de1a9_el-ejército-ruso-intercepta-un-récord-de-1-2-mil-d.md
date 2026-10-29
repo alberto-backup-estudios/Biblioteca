@@ -1,6 +1,6 @@
 # El ejército ruso intercepta un récord de 1,2 mil drones ucranianos durante la noche
 
-- **Fecha de publicación:** 2026-10-29T09:41:00+00:00
+- **Fecha de publicación:** 2026-10-29T11:41:00+00:00
 - **Fuente:** The Moscow Times
 - **Perspectiva:** russia_independent
 - **Idioma original:** EN

@@ -38,6 +38,6 @@ Ukraine's state railway operator, Ukrzaliznytsia, said a passenger train headed 
 
 Russia's military has not publicly commented. It has repeatedly hit Ukraine's large railway network, but Moscow denies deliberately targeting civilians.
 
-In Dnipro, an elevated threat level was announced ahead of Thursday's strike, according to Ukrzaliznytsia head Oleksandr Pertsovsky. He said many people were on the platform when the Russian drone struck.
+In Dnipro, an elevated threat level was announced ahead of Thursday's strike, according to the railway operator chief, Oleksandr Pertsovsky.
 
-"But unfortunately there were still a large number of people on the platform," he said.
+"But unfortunately there were still a large number of people on the platform" when the drone struck, he said.
