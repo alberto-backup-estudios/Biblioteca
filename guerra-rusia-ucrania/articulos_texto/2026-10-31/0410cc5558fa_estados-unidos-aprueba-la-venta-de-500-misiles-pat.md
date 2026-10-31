@@ -30,13 +30,13 @@ Cancelan 'foto de familia' del G20 tras protestas por la presencia del ministro 
 
 ### US approves sale of 500 Patriot missiles to Ukraine
 
-The United States has approved the sale of 500 Patriot missiles to Ukraine, a critically-needed munition for defence against escalating Russian aerial attacks.
+The United States has approved the sale of 500 Patriot missiles to Ukraine, a critically needed munition for defence against escalating Russian aerial attacks.
 
-However Ukrainian President Volodymyr Zelensky has warned it could take "several years" for the deliveries to arrive.
+However, Ukrainian President Volodymyr Zelensky has warned it could take "several years" for the deliveries to arrive.
 
 The US State Department said the advanced PAC-3 interceptor missiles would cost $2.1bn (Â£1.6bn) and would be "funded entirely" by Kyiv's allies in Europe and Canada.
 
-On Friday night Zelensky repeated his calls for the US to speed up the release of its Patriots - the only effective weapon in downing Russia's deadly ballistic missiles.
+On Friday night Zelensky repeated his calls for the US to speed up the release of its Patriots â the only effective weapon for downing Russia's deadly ballistic missiles.
 
 Hundreds evacuated from Russian-occupied Oleshky during rare Ukraine ceasefire
 
