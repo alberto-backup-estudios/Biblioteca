@@ -1,6 +1,6 @@
 # Estados Unidos aprueba la venta de 500 misiles Patriot a Ucrania
 
-- **Fecha de publicación:** 2026-10-31T00:40:43+00:00
+- **Fecha de publicación:** 2026-10-31T12:21:25+00:00
 - **Fuente:** BBC News (Europa)
 - **Perspectiva:** international
 - **Idioma original:** EN
