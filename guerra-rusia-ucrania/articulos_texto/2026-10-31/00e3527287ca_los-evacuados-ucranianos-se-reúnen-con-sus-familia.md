@@ -1,6 +1,6 @@
 # Los evacuados ucranianos se reúnen con sus familias después de años atrapados en una ciudad ocupada por Rusia
 
-- **Fecha de publicación:** 2026-10-31T15:50:41+00:00
+- **Fecha de publicación:** 2026-10-31T17:53:35+00:00
 - **Fuente:** BBC News (Europa)
 - **Perspectiva:** international
 - **Idioma original:** EN
