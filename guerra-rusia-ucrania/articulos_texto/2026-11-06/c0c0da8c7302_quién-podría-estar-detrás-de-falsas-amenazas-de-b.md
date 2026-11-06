@@ -6,7 +6,7 @@
 - **Idioma original:** EN
 - **Enlace a la fuente original:** https://www.bbc.co.uk/news/articles/cx8dzzjg3g9zo?at_medium=RSS&at_campaign=rss
 - **Contexto editorial:** Servicio público británico con amplia red de corresponsales de guerra e investigación OSINT.
-- **Puntuación de relevancia bélica:** 19
+- **Puntuación de relevancia bélica:** 13
 
 ---
 
@@ -32,6 +32,8 @@ Hay muchos que argumentan, basándose puramente en evidencia circunstancial, que
 
 The warnings came in thick and fast, targeting one airline or airport after another.
 
+At least 21 flights and several airports across Europe were affected by bomb threats on Thursday.
+
 In nearly all cases - London's Heathrow airport being a notable exception - they were taken to be credible enough to divert the aircraft in question, or even in Italy's case, to scramble fighter jets to escort it.
 
 They all turned out to be false, which does not, of course, mean that the next ones will not  be real.
@@ -39,5 +41,3 @@ They all turned out to be false, which does not, of course, mean that the next o
 It is hardly surprising that the simultaneous, co-ordinated nature of these airline hoaxes, coupled with other malicious actions across Europe, are causing some people to point the finger of suspicion at Russia.
 
 Following a series of cyber-attacks and mysterious drone sightings over sensitive sites earlier this year, in the past few days we have seen the remote hacking of supermarket freezers, as well as a blood bank, a suspicious incident on Poland's border with Russia, and in August a drone attack Germany's Leipzig Halle airport which its interior minister publicly blamed on Moscow.
-
-There are many who argue, based purely on circumstantial evidence, that this must surely be yet another example of "hybrid", "grey zone" or "sub-threshold" warfare - actions that damage a nation's infrastructure or society but which tend to be anonymous, deniable and which fall short of triggering Nato's Article 5 and thereby mobilising a response by the West.
