@@ -1,6 +1,6 @@
 # Bloguero pro-guerra desaparece del público después de una publicación en Telegram sobre la evacuación de Oleshky
 
-- **Fecha de publicación:** 2026-11-05T16:47:20+00:00
+- **Fecha de publicación:** 2026-11-05T16:47:00+00:00
 - **Fuente:** The Moscow Times
 - **Perspectiva:** russia_independent
 - **Idioma original:** EN
@@ -40,4 +40,4 @@ Romanov’s claim roughly corresponded to reporting by Newsmax journalist Alex
 
 The whereabouts of Romanov, who is normally based in the annexed Crimean city of Sevastopol, remain unknown as of Thursday evening.
 
-Russia’s Human Rights Commissioner Yana Lantranova acknowledged earlier this week that, while Russian authorities prepared enough buses to evacuate up to 750 civilians from Oleshky, many returned largely empty.
+Russia’s Human Rights Commissioner Yana Lantratova acknowledged earlier this week that, while Russian authorities prepared enough buses to evacuate up to 750 civilians from Oleshky, many returned largely empty.
