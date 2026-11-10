@@ -1,6 +1,6 @@
 # Trabajador de la planta nuclear de Zaporizhzhia muere en un ataque con drones, dice la OIEA
 
-- **Fecha de publicación:** 2026-11-09T16:05:03+00:00
+- **Fecha de publicación:** 2026-11-09T16:05:00+00:00
 - **Fuente:** The Moscow Times
 - **Perspectiva:** russia_independent
 - **Idioma original:** EN
