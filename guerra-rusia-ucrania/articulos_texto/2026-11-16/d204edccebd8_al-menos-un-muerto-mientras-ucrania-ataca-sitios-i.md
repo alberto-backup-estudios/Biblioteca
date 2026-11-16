@@ -1,6 +1,6 @@
 # Al menos un muerto mientras Ucrania ataca sitios industriales en toda Rusia
 
-- **Fecha de publicación:** 2026-11-15T12:32:23+00:00
+- **Fecha de publicación:** 2026-11-15T12:32:00+00:00
 - **Fuente:** The Moscow Times
 - **Perspectiva:** russia_independent
 - **Idioma original:** EN
@@ -32,7 +32,7 @@ El Ministerio de Defensa de Rusia dijo que interceptó 533 drones ucranianos en 
 
 At least one person was killed and five others were wounded in an overnight Ukrainian drone attack on Russia’s southern Rostov region, local officials said Sunday.
 
-In a separate strike in the central republic of Tatarstan, drones damaged an industrial facility in Nizhnekamsk, a city about 1,000 kilometers (620 miles east of Moscow, according to the city’s mayor, Radmir Belyayev.
+In a separate strike in the central republic of Tatarstan, drones damaged an industrial facility in Nizhnekamsk, a city about 1,000 kilometers (620 miles) east of Moscow, according to the city’s mayor, Radmir Belyayev.
 
 An apartment building in the city was also struck, injuring three people, state media reported, citing the regional health ministry.
 

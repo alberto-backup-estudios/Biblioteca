@@ -34,10 +34,10 @@ A crucial US satellite internet service is still operating too slowly and affect
 
 "We are counting on these restrictions being lifted. The protection of lives and Ukraine's energy infrastructure ahead of winter directly depends on this," he said.
 
-The issue over the speed of the Starshield system - a military-grade Starlink service owned by Elon Musk and provided to Ukraine by the US government - has been rumbling on for weeks.
+The issue over the speed of the Starshield system - a military-grade service developed by Elon Musk's Starlink and provided to Ukraine by the US government - has been rumbling on for weeks.
 
 Zelensky said he had asked officials "to work as closely as possible" with the US government and Musk's company. "It is important to be on the right side of history," he said. The BBC has asked the White House and Starlink for comment.
 
 US has floated Ukraine ceding Donbas for Nato membership, Zelensky says
 
-Ukraine uses the normal Starlink service for communications on the battlefield, while Starshield is used for the interception of missiles and drones in Ukraine airspace.
+Ukraine uses the normal Starlink service for communications on the battlefield, while Starshield is used for the interception of drones in Ukraine airspace.
