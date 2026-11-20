@@ -1,10 +1,10 @@
 # Países Bajos convoca al embajador ruso en medio del ataque a la embajada de Kyiv
 
-- **Fecha de publicación:** 2026-11-19T17:28:39+00:00
+- **Fecha de publicación:** 2026-11-20T12:23:00+00:00
 - **Fuente:** The Moscow Times
 - **Perspectiva:** russia_independent
 - **Idioma original:** EN
-- **Enlace a la fuente original:** https://www.themoscowtimes.com/2026/11/19/netherlands-summons-russian-ambassador-as-kyiv-embassy-hit-a94322
+- **Enlace a la fuente original:** https://www.themoscowtimes.com/2026/11/20/netherlands-summons-russian-ambassador-as-kyiv-embassy-hit-a94322
 - **Contexto editorial:** Diario independiente ruso en el exilio crítico con Putin y con cobertura de ataques en territorio ruso.
 - **Puntuación de relevancia bélica:** 25
 
@@ -34,7 +34,7 @@ The Dutch government summoned the Russian ambassador in the Netherlands on Thurs
 
 Dutch Foreign Minister Tom Berendsen said a projectile had struck behind the Dutch embassy in Kyiv on Thursday afternoon. No one was injured.
 
-Berendsen told Dutch broadcaster RTL the incident was "unacceptable" and reason to summon Russia's ambassador in The Hague.
+Berendsen told Dutch broadcaster RTL the incident was "unacceptable" and a reason to summon Russia's ambassador in The Hague.
 
 The Russian Embassy in the Netherlands had said on Thursday it was becoming "increasingly difficult to regard the Netherlands as a mere bystander" in the war in Ukraine.
 
