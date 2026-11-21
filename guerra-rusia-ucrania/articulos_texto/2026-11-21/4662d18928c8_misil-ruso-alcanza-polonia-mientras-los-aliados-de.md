@@ -1,6 +1,6 @@
 # Misil ruso alcanza Polonia mientras los aliados de Ucrania realizan ejercicios militares, dice Tusk
 
-- **Fecha de publicación:** 2026-11-20T16:54:29+00:00
+- **Fecha de publicación:** 2026-11-21T02:09:46+00:00
 - **Fuente:** BBC News (Europa)
 - **Perspectiva:** international
 - **Idioma original:** EN
