@@ -1,6 +1,6 @@
 # Putin dice que Ucrania ataca plantas petroleras rusas a pesar de las solicitudes de Trump y promete represalias
 
-- **Fecha de publicación:** 2026-11-24T18:13:16+00:00
+- **Fecha de publicación:** 2026-11-24T18:13:00+00:00
 - **Fuente:** The Moscow Times
 - **Perspectiva:** russia_independent
 - **Idioma original:** EN

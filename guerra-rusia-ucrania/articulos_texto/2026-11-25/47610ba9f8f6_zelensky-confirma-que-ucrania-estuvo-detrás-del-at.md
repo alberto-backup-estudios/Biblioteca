@@ -4,7 +4,7 @@
 - **Fuente:** The Moscow Times
 - **Perspectiva:** russia_independent
 - **Idioma original:** EN
-- **Enlace a la fuente original:** https://www.themoscowtimes.com/2026/11/24/zelensky-confirms-ukraine-was-behind-drone-attack-on-russian-cargo-ship-in-gulf-of-finland-a94364
+- **Enlace a la fuente original:** https://www.themoscowtimes.com/2026/11/24/zelensky-confirms-ukraine-was-behind-drone-attack-on-russian-cargo-ship-in-gulf-a94364
 - **Contexto editorial:** Diario independiente ruso en el exilio crítico con Putin y con cobertura de ataques en territorio ruso.
 - **Puntuación de relevancia bélica:** 19
 
