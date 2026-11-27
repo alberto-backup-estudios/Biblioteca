@@ -1,6 +1,6 @@
 # Zelensky critica la "extraña" amistad entre Trump y Putin en una entrevista de la BBC
 
-- **Fecha de publicación:** 2026-11-27T09:07:48+00:00
+- **Fecha de publicación:** 2026-11-27T18:00:40+00:00
 - **Fuente:** BBC News (Europa)
 - **Perspectiva:** international
 - **Idioma original:** EN
@@ -34,10 +34,10 @@ Volodymyr Zelensky has voiced deep frustration with the US, criticising Donald T
 
 In an interview with the BBC at his central Kyiv office, Ukraine's president complained the US was not pushing Russia hard enough in peace talks, and called it "strange" that Trump posted a photo of himself embracing Putin.
 
-"Of course it's up to the President of the United States, but... it's strange," Zelensky said, speaking in English.
+"Of course it's up to the president of the United States, but... it's strange," Zelensky said, speaking in English.
 
-"He's an aggressor, and a killerâ¦He can't be a friend. Just cannot be," he said, adding it was like saying you were friends with Adolf Hitler during World War Two.
+"He's an aggressor, and a killer... He can't be a friend. Just cannot be," he said, adding it was like saying you were friends with Adolf Hitler during World War Two.
 
-Since a bruising encounter with Trump in the Oval Office in 2025, Zelensky has been careful how he handles relations with the United States.
+Since a bruising encounter with Trump in the Oval Office in 2025, Zelensky has been careful how he handles relations with the US.
 
-Trump's two envoys have been trying to negotiate a peace deal between Russia and Ukraine - to end the huge loss of life. But they often seem more in tune with Moscow's position, than that of Kyiv.
+Trump's two envoys, Jared Kushner and Steve Witkoff, have been trying to negotiate a peace deal between Russia and Ukraine - to end the huge loss of life. But they often seem more in tune with Moscow's position, than that of Kyiv.
